@@ -12,7 +12,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 - 작업 지시는 레포 루트 `TASK.json`에 있다. "TASK.json 읽고 구현해"라는 요청을 받으면 `layer`, `goal`, `context`, `scope`, `done`을 읽고 그대로 구현한다.
 - `goal`·`context`·`scope`·`done`·`layer`·`dataset`은 수정하지 않는다. 갱신하는 필드는 `status`와 `result`뿐이다. 착수 시 `in_progress`, 완료 시 `done`, 막히면 `blocked`와 이유를 기록한다.
-- `result`에는 변경 요약, 건너뛴 항목과 이유, 빌드·린트 결과, `git diff --stat` 요약, 커밋 해시를 적는다. 스키마 작업이면 해당 타입을 읽는 GROQ 쿼리·컴포넌트 전수 목록도 적는다.
+- `result`에는 변경 요약, 건너뛴 항목과 이유, 빌드·린트 결과, `git diff --stat` 요약을 적는다. 커밋 해시는 `git log`로 확인한다. 스키마 작업이면 해당 타입을 읽는 GROQ 쿼리·컴포넌트 전수 목록도 적는다.
 - `layer`가 `research`이면 어떤 파일도 만들거나 수정하지 않고 조사 결과만 `result`에 적는다.
 - 데이터셋은 `development`만 쓴다. `production` 접근, Sanity 문서 직접 생성·수정·삭제, 쓰기 토큰 사용은 하지 않는다. 필요해 보이면 변경하지 말고 `result`에 보고하고 `blocked`로 둔다.
 - 스키마 필드 삭제·이름 변경·타입 변경은 하지 않는다. 필요해 보이면 영향 범위를 `result`에 보고한다.

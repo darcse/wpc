@@ -25,9 +25,9 @@ Studio 라벨과 검증 메시지는 한국어, 필드명은 아래 영문명을
 
 ## blockContent (공유 리치텍스트)
 
-- styles: normal, h2, h3, blockquote (h1 제외)
-- lists: bullet, number
-- decorators: strong, em
+- styles(저장값 → 라벨): `normal` → 본문, `h2` → 제목 2, `h3` → 제목 3, `blockquote` → 인용 (h1 제외)
+- lists(저장값 → 라벨): `bullet` → 글머리 기호, `number` → 번호 목록
+- decorators(저장값 → 라벨): `strong` → 굵게, `em` → 기울임
 - annotations: `link`(외부 URL, 형식 검증), `internalLink`(weak 참조: genre/artist/album/article). 기본 세트 교체 여부가 문서마다 달라 보이므로 외부 링크도 **명시적으로 선언**하고 Studio에서 동작을 확인한다.
 - 블록 이미지: alt 필수
 - 유튜브 임베드는 본문에 넣지 않는다(뮤비는 앨범 필드로만).
@@ -55,7 +55,7 @@ Studio 라벨과 검증 메시지는 한국어, 필드명은 아래 영문명을
 | `name` | 필수 | string |
 | `nameAlt` | | string |
 | `slug` | 필수 | slug, source `name` |
-| `artistType` | | 선택값: 밴드 / 솔로 / 듀오 / 프로젝트 / 기타 (추후 값 추가) |
+| `artistType` | | 선택값(저장값 → 라벨): `band` → 밴드, `solo` → 솔로, `duo` → 듀오, `project` → 프로젝트, `other` → 기타 (추후 값 추가) |
 | `summary` | | string, 160자 이내 |
 | `body` | | blockContent |
 | `image` | | image + alt |
@@ -63,7 +63,7 @@ Studio 라벨과 검증 메시지는 한국어, 필드명은 아래 영문명을
 | `country`, `city` | | string |
 | `activeFrom`, `activeTo` | | number(연도). `activeTo`가 비면 활동 중으로 간주 |
 | `members` | | 객체 배열: `artist`(artist 참조, weak) 또는 `name`(string) 중 **하나는 필수** + `role`(string, 선택) + `from`/`to`(연도, 선택) |
-| `links` | | 객체 배열: `kind`(밴드캠프/홈페이지/X/인스타그램/유튜브/기타) + `url`(URL 형식) |
+| `links` | | 객체 배열: `kind`(저장값 → 라벨: `bandcamp` → 밴드캠프, `website` → 홈페이지, `x` → X, `instagram` → 인스타그램, `youtube` → 유튜브, `other` → 기타) + `url`(URL 형식) |
 | `featuredAlbums` | | album 참조 배열(weak) |
 | `aiGenerated`, `sources` | 공통 | |
 
@@ -73,9 +73,9 @@ Studio 라벨과 검증 메시지는 한국어, 필드명은 아래 영문명을
 |---|---|---|
 | `title` | 필수 | string |
 | `titleAlt` | | string |
-| `slug` | 필수 | slug, `제목-연도` 형태(같은 해 동명이면 아티스트명을 덧붙임), 중복 검증 |
+| `slug` | 필수 | slug, 생성 시 `제목-연도` 형태(한글 유지 slugify). 같은 해 동명은 아티스트명을 **수동**으로 덧붙임(자동 접미사 미구현). 중복은 Sanity 슬러그 기본 유일성 검증에 의존 |
 | `artists` | 필수 | artist 참조 배열(strong), 1명 이상 |
-| `albumType` | | 선택값: 정규 / EP / 싱글 / 라이브 / 컴필레이션 / 스플릿 / 기타 |
+| `albumType` | | 선택값(저장값 → 라벨): `full` → 정규, `ep` → EP, `single` → 싱글, `live` → 라이브, `compilation` → 컴필레이션, `split` → 스플릿, `other` → 기타 |
 | `releaseDate` | 필수 권장 | date. 비어 있으면 **경고**(발행은 가능). 연도별 보기·정렬 기준 |
 | `summary` | | string, 160자 이내 |
 | `body` | | blockContent |
@@ -92,7 +92,7 @@ Studio 라벨과 검증 메시지는 한국어, 필드명은 아래 영문명을
 |---|---|---|
 | `title` | 필수 | string |
 | `slug` | 필수 | slug, source `title` |
-| `articleType` | | 선택값: 소식 / 리뷰 / 칼럼 / 기타 |
+| `articleType` | | 선택값(저장값 → 라벨): `news` → 소식, `review` → 리뷰, `column` → 칼럼, `other` → 기타 |
 | `summary` | | string, 160자 이내 |
 | `body` | 필수 | blockContent |
 | `image` | | image + alt |
