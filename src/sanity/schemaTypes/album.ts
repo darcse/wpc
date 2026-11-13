@@ -81,6 +81,11 @@ export const album = defineType({
         }).warning(),
     }),
     defineField({
+      name: 'label',
+      title: '레이블',
+      type: 'string',
+    }),
+    defineField({
       name: 'summary',
       title: '한 줄 요약',
       type: 'string',
@@ -150,8 +155,22 @@ export const album = defineType({
           name: 'youtubeMusic',
           title: 'YouTube Music',
           type: 'url',
-          validation: (rule) =>
+          validation: (rule) => [
             rule.uri({scheme: ['http', 'https']}).error('올바른 URL을 입력하세요'),
+            rule
+              .custom((value) => {
+                if (!value) return true
+                try {
+                  const url = new URL(value)
+                  if (url.searchParams.has('list')) return true
+                  return 'YouTube Music URL에 list= 파라미터가 없습니다. 재생목록(딥링크)인지 확인해 주세요.'
+                } catch {
+                  // URL 형식 오류는 uri() 검증이 처리하므로 여기서는 경고하지 않음
+                  return true
+                }
+              })
+              .warning(),
+          ],
         }),
         defineField({
           name: 'spotify',
@@ -161,6 +180,14 @@ export const album = defineType({
             rule.uri({scheme: ['http', 'https']}).error('올바른 URL을 입력하세요'),
         }),
       ],
+    }),
+    defineField({
+      name: 'featured',
+      title: '홈 노출',
+      type: 'boolean',
+      description:
+        '메인(홈) 화면에 이 앨범을 노출할지 여부입니다. 장르·아티스트의 ‘대표 아티스트·대표 앨범’ 참조 배열과는 별개입니다.',
+      initialValue: false,
     }),
     defineField({
       name: 'aiGenerated',
@@ -173,13 +200,7 @@ export const album = defineType({
       name: 'sources',
       title: '출처',
       type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'url',
-          validation: (rule) =>
-            rule.uri({scheme: ['http', 'https']}).error('올바른 URL을 입력하세요'),
-        }),
-      ],
+      of: [defineArrayMember({type: 'sourceItem'})],
     }),
   ],
   preview: {

@@ -5,7 +5,8 @@ import {article} from './article'
 import {artist} from './artist'
 import {blockContent} from './blockContent'
 import {genre} from './genre'
+import {sourceItem} from './sourceItem'
 
 export const schema: {types: SchemaTypeDefinition[]} = {
-  types: [blockContent, genre, artist, album, article],
+  types: [blockContent, sourceItem, genre, artist, album, article],
 }

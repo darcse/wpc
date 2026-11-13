@@ -225,6 +225,14 @@ export const artist = defineType({
       ],
     }),
     defineField({
+      name: 'featured',
+      title: '홈 노출',
+      type: 'boolean',
+      description:
+        '메인(홈) 화면에 이 아티스트를 노출할지 여부입니다. 장르·아티스트의 ‘대표 아티스트·대표 앨범’ 참조 배열과는 별개입니다.',
+      initialValue: false,
+    }),
+    defineField({
       name: 'aiGenerated',
       title: 'AI 생성 여부',
       type: 'boolean',
@@ -235,13 +243,7 @@ export const artist = defineType({
       name: 'sources',
       title: '출처',
       type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'url',
-          validation: (rule) =>
-            rule.uri({scheme: ['http', 'https']}).error('올바른 URL을 입력하세요'),
-        }),
-      ],
+      of: [defineArrayMember({type: 'sourceItem'})],
     }),
   ],
   preview: {

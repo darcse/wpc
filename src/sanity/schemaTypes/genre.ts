@@ -89,6 +89,18 @@ export const genre = defineType({
       ],
     }),
     defineField({
+      name: 'originYear',
+      title: '시작 연도',
+      type: 'number',
+      validation: (rule) => rule.integer().min(1900).max(2100),
+    }),
+    defineField({
+      name: 'endYear',
+      title: '종료 연도',
+      type: 'number',
+      validation: (rule) => rule.integer().min(1900).max(2100),
+    }),
+    defineField({
       name: 'featuredArtists',
       title: '대표 아티스트',
       description: '화면에 3~5개 정도 노출하는 것을 권장합니다.',
@@ -125,13 +137,7 @@ export const genre = defineType({
       name: 'sources',
       title: '출처',
       type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'url',
-          validation: (rule) =>
-            rule.uri({scheme: ['http', 'https']}).error('올바른 URL을 입력하세요'),
-        }),
-      ],
+      of: [defineArrayMember({type: 'sourceItem'})],
     }),
   ],
   preview: {
