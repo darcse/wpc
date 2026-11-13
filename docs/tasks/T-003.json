@@ -1,0 +1,31 @@
+{
+  "id": "T-003",
+  "layer": "docs",
+  "goal": "구현된 스키마와 문서의 어긋남(선택값 저장 코드, 앨범 슬러그 규칙)을 docs/content-model.md에 반영하고, 작업 결과 기록 규칙에서 커밋 해시 기록을 없앤다.",
+  "context": "T-002 결과(docs/tasks/T-002.json)에서 선택값(artistType, albumType, articleType, link.kind)이 영문 코드로 저장되고 화면에는 한국어 라벨이 보이도록 구현됐으나 docs/content-model.md에는 한국어 나열만 있다. 또 앨범 슬러그의 '같은 해 동명이면 아티스트명 덧붙임'은 자동화하지 않고 수동 안내로 구현됐다. 이번 작업은 문서만 고치며 스키마 코드는 읽기만 한다. 규칙 변경: 해시를 result에 적으려고 커밋이 두 번 생기므로 AGENTS.md의 Task handoff 섹션에서 'result에 커밋 해시를 적는다' 부분을 제거하고(해시는 git log로 확인한다), 이 작업부터 result에 해시를 적지 않는다. JW가 feature_list/MODEL.json의 passes를 true로 바꾼 변경이 아직 커밋되지 않았으니 이번 커밋에 함께 포함한다(내용 수정 금지). 커밋은 한 번만 한다.",
+  "scope": {
+    "in": [
+      "src/sanity/schemaTypes/*.ts를 읽어 선택값 필드(artistType, albumType, articleType, links의 kind 등 options.list를 가진 필드)의 실제 저장 값과 한국어 라벨을 확인하고, docs/content-model.md의 해당 행에 '저장값 → 라벨' 형태로 기록",
+      "docs/content-model.md의 album.slug 행을 실제 구현에 맞게 수정(제목-연도 형태로 생성, 같은 해 동명은 아티스트명을 수동으로 덧붙임, 자동 접미사는 미구현, 중복 검증은 Sanity 슬러그 기본 검증에 의존)",
+      "docs/content-model.md와 스키마 코드를 대조해 다른 어긋남이 있으면 수정하지 말고 result에 목록으로 보고",
+      "AGENTS.md의 Task handoff 섹션에서 result에 커밋 해시를 적는 문구 제거",
+      "Task handoff 섹션 안에서 layer가 docs인 작업은 빌드 검증을 요구하지 않는다는 한 줄 추가는 하지 않는다(범위 밖)"
+    ],
+    "out": [
+      "src/ 아래 모든 코드와 스키마 수정 금지",
+      "AGENTS.md의 BEGIN/END:nextjs-agent-rules 블록과 Task handoff 섹션의 해시 문구 외 다른 규칙 수정 금지",
+      "feature_list/MODEL.json 내용 수정 금지(커밋에만 포함)",
+      "데이터셋 접근, 토큰, 패키지 설치 금지",
+      ".env* 내용 출력·커밋 금지"
+    ]
+  },
+  "done": [
+    "docs/content-model.md의 모든 선택값 필드에 저장 코드와 라벨이 스키마 코드와 일치하게 기록되어 있다",
+    "docs/content-model.md의 album.slug 행이 구현과 일치한다",
+    "AGENTS.md Task handoff 섹션에 커밋 해시 기록 문구가 없고, 그 외 규칙은 변경되지 않았다(git diff로 확인)",
+    "result에 문서와 코드의 추가 불일치 목록(없으면 없음)이 정리되어 있다",
+    "커밋 하나로 push되어 있다(해시를 result에 적지 않는다)"
+  ],
+  "status": "done",
+  "result": "## T-003 result\n\n### 변경 요약\n- docs/content-model.md: 선택값 필드를 스키마와 동일한 `저장값 → 라벨`로 갱신 (artistType, albumType, articleType, artist.links.kind, blockContent styles/lists/decorators)\n- docs/content-model.md: album.slug를 구현과 맞게 수정(제목-연도 생성, 동명 시 수동 아티스트명, 자동 접미사 미구현, Sanity 기본 유일성 검증)\n- AGENTS.md Task handoff: result에서 커밋 해시 기록 문구 제거, `git log`로 확인한다고 명시\n- feature_list/MODEL.json: JW가 바꾼 passes=true를 커밋에만 포함(내용 수정 없음)\n- docs/tasks/T-002.json: 보관 파일 커밋에 포함(내용 수정 없음)\n\n### 추가 불일치 (수정하지 않음)\n- artist.links의 `kind`/`url`은 스키마에서 required인데 content-model에는 필수 여부가 명시되지 않음\n- activeFrom/activeTo, members.from/to에 스키마만 integer·1900~2100 범위 검증이 있음(문서 미기재)\n- 그 외 필드명·타입·참조 강도는 content-model과 일치\n\n### 건너뜀\n- 없음\n\n### 빌드·린트\n- layer=docs라 실행하지 않음\n\n### git diff --stat\n AGENTS.md               |  2 +-\n TASK.json               | 44 ++++++++++++++++++++------------------------\n docs/content-model.md   | 16 ++++++++--------\n docs/tasks/T-002.json   | 35 +++++++++++++++++++++++++++++++++++\n feature_list/MODEL.json | 10 +++++-----\n 5 files changed, 69 insertions(+), 38 deletions(-)\n"
+}
