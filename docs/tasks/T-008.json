@@ -1,0 +1,34 @@
+{
+  "id": "T-008",
+  "feature_id": "SETUP-001",
+  "layer": "infra",
+  "dataset": "development",
+  "goal": "Sanity 웹훅을 받아 서명을 검증하고 변경된 문서 타입의 태그를 무효화하는 서버 경로를 만들고, JW가 웹훅과 환경변수를 설정할 체크리스트 문서를 작성한다.",
+  "context": "스펙은 feature_list/SETUP.json의 SETUP-001이다. 조사 근거는 docs/tasks/T-007.json(Next.js 16.4.5는 Cache Components OFF이며 prerender 이전 모델을 따른다, next-sanity 13.4.0 parseBody 사용). 구현: src/app/api/revalidate-tag/route.ts에 POST만 허용하는 Route Handler를 만든다. next-sanity의 parseBody로 서명을 검증하고(시크릿은 process.env.SANITY_REVALIDATE_SECRET, 서버 전용, NEXT_PUBLIC_ 금지, 기본 지연 대기 유지), 서명이 유효하지 않으면 401, 시크릿이 설정되지 않았으면 500(검증 생략 금지)으로 응답한다. 서명 검증이 끝난 뒤에만 본문의 _type이 genre, artist, album, article 중 하나인지 확인하고 아니면 400으로 응답한다. 유효하면 revalidateTag(_type, { expire: 0 })로 즉시 만료한다(JW가 '발행 즉시 반영'을 원해서 SWR 방식 'max'가 아니라 즉시 만료를 기본으로 한다. 현재 문서와 다르거나 더 나은 방식이 있으면 반박하고 result에 보고). 태그 이름은 정확히 타입 이름 그대로이며, 이후 PAGE 작업에서 각 쿼리가 의존하는 타입 태그를 함께 붙인다(예: 앨범 쿼리는 album·artist·genre). 공개 페이지·GROQ 쿼리·src/sanity/lib 수정은 이번 범위가 아니다. 환경변수는 .env.example에 SANITY_REVALIDATE_SECRET 이름만 추가한다(없으면 파일을 만들되 값은 비운다). 이어서 JW용 체크리스트 docs/webhook-setup.md를 작성한다: Sanity Manage 웹훅 항목(URL=https://<배포호스트>/api/revalidate-tag, 트리거 Create·Update·Delete, 데이터셋별 웹훅 분리, 필터 _type in [\"genre\",\"artist\",\"album\",\"article\"], 프로젝션 {_type}, 시크릿 입력, POST, draft·version 이벤트 끄기), Vercel 환경변수 입력 방법, 시도 기록으로 확인하는 방법, 먼저 production 배포에서 확인하는 순서와 참고 URL을 쉬운 한국어로 단계별로 적는다. 시크릿 값 자체는 어디에도 적지 않는다. 이번 커밋에는 docs/tasks/T-007.json(보관), feature_list/SETUP.json(Claude 작성), 그리고 JW가 passes를 true로 바꾼 feature_list/MODEL.json 변경이 함께 들어간다. 두 feature_list 파일은 내용을 수정하지 않는다.",
+  "scope": {
+    "in": [
+      "src/app/api/revalidate-tag/route.ts 신규",
+      "루트 .env.example(이름만)",
+      "docs/webhook-setup.md 신규"
+    ],
+    "out": [
+      "공개 페이지·GROQ 쿼리·컴포넌트 작성",
+      "src/sanity/lib(client.ts, live.ts)·src/sanity/schemaTypes 수정",
+      "defineLive 도입, next.config.ts의 cacheComponents 변경",
+      "Sanity 웹훅 생성, Vercel 환경변수 변경(JW가 직접 수행)",
+      "Sanity 문서 직접 생성·수정·삭제, 쓰기 토큰 생성·사용, production 데이터셋 접근",
+      ".env* 파일 내용 출력·커밋(.env.example의 이름만 있는 파일은 예외)",
+      "다른 프로젝트(myaudio 등)의 Supabase·테이블·컨벤션 도입",
+      "AGENTS.md의 BEGIN/END:nextjs-agent-rules 블록 수정"
+    ]
+  },
+  "done": [
+    "POST 전용 경로가 구현되어 서명 없음·잘못된 서명은 401, 시크릿 미설정은 500, GET은 거부되고 어떤 경우에도 시크릿 값이 응답·로그에 나오지 않음(로컬에서 curl로 확인한 명령과 응답을 시크릿 없이 result에 기록)",
+    "서명 검증이 끝난 뒤에만 _type을 검사하고, 허용 타입이면 해당 타입 태그를 즉시 만료하는 코드가 있으며 허용 외 타입은 400",
+    ".env.example에 SANITY_REVALIDATE_SECRET 이름만 추가됨(NEXT_PUBLIC_ 접두어 없음), docs/webhook-setup.md가 JW가 따라 할 수 있는 단계로 작성됨",
+    "npm run build, npm run lint 통과",
+    "서명 검증에 필요한 실제 Sanity 서명 요청으로의 end-to-end 확인은 배포 후 JW가 수행해야 한다는 점과, 공개 페이지가 없어 실제 화면 반영은 첫 PAGE 기능에서 검증한다는 점을 result에 명시"
+  ],
+  "status": "done",
+  "result": "## T-008 infra result\n\n### 구현\n- `src/app/api/revalidate-tag/route.ts`: POST만. `parseBody`+`SANITY_REVALIDATE_SECRET`(없으면 500, 검증 생략 없음) → 서명 실패 401 → 그다음 `_type` ∈ genre|artist|album|article 아니면 400 → `revalidateTag(_type, { expire: 0 })`.\n- `.env.example`: `SANITY_REVALIDATE_SECRET=`(값 없음, NEXT_PUBLIC_ 없음). `.gitignore`에 `!.env.example` 추가(기존 `.env*`가 example까지 무시).\n- `docs/webhook-setup.md`: Manage/Vercel 단계, 데이터셋별 웹훅, filter/projection, draft off, Attempts 확인, 참고 URL.\n\n### revalidateTag 프로필 반박/채택\n- Next 공식은 카탈로그에 `revalidateTag(tag, 'max')`(SWR) 권장.\n- JW 요구 '발행 즉시 반영'에 맞춰 **`{ expire: 0 }` 채택**(다음 요청이 블록하며 신선 데이터). 트레이드오프: 발행 직후 첫 방문 지연 가능. 트래픽·체감이 문제면 이후 `'max'`로 완화 가능.\n\n### 로컬 curl (시크릿 값 미기재)\n빌드 후 `next start`.\n```\n# GET → 405\ncurl -s -w 'HTTP %{http_code}\\n' http://127.0.0.1:3010/api/revalidate-tag\n# → HTTP 405\n\n# 시크릿 미설정(환경에서 비움) POST → 500\ncurl -s -w 'HTTP %{http_code}\\n' -X POST http://127.0.0.1:3010/api/revalidate-tag \\\n  -H 'Content-Type: application/json' -d '{\"_type\":\"artist\"}'\n# → HTTP 500 {\"message\":\"Missing environment variable SANITY_REVALIDATE_SECRET\"}\n\n# 시크릿만 설정, 서명 없음 + 허용 외 _type → 여전히 401(타입 검사 전)\ncurl -s -w 'HTTP %{http_code}\\n' -X POST http://127.0.0.1:3011/api/revalidate-tag \\\n  -H 'Content-Type: application/json' -d '{\"_type\":\"not-a-type\"}'\n# → HTTP 401 {\"message\":\"Invalid signature\",\"isValidSignature\":null}\n\n# 잘못된 sanity-webhook-signature → 401\ncurl ... -H 'sanity-webhook-signature: v1,t=1,v1=deadbeef' -d '{\"_type\":\"artist\"}'\n# → HTTP 401 {\"message\":\"Invalid signature\",\"isValidSignature\":false}\n```\n응답·로그에 시크릿 값 없음 확인.\n\n### E2E / 화면\n- 실제 Sanity 서명 요청 e2e는 **배포 후 JW**가 `docs/webhook-setup.md`로 웹훅·Vercel env 설정 후 Attempts에서 확인.\n- 공개 페이지·GROQ 태그 부여 전이라 **화면 반영은 첫 PAGE 기능에서 검증**.\n\n### 빌드·린트\n- npm run lint: 통과\n- npm run build: 통과 (`ƒ /api/revalidate-tag`)\n\n### git diff --stat (커밋 대상)\n TASK.json, docs/tasks/T-007.json, docs/webhook-setup.md,\n .env.example, .gitignore,\n src/app/api/revalidate-tag/route.ts,\n feature_list/SETUP.json, feature_list/MODEL.json(내용 미수정·passes만 JW 변경 포함)\n"
+}

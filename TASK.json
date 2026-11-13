@@ -1,34 +1,28 @@
 {
-  "id": "T-008",
-  "feature_id": "SETUP-001",
-  "layer": "infra",
-  "dataset": "development",
-  "goal": "Sanity 웹훅을 받아 서명을 검증하고 변경된 문서 타입의 태그를 무효화하는 서버 경로를 만들고, JW가 웹훅과 환경변수를 설정할 체크리스트 문서를 작성한다.",
-  "context": "스펙은 feature_list/SETUP.json의 SETUP-001이다. 조사 근거는 docs/tasks/T-007.json(Next.js 16.4.5는 Cache Components OFF이며 prerender 이전 모델을 따른다, next-sanity 13.4.0 parseBody 사용). 구현: src/app/api/revalidate-tag/route.ts에 POST만 허용하는 Route Handler를 만든다. next-sanity의 parseBody로 서명을 검증하고(시크릿은 process.env.SANITY_REVALIDATE_SECRET, 서버 전용, NEXT_PUBLIC_ 금지, 기본 지연 대기 유지), 서명이 유효하지 않으면 401, 시크릿이 설정되지 않았으면 500(검증 생략 금지)으로 응답한다. 서명 검증이 끝난 뒤에만 본문의 _type이 genre, artist, album, article 중 하나인지 확인하고 아니면 400으로 응답한다. 유효하면 revalidateTag(_type, { expire: 0 })로 즉시 만료한다(JW가 '발행 즉시 반영'을 원해서 SWR 방식 'max'가 아니라 즉시 만료를 기본으로 한다. 현재 문서와 다르거나 더 나은 방식이 있으면 반박하고 result에 보고). 태그 이름은 정확히 타입 이름 그대로이며, 이후 PAGE 작업에서 각 쿼리가 의존하는 타입 태그를 함께 붙인다(예: 앨범 쿼리는 album·artist·genre). 공개 페이지·GROQ 쿼리·src/sanity/lib 수정은 이번 범위가 아니다. 환경변수는 .env.example에 SANITY_REVALIDATE_SECRET 이름만 추가한다(없으면 파일을 만들되 값은 비운다). 이어서 JW용 체크리스트 docs/webhook-setup.md를 작성한다: Sanity Manage 웹훅 항목(URL=https://<배포호스트>/api/revalidate-tag, 트리거 Create·Update·Delete, 데이터셋별 웹훅 분리, 필터 _type in [\"genre\",\"artist\",\"album\",\"article\"], 프로젝션 {_type}, 시크릿 입력, POST, draft·version 이벤트 끄기), Vercel 환경변수 입력 방법, 시도 기록으로 확인하는 방법, 먼저 production 배포에서 확인하는 순서와 참고 URL을 쉬운 한국어로 단계별로 적는다. 시크릿 값 자체는 어디에도 적지 않는다. 이번 커밋에는 docs/tasks/T-007.json(보관), feature_list/SETUP.json(Claude 작성), 그리고 JW가 passes를 true로 바꾼 feature_list/MODEL.json 변경이 함께 들어간다. 두 feature_list 파일은 내용을 수정하지 않는다.",
+  "id": "T-009",
+  "layer": "docs",
+  "goal": "JW가 확정한 AI 콘텐츠 입력 방식과 출처·인용 규칙을 docs/content-model.md에 기록한다.",
+  "context": "대상은 docs/content-model.md 하나다. 스키마·앱 코드는 수정하지 않는다. 문서에는 T-006에서 만든 'AI 입력 단계에서 정할 규칙' 메모 섹션이 있다(country는 영문 표준명으로 통일, 실존 인물의 발언은 출처가 있을 때만 인용하고 지어내지 않기, 가상의 저자·기여자 이름 쓰지 않기). 이 섹션을 'AI 입력 규칙'으로 확정 내용 중심으로 정리하고, 기존 3개 메모는 그대로 유지한다. 추가로 확정된 내용: (1) 입력 방식: 당분간 AI가 쓴 글을 JW가 Studio에 직접 붙여넣어 입력한다(방식 A). 스크립트·API로 Sanity에 직접 저장하는 방식은 입력량이 늘어 불편해질 때 별도 기능으로 올리며, 쓰기 토큰은 그때까지 만들지 않는다. 그 방식을 도입할 때는 Studio 검증이 API 쓰기에는 적용되지 않으므로 중복 아티스트 확인과 입력값 검증이 필요하다는 점도 한 줄 적는다. (2) 출처 규칙: 아티클과 아티스트 문서는 출처(sources)를 1개 이상 입력하는 것을 편집 규칙으로 한다. 장르와 앨범은 선택이다. 연도·멤버·수상·수치 같은 구체 사실은 출처 없이 쓰지 않는다. 이 규칙은 아직 스키마 검증으로 강제하지 않으며(필수는 최소로 시작한다는 원칙), 운영해 보고 굳은 뒤 경고 또는 필수 검증으로 올릴지 검토한다는 점을 적는다. (3) 외부 글 인용 규칙: 외부 기사·위키 등의 문장을 그대로 길게 가져오지 않고 직접 요약·재서술한다. 짧은 인용은 따옴표를 쓰고 출처를 함께 남긴다. 문서의 기존 서식과 표 스타일을 유지한다. 이번 커밋에는 docs/tasks/T-008.json(Claude가 보관해 둔 이전 작업)과, JW가 변경한 feature_list 파일이 있으면 내용 수정 없이 함께 포함한다.",
   "scope": {
     "in": [
-      "src/app/api/revalidate-tag/route.ts 신규",
-      "루트 .env.example(이름만)",
-      "docs/webhook-setup.md 신규"
+      "docs/content-model.md 수정"
     ],
     "out": [
-      "공개 페이지·GROQ 쿼리·컴포넌트 작성",
-      "src/sanity/lib(client.ts, live.ts)·src/sanity/schemaTypes 수정",
-      "defineLive 도입, next.config.ts의 cacheComponents 변경",
-      "Sanity 웹훅 생성, Vercel 환경변수 변경(JW가 직접 수행)",
-      "Sanity 문서 직접 생성·수정·삭제, 쓰기 토큰 생성·사용, production 데이터셋 접근",
-      ".env* 파일 내용 출력·커밋(.env.example의 이름만 있는 파일은 예외)",
+      "스키마·앱 코드·스튜디오 설정 수정",
+      "docs/webhook-setup.md 수정(별도 작업에서 처리)",
+      "Sanity 문서 생성·수정·삭제, 쓰기 토큰 생성·사용",
+      "production 데이터셋 접근",
+      ".env* 파일 내용 출력·커밋",
       "다른 프로젝트(myaudio 등)의 Supabase·테이블·컨벤션 도입",
-      "AGENTS.md의 BEGIN/END:nextjs-agent-rules 블록 수정"
+      "AGENTS.md의 BEGIN/END:nextjs-agent-rules 블록 수정",
+      "feature_list 내용 수정"
     ]
   },
   "done": [
-    "POST 전용 경로가 구현되어 서명 없음·잘못된 서명은 401, 시크릿 미설정은 500, GET은 거부되고 어떤 경우에도 시크릿 값이 응답·로그에 나오지 않음(로컬에서 curl로 확인한 명령과 응답을 시크릿 없이 result에 기록)",
-    "서명 검증이 끝난 뒤에만 _type을 검사하고, 허용 타입이면 해당 타입 태그를 즉시 만료하는 코드가 있으며 허용 외 타입은 400",
-    ".env.example에 SANITY_REVALIDATE_SECRET 이름만 추가됨(NEXT_PUBLIC_ 접두어 없음), docs/webhook-setup.md가 JW가 따라 할 수 있는 단계로 작성됨",
-    "npm run build, npm run lint 통과",
-    "서명 검증에 필요한 실제 Sanity 서명 요청으로의 end-to-end 확인은 배포 후 JW가 수행해야 한다는 점과, 공개 페이지가 없어 실제 화면 반영은 첫 PAGE 기능에서 검증한다는 점을 result에 명시"
+    "위 (1)~(3)이 'AI 입력 규칙' 섹션에 반영되고 기존 3개 메모와 기존 확정 내용은 훼손되지 않음",
+    "출처 규칙이 스키마 검증으로 강제되지 않는 편집 규칙임이 문서에 명시됨",
+    "문서만 수정했고 코드 파일 변경이 없음(git diff --stat에서 확인). 빌드는 요구하지 않음"
   ],
   "status": "done",
-  "result": "## T-008 infra result\n\n### 구현\n- `src/app/api/revalidate-tag/route.ts`: POST만. `parseBody`+`SANITY_REVALIDATE_SECRET`(없으면 500, 검증 생략 없음) → 서명 실패 401 → 그다음 `_type` ∈ genre|artist|album|article 아니면 400 → `revalidateTag(_type, { expire: 0 })`.\n- `.env.example`: `SANITY_REVALIDATE_SECRET=`(값 없음, NEXT_PUBLIC_ 없음). `.gitignore`에 `!.env.example` 추가(기존 `.env*`가 example까지 무시).\n- `docs/webhook-setup.md`: Manage/Vercel 단계, 데이터셋별 웹훅, filter/projection, draft off, Attempts 확인, 참고 URL.\n\n### revalidateTag 프로필 반박/채택\n- Next 공식은 카탈로그에 `revalidateTag(tag, 'max')`(SWR) 권장.\n- JW 요구 '발행 즉시 반영'에 맞춰 **`{ expire: 0 }` 채택**(다음 요청이 블록하며 신선 데이터). 트레이드오프: 발행 직후 첫 방문 지연 가능. 트래픽·체감이 문제면 이후 `'max'`로 완화 가능.\n\n### 로컬 curl (시크릿 값 미기재)\n빌드 후 `next start`.\n```\n# GET → 405\ncurl -s -w 'HTTP %{http_code}\\n' http://127.0.0.1:3010/api/revalidate-tag\n# → HTTP 405\n\n# 시크릿 미설정(환경에서 비움) POST → 500\ncurl -s -w 'HTTP %{http_code}\\n' -X POST http://127.0.0.1:3010/api/revalidate-tag \\\n  -H 'Content-Type: application/json' -d '{\"_type\":\"artist\"}'\n# → HTTP 500 {\"message\":\"Missing environment variable SANITY_REVALIDATE_SECRET\"}\n\n# 시크릿만 설정, 서명 없음 + 허용 외 _type → 여전히 401(타입 검사 전)\ncurl -s -w 'HTTP %{http_code}\\n' -X POST http://127.0.0.1:3011/api/revalidate-tag \\\n  -H 'Content-Type: application/json' -d '{\"_type\":\"not-a-type\"}'\n# → HTTP 401 {\"message\":\"Invalid signature\",\"isValidSignature\":null}\n\n# 잘못된 sanity-webhook-signature → 401\ncurl ... -H 'sanity-webhook-signature: v1,t=1,v1=deadbeef' -d '{\"_type\":\"artist\"}'\n# → HTTP 401 {\"message\":\"Invalid signature\",\"isValidSignature\":false}\n```\n응답·로그에 시크릿 값 없음 확인.\n\n### E2E / 화면\n- 실제 Sanity 서명 요청 e2e는 **배포 후 JW**가 `docs/webhook-setup.md`로 웹훅·Vercel env 설정 후 Attempts에서 확인.\n- 공개 페이지·GROQ 태그 부여 전이라 **화면 반영은 첫 PAGE 기능에서 검증**.\n\n### 빌드·린트\n- npm run lint: 통과\n- npm run build: 통과 (`ƒ /api/revalidate-tag`)\n\n### git diff --stat (커밋 대상)\n TASK.json, docs/tasks/T-007.json, docs/webhook-setup.md,\n .env.example, .gitignore,\n src/app/api/revalidate-tag/route.ts,\n feature_list/SETUP.json, feature_list/MODEL.json(내용 미수정·passes만 JW 변경 포함)\n"
+  "result": "## T-009 docs result\n\n### 반영\n- 섹션명: 'AI 입력 단계에서 정할 규칙' → 'AI 입력 규칙'\n- (1) 입력 방식 A(Studio 붙여넣기), API·쓰기 토큰 보류, 도입 시 중복·검증 필요 한 줄\n- (2) article·artist sources 1개 이상 편집 규칙 / genre·album 선택 / 구체 사실 출처 필수 / **스키마 강제 아님**·이후 검토\n- (3) 외부 글 요약·재서술, 짧은 인용은 따옴표+출처\n- 기존 3개 메모(country 영문, 실존 발언, 가상 저자 금지)는 '표기·인용 메모'로 유지\n- 필드 표·v1 제외·쓰기 검증 한계 등 기존 확정 내용 미훼손\n\n### 코드 변경\n- 없음 (스키마·앱 미수정)\n\n### git diff --stat\n TASK.json\n docs/content-model.md\n docs/tasks/T-008.json (보관)\n feature_list/SETUP.json (JW passes true, 내용 미수정)\n"
 }

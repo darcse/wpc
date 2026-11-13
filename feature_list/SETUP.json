@@ -13,6 +13,6 @@
       "docs/webhook-setup.md를 따라 Sanity 웹훅을 만들고 아티스트를 발행하면 Sanity 웹훅 시도 기록에 200 응답이 남는다(배포 후 JW 확인)",
       "엣지: 시크릿 환경변수가 설정되지 않은 상태에서 호출하면 500이 응답되고 서명 검증을 건너뛰지 않는다"
     ],
-    "passes": false
+    "passes": true
   }
 ]
