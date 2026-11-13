@@ -1,0 +1,29 @@
+{
+  "id": "T-006",
+  "layer": "docs",
+  "goal": "T-005에서 스키마에 반영된 변경과 JW가 확정한 v1 결정사항을 docs/content-model.md에 반영해, 문서와 스키마가 일치하게 한다.",
+  "context": "대상은 docs/content-model.md 하나다. 스키마 코드는 읽기만 하고 수정하지 않는다. 반영할 내용: (1) 공통 규칙의 sources를 'URL 배열'에서 '항목{제목(필수), URL(선택, http/https)} 배열'로 바꾸고 네 타입 공통임을 명시(스키마는 sourceItem 공용 타입, 구현은 docs/tasks/T-005.json 참고). 각 타입 표의 sources 행도 맞춘다. (2) genre에 originYear·endYear(정수, 선택, 1900~2100) 행 추가. (3) album에 label(문자열, 선택) 행 추가. (4) article.articleType의 저장 코드에 interview(인터뷰) 추가, 순서 news·review·column·interview·other. (5) artist·album·article에 featured(boolean, 선택, 기본 해제, 라벨 '홈 노출') 행 추가: 메인 노출용이며 '대표 아티스트·앨범' 참조 배열과 별개. 값이 없으면 프론트는 최신순으로 대체한다는 점도 적는다(genre에는 없음). (6) album.links.youtubeMusic: URL을 그대로 저장하고 재생목록 ID는 프론트가 URL에서 계산해 임베드에 쓴다, list= 가 없으면 Studio에서 경고(발행 불가 아님), 임베드가 불가할 때를 대비해 YouTube Music 링크 버튼을 항상 함께 둔다는 방침을 적는다. (7) 이전에 남겨둔 메모 반영: artist.links 항목의 kind·url이 필수라는 점, 연도 필드(activeFrom/To 등)의 범위 검증이 1900~2100이라는 점을 현재 스키마를 읽고 사실대로 적는다. (8) 'v1에서 하지 않기로 한 것' 섹션 추가: 장비·음향 수치(페달 체인, RT60, dB 등)는 제외(나중에 별도 gear 문서 타입으로 확장 가능), 트랙 러닝타임 제외(tracks는 문자열 배열 유지), 아티클 본문 표 제외, 해시태그 필드 없음(연결된 장르 이름으로 대체), 저자 필드 없음(aiGenerated가 true면 'AI 작성' 표시), 카탈로그 번호 제외. (9) 'AI 입력 단계에서 정할 규칙' 메모 추가: country는 자유 입력이므로 영문 표준명으로 표기를 통일한다, 실존 인물의 발언은 출처가 있을 때만 인용하고 지어내지 않는다, 가상의 저자·기여자 이름을 쓰지 않는다. 문서의 기존 서식·표 스타일을 유지하고 문서와 스키마가 다르면 스키마를 기준으로 적되 어긋난 부분은 result에 보고한다. 이번 커밋에는 docs/tasks/T-005.json(Claude가 보관해 둔 이전 작업)도 포함한다.",
+  "scope": {
+    "in": [
+      "docs/content-model.md 수정",
+      "읽기: src/sanity/schemaTypes 전체"
+    ],
+    "out": [
+      "스키마·앱 코드 수정",
+      "Sanity 문서 생성·수정·삭제",
+      "production 데이터셋 접근",
+      "쓰기 토큰 생성·사용",
+      ".env* 파일 내용 출력·커밋",
+      "다른 프로젝트(myaudio 등)의 Supabase·테이블·컨벤션 도입",
+      "AGENTS.md의 BEGIN/END:nextjs-agent-rules 블록 수정",
+      "feature_list 수정"
+    ]
+  },
+  "done": [
+    "위 (1)~(9)가 docs/content-model.md에 반영되고 기존 확정 내용(참조 강도, 공통 규칙, 코드값 표)은 훼손되지 않음",
+    "문서의 각 타입 필드 표를 현재 스키마 파일과 대조해 일치함을 확인하고, 어긋나서 스키마 기준으로 적은 곳이 있으면 result에 목록으로 보고",
+    "문서만 수정했고 코드 파일 변경이 없음(git diff --stat에서 확인). 빌드는 요구하지 않음"
+  ],
+  "status": "done",
+  "result": "## T-006 docs result\n\n### 반영 (1)~(9)\n- (1) sources → sourceItem{title 필수, url 선택} 공통, sourceItem 섹션·공유 타입 목록 추가\n- (2) genre.originYear/endYear\n- (3) album.label\n- (4) articleType에 interview\n- (5) artist/album/article.featured(홈 노출) + 최신순 대체, genre 없음\n- (6) youtubeMusic 저장·list= 경고·링크 버튼 방침\n- (7) artist.links kind/url 필수, 연도 필드 1900~2100\n- (8) 'v1에서 하지 않기로 한 것' 섹션\n- (9) 'AI 입력 단계에서 정할 규칙' 섹션\n- 참조 강도·기존 코드값 표 유지. 문서 날짜 2026-11-13\n\n### 스키마 기준으로 맞춘 어긋남(이전 문서 → 수정)\n1. 공통 sources: 'URL 배열' → sourceItem 객체 배열\n2. 공유 타입 목록에 sourceItem 누락 → 추가\n3. genre에 originYear/endYear 문서 누락 → 추가\n4. album.label 문서 누락 → 추가\n5. articleType에 interview 누락 → 추가\n6. artist/album/article.featured 문서 누락 → 추가\n7. album.links.youtubeMusic list=·임베드·버튼 방침 미기재 → 추가\n8. artist.links: kind·url 필수 여부 미명시 → 필수로 명시\n9. activeFrom/To·members from/to 1900~2100 미기재 → 명시\n\n대조 후 필드 표는 현재 schemaTypes(genre/artist/album/article/sourceItem/blockContent)와 일치.\n\n### 코드 변경\n- 없음 (스키마·앱 미수정)\n- 빌드: 요구 없음\n\n### git diff --stat\n TASK.json             | (status/result)\n docs/content-model.md | T-005 동기화 + v1/AI 섹션\n docs/tasks/T-005.json | 보관 신규\n"
+}
