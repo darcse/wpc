@@ -28,7 +28,7 @@ export function SiteHeader() {
         <Link
           href="/"
           onClick={closeMenu}
-          className="font-display text-title-editorial text-text transition-colors hover:text-accent"
+          className="inline-flex min-h-11 items-center font-display text-title-editorial text-text transition-colors hover:text-accent"
         >
           {SITE_NAME}
         </Link>
@@ -44,7 +44,7 @@ export function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-space-sm py-space-sm text-body-sm transition-colors ${
+                className={`inline-flex min-h-11 items-center px-space-sm text-body-sm transition-colors ${
                   active
                     ? 'bg-surface-hover font-medium text-accent'
                     : 'text-text-muted hover:bg-surface hover:text-text'

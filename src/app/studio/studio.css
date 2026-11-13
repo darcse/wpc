@@ -1,0 +1,4 @@
+/* Minimal Studio reset only — not Tailwind preflight. */
+body {
+  margin: 0;
+}

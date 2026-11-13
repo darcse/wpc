@@ -125,7 +125,7 @@
   flex-direction: column;
   background-color: var(--wpc-surface-canvas);
   color: var(--wpc-text);
-  font-family: var(--font-jakarta), var(--font-noto-sans-kr), sans-serif;
+  /* font-family: use Tailwind font-sans on SiteShell (stack only in @theme) */
   font-size: 1rem;
   line-height: 1.625rem;
   -webkit-font-smoothing: antialiased;
@@ -137,10 +137,3 @@
   font-size: 1rem;
 }
 
-.font-display {
-  font-family: var(--font-playfair), var(--font-noto-serif-kr), serif;
-}
-
-.font-mono {
-  font-family: var(--font-space-mono), var(--font-noto-sans-kr), monospace;
-}

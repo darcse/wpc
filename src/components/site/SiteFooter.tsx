@@ -23,7 +23,9 @@ export function SiteFooter() {
             ))}
           </nav>
         </div>
-        <p className="font-mono text-meta-timestamp text-text-subtle">{AI_DISCLAIMER}</p>
+        <p className="font-sans text-meta-timestamp text-text-subtle">
+          {AI_DISCLAIMER}
+        </p>
       </div>
     </footer>
   )

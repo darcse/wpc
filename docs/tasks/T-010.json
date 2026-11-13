@@ -1,0 +1,34 @@
+{
+  "id": "T-010",
+  "feature_id": "UX-001",
+  "layer": "frontend",
+  "goal": "디자인 토큰(역할 이름 색, 0px 모서리, 한영 폰트, 타입 스케일)과 공개 페이지 공통 헤더·푸터·404 화면을 만들고, /studio는 영향받지 않게 한다.",
+  "context": "스펙은 feature_list/UX.json의 UX-001이다. 디자인 기준은 docs/design/README.md(확정 결정·제외 목록)를 먼저 읽고, 값은 docs/design/DESIGN.md, 헤더·푸터 모양 참고는 docs/design/mockups/main-home.html이다. 시안은 참고용이므로 Tailwind CDN·Material Symbols·Google Fonts 링크·가짜 문구는 가져오지 않는다. 구현 요건: (1) 색: DESIGN.md 본문 설명의 값을 쓴다(frontmatter의 Material 토큰 값은 쓰지 않는다). 색은 surface/text/accent 같은 역할 이름의 토큰으로 한 곳에만 정의하고(Tailwind v4 @theme 등 방식은 Cursor가 판단), 컴포넌트에는 색 코드를 직접 적지 않는다. 지금은 다크 값만 만들되 라이트 값을 나중에 한 벌 더 정의할 수 있는 구조로 한다. 라이트는 이번 범위가 아니다. (2) 모서리: 기본 반경을 0으로 하고 원형은 실제 원형 요소에만 쓴다. (3) 폰트: next/font로 Playfair Display(제목), Plus Jakarta Sans(영문 본문), Space Mono(메타·라벨)를 쓰고, 한글은 한글 폰트를 병행한다. 한글 폰트 후보(Pretendard, Noto Sans KR/Noto Serif KR 등)를 로딩 방식·용량·가중치로 비교해 고르고, 한글 글리프가 한글 폰트로 렌더되게 하며(시스템 기본 폰트로 대체 금지), 선택 근거와 최종 폰트 구성을 result에 보고한다. display swap, 필요한 가중치만 사용한다. (4) 타입 스케일: DESIGN.md typography 값을 토큰으로 옮긴다. 단 모바일 최소 기준에 따라 meta-badge(0.6875rem)는 0.75rem 이상으로 올리고, 본문은 16px 이상, 입력창은 16px 이상으로 한다. 핀치 확대를 막지 않는다(user-scalable=no 금지). (5) 간격: DESIGN.md spacing 값(gutter 1.5rem, margin 3rem, 모바일 0.75rem·1rem 등)을 토큰으로 옮긴다. (6) 헤더: 상단 고정, 로고는 텍스트 'Wet Pillow Club', 네비게이션은 Genres/Artists/Albums/Articles 4개(영문 라벨)가 각각 /genres, /artists, /albums, /articles를 가리킨다(해당 페이지는 아직 없어 404가 되는 것이 정상). 데스크톱은 인라인 링크, 390px 등 모바일은 메뉴 버튼으로 링크 목록을 열고 닫는다(하단 탭바 금지, 터치 영역 44px 이상, aria-expanded 등 기본 접근성, window.confirm/alert/prompt 금지). 현재 경로 섹션 강조는 선택 사항이다. 검색·랜덤·로그인·Edit Mode·프로필·기어 메뉴·통계 바는 넣지 않는다. (7) 푸터: 사이트 이름, 한 줄 소개(예: 슈게이징과 주변 장르를 다루는 밴드 음악 아카이브), 네비게이션 링크, AI 작성 고지(예: '이 사이트의 콘텐츠는 AI의 도움을 받아 작성되며 사실과 다른 내용이 있을 수 있습니다')를 둔다. 문구는 초안이며 JW가 수정할 수 있다. 시안의 라이선스·peer-review·open archive 같은 확인되지 않은 주장은 넣지 않는다. (8) 홈(/): 현재 기본 템플릿 페이지를 공통 틀 안의 최소 자리표시자(사이트 이름과 한 줄 소개)로 바꾼다. 실제 홈은 PAGE 작업에서 대체한다. (9) /studio 보호: 사이트 전역 스타일(Tailwind base/preflight 포함), 폰트, 헤더·푸터가 /studio에 적용되어 Studio가 깨지지 않게 구조를 잡는다(예: 사이트 전용 레이아웃 분리, 방식은 Cursor가 판단). 구현 후 /studio가 이전처럼 렌더되는지 확인한다. (10) 404: 존재하지 않는 경로에서도 헤더·푸터가 유지된 not-found 화면을 보여준다. Next.js 16.4.5의 올바른 방식은 node_modules/next/dist/docs 공식 문서로 확인하고, 불가능하거나 제약이 있으면 대안을 result에 보고한다. 콘텐츠 조회(GROQ)와 데이터 의존 UI는 이번 범위가 아니다. 이번 커밋에는 docs/design/ 전체(Claude가 추가한 DESIGN.md·mockups·README.md), docs/tasks/T-009.json(보관), feature_list/UX.json이 함께 들어간다. docs/design 안 파일과 feature_list 내용은 수정하지 않는다.",
+  "scope": {
+    "in": [
+      "src/app의 레이아웃·전역 스타일·홈 자리표시자·not-found 및 공통 헤더·푸터 컴포넌트",
+      "토큰 정의, 폰트 설정",
+      "package.json 의존성 추가(필요 시 폰트·아이콘 등 최소한)"
+    ],
+    "out": [
+      "GROQ 쿼리·콘텐츠 조회·Sanity 문서 읽기·쓰기, 스키마 수정",
+      "장르·아티스트·앨범·아티클 페이지 구현(PAGE 작업)",
+      "라이트 모드 색과 테마 토글",
+      "검색, GA4, SEO 메타, 웹훅 경로(src/app/api/revalidate-tag) 수정",
+      "docs/design 안의 파일과 feature_list 내용 수정",
+      "production 데이터셋 접근, 쓰기 토큰 생성·사용",
+      ".env* 파일 내용 출력·커밋",
+      "다른 프로젝트(myaudio 등)의 Supabase·테이블·컨벤션 도입",
+      "AGENTS.md의 BEGIN/END:nextjs-agent-rules 블록 수정"
+    ]
+  },
+  "done": [
+    "UX-001의 steps를 모두 만족하도록 구현되고, 구현한 파일과 구조(토큰 정의 위치, 레이아웃 분리 방식)가 result에 보고됨",
+    "코드에서 색 코드가 토큰 정의 한 곳에만 있고 컴포넌트에 직접 적힌 색 코드가 없음(확인에 쓴 검색 명령과 결과를 result에 기록)",
+    "한글 폰트 후보 비교와 선택 근거, 최종 폰트 구성이 result에 보고됨",
+    "/studio가 이전처럼 렌더되고 사이트 스타일이 섞이지 않음을 확인한 방법과 결과가 result에 기록됨",
+    "npm run build, npm run lint 통과. 390 / 800 / 1024 / 1440px 확인은 가능한 범위에서 수행하고 확인하지 못한 항목은 '미확인'으로 result에 표시(최종 검증은 Claude Code가 수행)"
+  ],
+  "status": "done",
+  "result": "## T-010 frontend result\n\n### 구조\n- 토큰·Tailwind: `src/app/(site)/site.css` (`:root/[data-theme=dark]` + `@theme inline`). 라이트는 `[data-theme=light]` 자리만 열어 둠.\n- 레이아웃 분리: 루트 `app/layout.tsx`는 html/body만. 공개 UI는 `(site)/layout.tsx` → `SiteShell`(헤더·푸터·폰트). `studio/layout.tsx`는 passthrough. site.css는 `(site)`와 `app/not-found.tsx`에서만 import → Studio에 Tailwind/헤더 미적용.\n- 컴포넌트: `src/components/site/{SiteShell,SiteHeader,SiteFooter}.tsx`, 문구·nav `src/lib/site.ts`, 폰트 `src/lib/fonts.ts`.\n- 홈: `(site)/page.tsx` 자리표시자. 404: `app/not-found.tsx`(공식: 루트 not-found가 루트 레이아웃 안에서 렌더 — `node_modules/next/dist/docs/.../not-found.md`). global-not-found 실험 플래그는 불필요.\n- 삭제: 구 `globals.css`, 템플릿 `page.tsx`.\n\n### 색 코드 검색\n```\nrg -n '#[0-9A-Fa-f]{3,8}\\\\b' src --glob '!**/site.css'\n# → NO_HEX_OUTSIDE_TOKENS\nrg -n 'rgb\\\\(|hsl\\\\(|rgba\\\\(' src --glob '!**/site.css'\n# → NO_RGB_OUTSIDE\n```\nhex는 `site.css`의 `--wpc-*`에만 존재.\n\n### 한글 폰트 비교·선택\n| 후보 | 로딩 | 용량·가중치 | 비고 |\n|---|---|---|---|\n| Pretendard | npm/로컬 @font-face | 가변·다수 웨이트, 셀프호스트 필요 | next/font 미지원, 추가 의존성 |\n| Noto Sans KR | next/font/google | 서브셋·display swap, 400/500/700만 | 본문·UI 한글에 적합 |\n| Noto Serif KR | next/font/google | 500/600/700 | Playfair와 제목 폴백 |\n**선택:** Noto Sans KR(본문) + Noto Serif KR(제목 한글). 영문 3종과 동일 파이프라인·swap·필요 웨이트만.\n**최종 스택:** display=Playfair+Noto Serif KR / sans=Plus Jakarta+Noto Sans KR / mono=Space Mono+Noto Sans KR.\n\n### /studio 확인\n- `curl` HTML: 홈·404는 `<header>`+`site-root`+stylesheet 4개. Studio 가시 DOM은 `#sanity`/`NextStudio`만, header/site-root/stylesheet **0**(notFound용 CSS는 preload만, 적용 링크 없음).\n- 브라우저: 홈은 다크 틀·Menu·푸터·AI 고지 확인. Studio 화면은 클라이언트 로딩으로 스냅샷 검정(미확인 시각) — HTML 구조상 사이트 크롬 없음.\n\n### 뷰포트\n- viewport: `width=device-width, initialScale=1` (`user-scalable=no` 없음).\n- 브라우저에서 좁은 폭: Menu 버튼·헤더·푸터 확인.\n- 390/800/1024/1440 체계적 가로스크롤·타이포 측정: **미확인**(최종은 Claude Code).\n\n### 빌드·린트\n- npm run lint / build 통과. 추가 npm 의존성 없음(next/font만).\n\n### git (커밋 포함)\n docs/design/**, docs/tasks/T-009.json, feature_list/UX.json(내용 미수정),\n src 레이아웃·컴포넌트·토큰, TASK.json\n"
+}
