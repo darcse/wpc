@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#131316;color:#e4e1e6;}body{overscroll-behavior:none;font-family:'Plus Jakarta Sans',sans-serif;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "secondary-fixed": "#80f9c8", "tertiary-fixed": "#ffd8e7", "inverse-surface": "#e4e1e6", "secondary": "#62dcad", "error-container": "#93000a", "primary": "#cebdff", "on-secondary-fixed-variant": "#00513a", "on-secondary": "#003827", "on-primary": "#381385", "on-tertiary": "#620040", "on-surface": "#e4e1e6", "outline": "#948e9d", "outline-variant": "#494552", "on-tertiary-container": "#6a0045", "on-error-container": "#ffdad6", "background": "#131316", "surface-tint": "#cebdff", "on-secondary-fixed": "#002115", "surface-container-low": "#1b1b1e", "primary-fixed": "#e8ddff", "error": "#ffb4ab", "surface": "#131316", "inverse-on-surface": "#303033", "on-primary-container": "#3c1989", "on-background": "#e4e1e6", "primary-fixed-dim": "#cebdff", "surface-container-highest": "#353438", "surface-container-high": "#2a2a2d", "surface-container-lowest": "#0e0e11", "secondary-container": "#18a479", "primary-container": "#a78bfa", "tertiary-container": "#f170b4", "surface-dim": "#131316", "on-tertiary-fixed": "#3d0026", "surface-bright": "#39393c", "inverse-primary": "#674bb5", "on-tertiary-fixed-variant": "#85145a", "secondary-fixed-dim": "#62dcad", "on-secondary-container": "#003121", "on-surface-variant": "#cac4d4", "tertiary": "#ffafd3", "surface-container": "#1f1f22", "on-error": "#690005", "on-primary-fixed": "#21005e", "surface-variant": "#353438", "tertiary-fixed-dim": "#ffafd3", "on-primary-fixed-variant": "#4f319c" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "3rem", "space-xl": "2.5rem", "space-xs": "0.25rem", "gutter": "1.5rem", "margin-mobile": "1rem", "space-md": "1rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "gutter-mobile": "0.75rem" }, fontFamily: { "display-hero": ["Playfair Display"], "headline-lg-mobile": ["Playfair Display"], "display-hero-mobile": ["Playfair Display"], "body-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "headline-md": ["Playfair Display"], "headline-lg": ["Playfair Display"], "title-editorial": ["Playfair Display"], "meta-timestamp": ["Space Mono"], "meta-badge": ["Space Mono"], "body-sm": ["Plus Jakarta Sans"], "headline-sm": ["Playfair Display"], "meta-code": ["Space Mono"] }, fontSize: { "display-hero": ["5rem", { lineHeight: "5.25rem", letterSpacing: "-0.03em", fontWeight: "700" }], "headline-lg-mobile": ["2rem", { lineHeight: "2.5rem", letterSpacing: "-0.01em", fontWeight: "600" }], "display-hero-mobile": ["2.75rem", { lineHeight: "3rem", letterSpacing: "-0.02em", fontWeight: "700" }], "body-lg": ["1.125rem", { lineHeight: "1.875rem", fontWeight: "400" }], "body-md": ["1rem", { lineHeight: "1.625rem", fontWeight: "400" }], "headline-md": ["2rem", { lineHeight: "2.5rem", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-lg": ["3rem", { lineHeight: "3.5rem", letterSpacing: "-0.02em", fontWeight: "600" }], "title-editorial": ["1.25rem", { lineHeight: "1.75rem", letterSpacing: "-0.01em", fontWeight: "600" }], "meta-timestamp": ["0.75rem", { lineHeight: "1rem", fontWeight: "400" }], "meta-badge": ["0.6875rem", { lineHeight: "1rem", letterSpacing: "0.08em", fontWeight: "700" }], "body-sm": ["0.875rem", { lineHeight: "1.375rem", fontWeight: "400" }], "headline-sm": ["1.5rem", { lineHeight: "2rem", fontWeight: "500" }], "meta-code": ["0.8125rem", { lineHeight: "1.25rem", letterSpacing: "0.02em", fontWeight: "400" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Menu" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">menu</span></button><div class="flex items-baseline gap-space-xs"><span class="font-display-hero-mobile text-[1.125rem] leading-none font-bold tracking-tight text-primary">WPC</span><span class="font-meta-badge text-meta-badge uppercase text-secondary tracking-widest">// IDX</span><span class="font-meta-code text-meta-code text-outline-variant">•</span><span class="font-meta-code text-meta-code text-on-surface-variant truncate max-w-[120px]">Wiki Index</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Quick Search" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">search</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-36 bg-surface"><div class="flex flex-col w-full">
+<!-- 1. Archival Telemetry & Status Bar -->
+<section class="w-full bg-surface-container-lowest px-gutter-mobile py-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between gap-space-xs overflow-x-auto no-scrollbar py-0.5">
+<div class="flex items-center gap-space-xs flex-nowrap">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container text-secondary font-meta-badge text-meta-badge whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+          CATALOGUE #SG-001
+        </span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-meta-badge text-meta-badge whitespace-nowrap">
+          DUBLIN / LONDON
+        </span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-meta-badge text-meta-badge whitespace-nowrap">
+          1983–PRESENT
+        </span>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary-container/20 text-tertiary font-meta-badge text-meta-badge whitespace-nowrap flex items-center gap-1 flex-shrink-0">
+<span class="material-symbols-outlined text-[13px]">volume_up</span>
+        PEAK: 130 dB SPL
+      </span>
+</div>
+<div class="flex items-center justify-between text-outline text-[11px] font-meta-code pt-0.5">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+        CANONICAL MONOGRAPH ARCHIVE
+      </span>
+<span class="text-on-surface-variant/70">REV: 2024.11-MBV</span>
+</div>
+</section>
+<!-- 2. Hero Profile & Visual Card -->
+<section class="relative w-full overflow-hidden bg-surface-container-lowest">
+<!-- Atmospheric Band Photography Banner -->
+<div class="relative w-full h-72 overflow-hidden">
+<img class="w-full h-full object-cover object-center filter saturate-125" data-alt="Dreamy low-angle concert view of a noise rock band performing through dense indigo and magenta theatrical smoke. Silhouette of frontwoman strumming an offset Fender Jazzmaster with tape across the bridge. Glowing vacuum tubes of vintage Vox and Marshall amplifiers line the stage in heavy violet haze with soft chromatic aberration and authentic 35mm film grain." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL6S6HsJjChohmP2DvcPjSNk2SBzOOv_pfRS6uHH_coUXKzFbZ9MN4Tb5880ySOMp9sO8Fyfv0oYb2FkNJP28OkbvEq6jUoPCAlB-vnCjDyAus20N4Gxkz2mCIOWqCbCca-77c7WFdMprhBy20S62myU-0ENWoWOiCKwxhA5J1k9jgpcI7wabnXVZY_D80xJr3aSX6QV13jakD78DV4aYbqqPvtgorGQLZEio6D8E"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/60 to-transparent"></div>
+<div class="absolute inset-0 bg-radial from-primary/15 via-transparent to-transparent pointer-events-none"></div>
+<!-- Quick Audio Trigger on Banner -->
+<div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded-full text-secondary">
+<span class="material-symbols-outlined text-[16px] animate-spin">rotate_right</span>
+<span class="font-meta-badge text-meta-badge uppercase tracking-wider">TAPE LOOP SYNC</span>
+</div>
+<!-- Overlaid Profile Title -->
+<div class="absolute bottom-3 left-0 right-0 px-gutter-mobile flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+<span class="font-meta-code text-meta-code text-primary-container bg-surface-container-lowest/90 px-2 py-0.5 rounded">
+            [maɪ ˈblʌdi ˈvæləntaɪn]
+          </span>
+<span class="text-outline text-meta-code font-meta-code">Creation • Island • Domino</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight leading-none mt-1">
+          My Bloody Valentine
+        </h1>
+</div>
+</div>
+<!-- Bio & Archival Abstract -->
+<div class="px-gutter-mobile pt-3 pb-space-md flex flex-col gap-space-md">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Pioneers of the revolutionary <span class="text-primary font-medium">glide guitar</span> architecture: holding the tremolo arm continuously while strumming through open vacuum micro-tunings, reverse-gated digital reverb cascaded into analog fuzz saturation, and tectonic sound pressure walls that permanently recalibrated alternative music ontology.
+      </p>
+<!-- Archival Telemetry Stat Grid (4 items) -->
+<div class="grid grid-cols-4 gap-2 w-full">
+<div class="bg-surface-container-low p-2 rounded flex flex-col items-start">
+<span class="font-meta-badge text-meta-badge text-outline uppercase">LPs</span>
+<span class="font-display-hero-mobile text-xl text-primary font-bold leading-tight">04</span>
+<span class="font-meta-code text-[10px] text-on-surface-variant">Canonical</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded flex flex-col items-start">
+<span class="font-meta-badge text-meta-badge text-outline uppercase">EPs</span>
+<span class="font-display-hero-mobile text-xl text-secondary font-bold leading-tight">08</span>
+<span class="font-meta-code text-[10px] text-on-surface-variant">Key Vault</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded flex flex-col items-start">
+<span class="font-meta-badge text-meta-badge text-outline uppercase">Studios</span>
+<span class="font-display-hero-mobile text-xl text-tertiary font-bold leading-tight">19</span>
+<span class="font-meta-code text-[10px] text-on-surface-variant">1989-1991</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded flex flex-col items-start">
+<span class="font-meta-badge text-meta-badge text-outline uppercase">Deficit</span>
+<span class="font-display-hero-mobile text-xl text-on-surface font-bold leading-tight">£250k</span>
+<span class="font-meta-code text-[10px] text-on-surface-variant">Creation Myth</span>
+</div>
+</div>
+<!-- Personnel Roster Chips / Accordion -->
+<div class="flex flex-col gap-2 bg-surface-container-low p-3 rounded-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]">groups</span>
+<span class="font-meta-badge text-meta-badge uppercase tracking-wider">Canonical Personnel Roster</span>
+</div>
+<span class="font-meta-code text-meta-timestamp text-outline">4 KEY OPERATORS</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<div class="bg-surface-container p-2 rounded flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-primary">Kevin Shields</span>
+<span class="font-meta-code text-[11px] text-outline">Lead Architect • Guitars • Stems</span>
+</div>
+<div class="bg-surface-container p-2 rounded flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-tertiary">Bilinda Butcher</span>
+<span class="font-meta-code text-[11px] text-outline">Vocalist • Guitars • Lyrics</span>
+</div>
+<div class="bg-surface-container p-2 rounded flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-secondary">Debbie Googe</span>
+<span class="font-meta-code text-[11px] text-outline">Low-End • Bass Foundation</span>
+</div>
+<div class="bg-surface-container p-2 rounded flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Colm Ó Cíosóig</span>
+<span class="font-meta-code text-[11px] text-outline">Pulse • Drums • Tape Loops</span>
+</div>
+</div>
+</div>
+<!-- Interactive Audio Quick-Actions -->
+<div class="flex flex-col gap-2.5">
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-2 py-2.5 px-3 rounded bg-primary-container text-on-primary-container font-meta-badge text-meta-badge uppercase tracking-wider transition-all active:scale-[0.98]" id="btn-signal-chain">
+<span class="material-symbols-outlined text-[18px]">schema</span>
+            Signal Chain Map
+          </button>
+<button class="flex items-center justify-center gap-2 py-2.5 px-3 rounded bg-surface-container-high text-on-surface font-meta-badge text-meta-badge uppercase tracking-wider hover:bg-surface-bright transition-all active:scale-[0.98]" id="btn-listen-stems">
+<span class="material-symbols-outlined text-[18px] text-secondary">sound_sampler</span>
+            Stems (FLAC 96k)
+          </button>
+</div>
+<!-- Waveform Realtime Visualizer Widget -->
+<div class="bg-surface-container-lowest p-2.5 rounded flex items-center justify-between gap-3 shadow-inner">
+<div class="flex items-center gap-2 min-w-0">
+<button class="w-7 h-7 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+</button>
+<div class="flex flex-col min-w-0">
+<span class="font-meta-code text-[11px] text-on-surface truncate">To Here Knows When (Master Stem Isolation)</span>
+<span class="font-meta-timestamp text-meta-timestamp text-outline">DR13 • SPX90 Reverse EarlyRef7</span>
+</div>
+</div>
+<!-- Sparkline Waveform SVG -->
+<div class="w-24 h-6 flex items-center flex-shrink-0">
+<svg class="w-full h-full text-primary" fill="none" viewbox="0 0 100 24">
+<rect fill="currentColor" height="8" opacity="0.6" width="2" x="2" y="8"></rect>
+<rect fill="currentColor" height="14" opacity="0.8" width="2" x="6" y="5"></rect>
+<rect fill="currentColor" height="20" width="2" x="10" y="2"></rect>
+<rect fill="currentColor" height="12" opacity="0.7" width="2" x="14" y="6"></rect>
+<rect fill="currentColor" height="6" opacity="0.5" width="2" x="18" y="9"></rect>
+<rect fill="currentColor" height="18" width="2" x="22" y="3"></rect>
+<rect fill="#62dcad" height="22" width="2" x="26" y="1"></rect>
+<rect fill="#62dcad" height="16" width="2" x="30" y="4"></rect>
+<rect fill="currentColor" height="10" width="2" x="34" y="7"></rect>
+<rect fill="currentColor" height="20" width="2" x="38" y="2"></rect>
+<rect fill="currentColor" height="14" width="2" x="42" y="5"></rect>
+<rect fill="currentColor" height="4" opacity="0.4" width="2" x="46" y="10"></rect>
+<rect fill="currentColor" height="20" width="2" x="50" y="2"></rect>
+<rect fill="currentColor" height="16" width="2" x="54" y="4"></rect>
+<rect fill="currentColor" height="12" width="2" x="58" y="6"></rect>
+<rect fill="#ffafd3" height="22" width="2" x="62" y="1"></rect>
+<rect fill="#ffafd3" height="18" width="2" x="66" y="3"></rect>
+<rect fill="currentColor" height="8" width="2" x="70" y="8"></rect>
+<rect fill="currentColor" height="16" width="2" x="74" y="4"></rect>
+<rect fill="currentColor" height="20" width="2" x="78" y="2"></rect>
+<rect fill="currentColor" height="10" width="2" x="82" y="7"></rect>
+<rect fill="currentColor" height="14" width="2" x="86" y="5"></rect>
+<rect fill="currentColor" height="6" opacity="0.5" width="2" x="90" y="9"></rect>
+<rect fill="currentColor" height="2" opacity="0.3" width="2" x="94" y="11"></rect>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. The Lineage Matrix (Genre Ontology & Historical Vector) -->
+<section class="w-full px-gutter-mobile py-space-md bg-surface flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">hub</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Lineage Matrix</h2>
+</div>
+<span class="font-meta-badge text-meta-badge text-secondary bg-secondary/10 px-2 py-0.5 rounded">HISTORICAL VECTOR</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      Relational timeline tracking ancestry, pivotal genesis, and downstream post-shoegaze mutations.
+    </p>
+<!-- Matrix Timeline Nodes -->
+<div class="flex flex-col gap-2.5 mt-1">
+<!-- 01 Upstream Roots -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-meta-badge text-meta-badge text-outline uppercase tracking-wider">01 // Upstream Roots (1967–1986)</span>
+<span class="font-meta-code text-[11px] text-on-surface-variant">Proto-Gaze Foundations</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface font-meta-code text-[11px] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> The Jesus and Mary Chain (1985)
+          </span>
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface font-meta-code text-[11px] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Cocteau Twins (1982)
+          </span>
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface font-meta-code text-[11px] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Sonic Youth (1981)
+          </span>
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface font-meta-code text-[11px] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> The Velvet Underground
+          </span>
+</div>
+</div>
+<!-- 02 Genesis Fulcrum (Highlighted Active Card) -->
+<div class="bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-low p-3.5 rounded-lg flex flex-col gap-2.5 shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-meta-badge text-meta-badge text-primary font-bold uppercase tracking-wider">02 // Genesis Fulcrum</span>
+</div>
+<span class="bg-primary/20 text-primary-fixed-dim px-2 py-0.5 rounded font-meta-badge text-[10px]">IMPACT 98.4 / 100</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-title-editorial text-title-editorial text-on-surface">UK First-Wave Shoegaze (1988–1993)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            1,410+ documented releases catalogued. Creation Records ground zero, defining wall-of-sound textures that discarded traditional pop rock verse-chorus hierarchies.
+          </p>
+</div>
+<div class="flex items-center justify-between pt-1 text-meta-code font-meta-code text-[11px] text-primary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">account_tree</span>
+            Cluster Nodes: Thames Valley • London • Bristol
+          </span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+<!-- 03 Downstream Progeny -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-meta-badge text-meta-badge text-outline uppercase tracking-wider">03 // Downstream Progeny (1994–Present)</span>
+<span class="font-meta-code text-[11px] text-secondary">Active Genetic Strain</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-meta-code text-[11px]">Nu-Gaze (DIIV, Nothing)</span>
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-meta-code text-[11px]">Blackgaze (Alcest, Deafheaven)</span>
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-meta-code text-[11px]">90s Space Rock (Hum, Failure)</span>
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-meta-code text-[11px]">Ambient Deconstructed</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Essential Discography & Master Releases -->
+<section class="w-full py-space-md bg-surface-container-lowest flex flex-col gap-space-sm">
+<div class="px-gutter-mobile flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">album</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Discography Ledger</h2>
+</div>
+<span class="font-meta-code text-meta-code text-outline">CREATION / DOMINO</span>
+</div>
+<!-- Filter Category Badges -->
+<div class="px-gutter-mobile flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+<button class="px-3 py-1 rounded-full bg-primary text-on-primary font-meta-badge text-meta-badge uppercase tracking-wider whitespace-nowrap">
+        All Master Entries (14)
+      </button>
+<button class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-meta-badge text-meta-badge uppercase tracking-wider whitespace-nowrap">
+        Studio LPs (4)
+      </button>
+<button class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-meta-badge text-meta-badge uppercase tracking-wider whitespace-nowrap">
+        Canonical EPs (8)
+      </button>
+<button class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-meta-badge text-meta-badge uppercase tracking-wider whitespace-nowrap">
+        Rare / Remasters
+      </button>
+</div>
+<!-- Horizontal Swipe Carousel of Releases -->
+<div class="flex gap-3 overflow-x-auto px-gutter-mobile no-scrollbar pt-1 pb-2">
+<!-- Loveless Card -->
+<div class="min-w-[270px] max-w-[270px] bg-surface-container p-3 rounded-lg flex flex-col gap-2.5 flex-shrink-0 shadow-md">
+<div class="relative w-full h-44 rounded overflow-hidden">
+<img class="w-full h-full object-cover filter contrast-125" data-alt="Blurred hyper-saturated magenta and rose pink shoegaze album cover artwork with abstracted electric guitar headstock and swirling impressionistic microtonal vibrations under hazy diffused lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0ptgGSpNDYB_IFUEaMrKMOdfpIF2CcQwKVpH9FbL2Ckt_tG_hYfWi4jsCmL4e-KPj_3kSVnD4Np-sVN7mvxWX5sjg_4S3az0EcO-eP8kSyn7WyEL8ToKagA859sJ2swdBVWLmm6uXY2d8vVkHnhkSxOTI25i2SfnmFgoleo9VJtq98WXc4jlEH1AMCmUbr3fR0NacuoR9Ep4U_JkuvYUz37Ra9FSTJnVOZvjMamM"/>
+<div class="absolute top-2 left-2 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-meta-code text-secondary">
+            CRECD060 • 1991
+          </div>
+<div class="absolute bottom-2 right-2 bg-surface-container-lowest/80 px-2 py-0.5 rounded font-meta-badge text-[10px] text-primary">
+            DR12 MASTER
+          </div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<h3 class="font-title-editorial text-title-editorial text-on-surface">Loveless</h3>
+<span class="font-meta-badge text-meta-badge text-tertiary">CANON #01</span>
+</div>
+<span class="font-meta-code text-[11px] text-outline">11 Tracks • 48:36 • Creation Records</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+            Engineered across 19 studios with Alan Moulder. Pristine glide-guitar benchmark featuring "Soon", "Only Shallow", and "To Here Knows When".
+          </p>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1 mt-auto">
+<button class="py-1.5 px-2 rounded bg-surface-container-high text-on-surface font-meta-badge text-[10px] uppercase tracking-wider flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">graphic_eq</span>
+            Stems
+          </button>
+<button class="py-1.5 px-2 rounded bg-primary-container text-on-primary-container font-meta-badge text-[10px] uppercase tracking-wider flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">menu_book</span>
+            Dossier
+          </button>
+</div>
+</div>
+<!-- Isn't Anything Card -->
+<div class="min-w-[270px] max-w-[270px] bg-surface-container p-3 rounded-lg flex flex-col gap-2.5 flex-shrink-0 shadow-md">
+<div class="relative w-full h-44 rounded overflow-hidden">
+<img class="w-full h-full object-cover filter contrast-125" data-alt="High contrast monochromatic graphic art of dark figures moving through heavy strobe light and analog television scanlines in a nocturnal basement studio aesthetic with grainy cyan undertones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMoeEeGx6doaiUEL0L4QAKrMh4E_KJNnc1gQWTCPmionBZFdQeZ4PCgAWOp8Ezi3l-O0ViUuGEOc06LoIMNCJof7WSUpg-xYsWGme5qHosaXmSCut9zpGuMdOUUAyypECTLY-__Vds9bfCrElqzmAFDtlmOfqzKYCB9eoKnFk-qzvfiDiIe2S9LnUEFBcT_1a8ruISM-Uk5scmgsr9VfmLINzV0TITBomlCHNnm3I"/>
+<div class="absolute top-2 left-2 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-meta-code text-secondary">
+            CRECD040 • 1988
+          </div>
+<div class="absolute bottom-2 right-2 bg-surface-container-lowest/80 px-2 py-0.5 rounded font-meta-badge text-[10px] text-on-surface-variant">
+            DR11 ANALOG
+          </div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<h3 class="font-title-editorial text-title-editorial text-on-surface">Isn't Anything</h3>
+<span class="font-meta-badge text-meta-badge text-outline">DEBUT LP</span>
+</div>
+<span class="font-meta-code text-[11px] text-outline">12 Tracks • 38:02 • Creation Records</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+            The transition from post-punk abrasiveness to the nascent sonic wash. Recorded in isolated 24-hour sleep-deprived sessions in Wales.
+          </p>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1 mt-auto">
+<button class="py-1.5 px-2 rounded bg-surface-container-high text-on-surface font-meta-badge text-[10px] uppercase tracking-wider flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">graphic_eq</span>
+            Stems
+          </button>
+<button class="py-1.5 px-2 rounded bg-surface-container-high text-on-surface font-meta-badge text-[10px] uppercase tracking-wider flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">menu_book</span>
+            Dossier
+          </button>
+</div>
+</div>
+<!-- You Made Me Realise Card -->
+<div class="min-w-[270px] max-w-[270px] bg-surface-container p-3 rounded-lg flex flex-col gap-2.5 flex-shrink-0 shadow-md">
+<div class="relative w-full h-44 rounded overflow-hidden">
+<img class="w-full h-full object-cover filter contrast-150" data-alt="Moody black and white film frame with high dynamic range depicting guitar feedback distortion visual art and high intensity amplifier speaker cones vibrating with pure sonic energy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_mInD4iCQRjQTA_VJ0N-OFNm3Zct3pl1Y8cOrUu7vjoh0HNyzwOaMg82rKTfWmkOHG4Sa2d7b297dvvwbjJ-jL6eEKmLZv_BuAE7nARyZXPqvG7zS3K7J_5Y9d5G1kNLDP_IgDM7q_YfsYbyrBvlb6mhI4JTtF2tqgLRNr6zOF1XpM8gfc1hpXlllzIubBFj4y2Gk92MKujoQyYVCkVlFJ-XiJXgS6EpmFpDtFAs"/>
+<div class="absolute top-2 left-2 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-meta-code text-tertiary">
+            CRE055 • 1988 EP
+          </div>
+<div class="absolute bottom-2 right-2 bg-error-container/80 text-on-error-container px-2 py-0.5 rounded font-meta-badge text-[10px]">
+            130 dB ALERT
+          </div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<h3 class="font-title-editorial text-title-editorial text-on-surface">You Made Me Realise</h3>
+<span class="font-meta-badge text-meta-badge text-error">EP CANON</span>
+</div>
+<span class="font-meta-code text-[11px] text-outline">5 Tracks • 16:32 • Genesis Landmark</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+            Infamous for the live "Holocaust" middle-eight: a sustained single-chord noise crescendo that reached 35 continuous minutes at ear-splitting SPL.
+          </p>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1 mt-auto">
+<button class="py-1.5 px-2 rounded bg-surface-container-high text-on-surface font-meta-badge text-[10px] uppercase tracking-wider flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">graphic_eq</span>
+            Stems
+          </button>
+<button class="py-1.5 px-2 rounded bg-surface-container-high text-on-surface font-meta-badge text-[10px] uppercase tracking-wider flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">menu_book</span>
+            Dossier
+          </button>
+</div>
+</div>
+<!-- m b v (2013) Card -->
+<div class="min-w-[270px] max-w-[270px] bg-surface-container p-3 rounded-lg flex flex-col gap-2.5 flex-shrink-0 shadow-md">
+<div class="relative w-full h-44 rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Deep blue and electric turquoise abstract sound wave photography showing ambient fluid wave ripples reflecting stadium lighting in cold nocturnal tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-i6c7Em7Aed_OolRiL62-Q9X0U9jTxT3w_eVhzWl6mMHg3fj9bLJIaBpA4oJ7hHx7EKXm1UBhMOWkb4sU4eLQljK7U_XrHInmoDrS01H6OVbJ-zX4bKIVIaRqoH0imIpXK4RVy_BZgNC0ued3K1hrCwmspAC_2iTZ-qAkrtqsw1TIfplBgW2tA3LLtknt4kX5vtge5tBgm6ZfSmZd9lhg65T8KT7_zxZZS52aD8Y"/>
+<div class="absolute top-2 left-2 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-meta-code text-secondary">
+            MBV01 • 2013 LP
+          </div>
+<div class="absolute bottom-2 right-2 bg-surface-container-lowest/80 px-2 py-0.5 rounded font-meta-badge text-[10px] text-primary">
+            ANALOG TAPE
+          </div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<h3 class="font-title-editorial text-title-editorial text-on-surface">m b v</h3>
+<span class="font-meta-badge text-meta-badge text-secondary">RESURGENCE</span>
+</div>
+<span class="font-meta-code text-[11px] text-outline">9 Tracks • 46:37 • Self-Released</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+            Surprise return after a 22-year gap, concluding in the catastrophic rhythmic jet-engine drone of "Wonder 2".
+          </p>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1 mt-auto">
+<button class="py-1.5 px-2 rounded bg-surface-container-high text-on-surface font-meta-badge text-[10px] uppercase tracking-wider flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">graphic_eq</span>
+            Stems
+          </button>
+<button class="py-1.5 px-2 rounded bg-surface-container-high text-on-surface font-meta-badge text-[10px] uppercase tracking-wider flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">menu_book</span>
+            Dossier
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. The Glide Architecture (Hardware & Signal Chain Topology) -->
+<section class="w-full px-gutter-mobile py-space-md bg-surface flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">The Glide Architecture</h2>
+</div>
+<span class="font-meta-badge text-meta-badge text-primary bg-primary/10 px-2 py-0.5 rounded">SCHEMATIC v2.4</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      Deconstructed 4-stage signal cascade responsible for the iconic pitch-wobble and liquefaction.
+    </p>
+<!-- Vertical Node Topology -->
+<div class="flex flex-col gap-2 relative mt-1">
+<!-- Node 01: Transducer -->
+<div class="bg-surface-container-low p-3 rounded-lg flex items-start gap-3">
+<div class="w-8 h-8 rounded bg-primary-container text-on-primary-container flex items-center justify-center font-meta-code font-bold text-xs flex-shrink-0">
+          01
+        </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">1964 Fender Jazzmaster</span>
+<span class="font-meta-badge text-[10px] text-secondary">TRANSDUCER</span>
+</div>
+<span class="font-meta-code text-[11px] text-outline">Action: Ultra-low • Heavy Gauge (.011–.052)</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Tremolo arm kept constantly under palm while strumming. Tape applied to collet prevents wobble latency; micro-pitch detune executed physically on every downstroke.
+          </p>
+</div>
+</div>
+<!-- Node 02: Reverse Rack Reverb -->
+<div class="bg-surface-container p-3 rounded-lg flex items-start gap-3 shadow-sm">
+<div class="w-8 h-8 rounded bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-meta-code font-bold text-xs flex-shrink-0">
+          02
+        </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-primary">Yamaha SPX90 / Alesis Midiverb II</span>
+<span class="font-meta-badge text-[10px] text-tertiary">PRE-GAIN SHAPE</span>
+</div>
+<span class="font-meta-code text-[11px] text-outline">Early Ref 7 / Reverse 1 • Mix: 100% Wet</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Crucial inversion: rack reverse reverb placed <span class="text-on-surface font-medium">before</span> distortion cascades. Guitar tone dissolves into digital acoustic bloom before gain staging.
+          </p>
+</div>
+</div>
+<!-- Node 03: Gain Cascade -->
+<div class="bg-surface-container-low p-3 rounded-lg flex items-start gap-3">
+<div class="w-8 h-8 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center font-meta-code font-bold text-xs flex-shrink-0">
+          03
+        </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Marshall Shredmaster + ProCo Rat 2</span>
+<span class="font-meta-badge text-[10px] text-secondary">HARMONIC SATURATION</span>
+</div>
+<span class="font-meta-code text-[11px] text-outline">Contour: 8.5 • Gain: Saturated • Hard-Clipped</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Crushes the reverse reverb bloom into an unbroken wall of overtones, eliminating transient attacks until picking dynamics become continuous oceanic swell.
+          </p>
+</div>
+</div>
+<!-- Node 04: Air Displacement -->
+<div class="bg-surface-container-low p-3 rounded-lg flex items-start gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest text-on-surface flex items-center justify-center font-meta-code font-bold text-xs flex-shrink-0">
+          04
+        </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Vox AC30 + Marshall JCM800</span>
+<span class="font-meta-badge text-[10px] text-outline">ACOUSTIC DISPLACEMENT</span>
+</div>
+<span class="font-meta-code text-[11px] text-outline">SPL: 124–132 dB • Dual 4x12" Cabs</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Tremendous volume forces room-coupling feedback; speakers drive physical air, allowing harmonics to fold back into the Jazzmaster single-coil pickups.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Cohort Artists & Direct Descendants -->
+<section class="w-full px-gutter-mobile py-space-md bg-surface-container-lowest flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">scatter_plot</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Relational Cohorts</h2>
+</div>
+<span class="font-meta-code text-meta-code text-secondary">AFFINITY MATRIX</span>
+</div>
+<!-- 2-Column Cohort Grid -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Cohort 1 -->
+<div class="bg-surface-container p-2.5 rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-bold text-primary">Slowdive</span>
+<span class="font-meta-badge text-[10px] bg-secondary/15 text-secondary px-1.5 py-0.2 rounded">98%</span>
+</div>
+<span class="font-meta-code text-[10px] text-outline">Reading, UK • 1989</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant leading-tight">
+          Ethereal, cathedral-reverb melodic counterpart to MBV's abrasive velocity.
+        </p>
+</div>
+<!-- Cohort 2 -->
+<div class="bg-surface-container p-2.5 rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">Ride</span>
+<span class="font-meta-badge text-[10px] bg-secondary/15 text-secondary px-1.5 py-0.2 rounded">94%</span>
+</div>
+<span class="font-meta-code text-[10px] text-outline">Oxford, UK • 1988</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant leading-tight">
+          Creation labelmates channeling Byrdsian jangle with thunderous drumming.
+        </p>
+</div>
+<!-- Cohort 3 -->
+<div class="bg-surface-container p-2.5 rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-bold text-tertiary">Cocteau Twins</span>
+<span class="font-meta-badge text-[10px] bg-secondary/15 text-secondary px-1.5 py-0.2 rounded">96%</span>
+</div>
+<span class="font-meta-code text-[10px] text-outline">Grangemouth • 1981</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant leading-tight">
+          Vocal glossolalia and Robin Guthrie's digital chorus architecture.
+        </p>
+</div>
+<!-- Cohort 4 -->
+<div class="bg-surface-container p-2.5 rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">Nothing / DIIV</span>
+<span class="font-meta-badge text-[10px] bg-primary/20 text-primary-fixed-dim px-1.5 py-0.2 rounded">91%</span>
+</div>
+<span class="font-meta-code text-[10px] text-outline">US Modern • 2011+</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant leading-tight">
+          Direct descendants melding heavy shoegaze with post-hardcore dynamics.
+        </p>
+</div>
+</div>
+</section>
+<!-- 7. Critical Webzine Monographs (Editorial Articles List) -->
+<section class="w-full px-gutter-mobile py-space-md bg-surface flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">auto_stories</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Webzine Monographs</h2>
+</div>
+<span class="font-meta-badge text-meta-badge text-outline">PEER CRITICISM</span>
+</div>
+<!-- Editorial Item 1 -->
+<a class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-2 group hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center justify-between font-meta-code text-[11px]">
+<span class="text-tertiary font-medium">ESSAY // CRITICAL THEORY</span>
+<span class="text-outline">18 MIN READ</span>
+</div>
+<h3 class="font-title-editorial text-title-editorial text-on-surface group-hover:text-primary transition-colors">
+        The Architecture of Decay: How Kevin Shields Sculpted the Iridescent Cathedrals of 'Loveless'
+      </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+        A deep analysis of the 2-year Creation Records recording saga, tape machine flanging, sleep-deprivation psychoacoustics, and why digital reverbs never sounded warmer.
+      </p>
+<div class="flex items-center justify-between pt-1 border-t-0 text-meta-code font-meta-code text-[11px] text-outline">
+<span>By Julian Finch</span>
+<span class="text-secondary flex items-center gap-0.5">Read Monograph <span class="material-symbols-outlined text-[13px]">arrow_forward</span></span>
+</div>
+</a>
+<!-- Editorial Item 2 -->
+<a class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-2 group hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center justify-between font-meta-code text-[11px]">
+<span class="text-secondary font-medium">ARCHIVAL ORAL HISTORY</span>
+<span class="text-outline">9 MIN READ</span>
+</div>
+<h3 class="font-title-editorial text-title-editorial text-on-surface group-hover:text-primary transition-colors">
+        The 130dB Rite of Passage: An Oral History of the 'You Made Me Realise' Holocaust Section
+      </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+        Fainting spells, earplug distribution at the door, and structural auditorium vibrations from London's Town &amp; Country Club to Tokyo.
+      </p>
+<div class="flex items-center justify-between pt-1 text-meta-code font-meta-code text-[11px] text-outline">
+<span>By Clara Thorne</span>
+<span class="text-secondary flex items-center gap-0.5">Read Monograph <span class="material-symbols-outlined text-[13px]">arrow_forward</span></span>
+</div>
+</a>
+<!-- Editorial Item 3 -->
+<a class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-2 group hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center justify-between font-meta-code text-[11px]">
+<span class="text-primary font-medium">LAB BENCHMARK</span>
+<span class="text-outline">12 MIN READ</span>
+</div>
+<h3 class="font-title-editorial text-title-editorial text-on-surface group-hover:text-primary transition-colors">
+        Deconstructing the SPX90 Reverse Gate: Digital Glitch Turned Dreamscape
+      </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+        Oscilloscope readings, frequency responses, and impulse modeling recreating the iconic 1988 rack-unit algorithm in modern DAWs.
+      </p>
+<div class="flex items-center justify-between pt-1 text-meta-code font-meta-code text-[11px] text-outline">
+<span>By Audio Lab Team</span>
+<span class="text-secondary flex items-center gap-0.5">Read Monograph <span class="material-symbols-outlined text-[13px]">arrow_forward</span></span>
+</div>
+</a>
+</section>
+<!-- 8. Archival Wiki Revision Ledger & Contribution CTA -->
+<section class="w-full px-gutter-mobile py-space-md bg-surface-container-lowest flex flex-col gap-space-sm mb-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-outline text-[18px]">history_edu</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Dossier Ledger</h2>
+</div>
+<span class="font-meta-badge text-meta-badge text-secondary">ACTIVE SYNC</span>
+</div>
+<!-- Recent Commit Logs -->
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-2">
+<div class="flex items-center justify-between text-meta-code text-[11px]">
+<span class="text-primary">@glide_echo</span>
+<span class="text-outline">2h ago • diff: +142 words</span>
+</div>
+<p class="font-meta-code text-[12px] text-on-surface-variant">
+        Added detailed guitar gauge telemetry (.011–.052) for 1991 Creation Sessions in Protocol 04.
+      </p>
+<div class="flex items-center gap-2 pt-1 border-t-0 text-[10px] font-meta-code text-outline">
+<span>Commit hash: 9d81fca</span>
+<span>•</span>
+<span class="text-secondary">Verified by Chief Archivist</span>
+</div>
+</div>
+<!-- Contribute Call to Action -->
+<div class="p-3.5 rounded-lg bg-surface-container flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-title-editorial text-[1.1rem] text-on-surface">Have archival schematics or gig recordings?</span>
+<span class="material-symbols-outlined text-primary text-[22px]">post_add</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        This dossier is community-maintained under Open Archival Audio Standards. Submit pedal chain revisions or press clippings.
+      </p>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-2 px-3 rounded bg-primary text-on-primary font-meta-badge text-meta-badge uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+          Contribute Revision
+        </button>
+<button class="py-2 px-3 rounded bg-surface-container-high text-on-surface font-meta-badge text-meta-badge uppercase tracking-wider flex items-center justify-center transition-all active:scale-[0.98]">
+          History (48)
+        </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Interactive Client-side Script for Micro-delights -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const signalChainBtn = document.getElementById('btn-signal-chain');
+    if (signalChainBtn) {
+      signalChainBtn.addEventListener('click', () => {
+        const target = document.querySelector('.material-symbols-outlined:is([class*="tune"])');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    }
+
+    const listenStemsBtn = document.getElementById('btn-listen-stems');
+    if (listenStemsBtn) {
+      listenStemsBtn.addEventListener('click', () => {
+        const miniPlayerTrack = document.querySelector('.text-secondary.truncate');
+        if (miniPlayerTrack) {
+          miniPlayerTrack.textContent = "MBV - To Here Knows When (Reverse Gate FLAC Stem)";
+          miniPlayerTrack.classList.add('animate-pulse');
+          setTimeout(() => miniPlayerTrack.classList.remove('animate-pulse'), 3000);
+        }
+      });
+    }
+  });
+</script></main><div class="fixed bottom-0 w-full z-50 pb-safe pointer-events-none"><div class="pointer-events-auto bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,0,0,0.6)]"><div class="h-10 px-gutter-mobile flex items-center justify-between bg-surface-container-low/60"><div class="flex items-center gap-space-sm min-w-0"><div class="w-2 h-2 rounded-full bg-secondary animate-pulse flex-shrink-0"></div><span class="font-meta-code text-meta-code text-secondary truncate">Cocteau Twins - Cherry-coloured Funk</span></div><div class="flex items-center gap-space-xs"><span class="font-meta-timestamp text-meta-timestamp text-outline">02:14 / 03:12</span><button aria-label="Play or Pause" class="w-8 h-8 flex items-center justify-center text-primary hover:text-primary-fixed"><span class="material-symbols-outlined text-[18px]">pause</span></button></div></div><nav class="flex justify-around items-center h-16 px-gutter-mobile" data-active-classes="text-primary font-bold"><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="archive-journal" href="#"><span class="material-symbols-outlined text-[20px]">auto_stories</span><span class="font-meta-badge text-meta-badge uppercase tracking-wider mt-1">Zine</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="pedals-and-gear" href="#"><span class="material-symbols-outlined text-[20px]">blur_on</span><span class="font-meta-badge text-meta-badge uppercase tracking-wider mt-1">Gear</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="sound-vault" href="#"><span class="material-symbols-outlined text-[20px]">graphic_eq</span><span class="font-meta-badge text-meta-badge uppercase tracking-wider mt-1">Audio</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] h-12 transition-colors text-primary font-bold" data-path="wiki-index" href="#"><span class="material-symbols-outlined text-[20px]">dataset</span><span class="font-meta-badge text-meta-badge uppercase tracking-wider mt-1">Wiki</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="contribute-portal" href="#"><span class="material-symbols-outlined text-[20px]">edit_note</span><span class="font-meta-badge text-meta-badge uppercase tracking-wider mt-1">Edit</span></a></nav></div></div></body></html>

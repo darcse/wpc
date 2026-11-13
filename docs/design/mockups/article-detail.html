@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"surface-container-highest":"#353438","primary-container":"#a78bfa","on-surface-variant":"#cac4d4","on-primary-fixed-variant":"#4f319c","on-secondary-container":"#003121","on-secondary-fixed-variant":"#00513a","primary-fixed":"#e8ddff","error":"#ffb4ab","on-surface":"#e4e1e6","surface-variant":"#353438","background":"#131316","on-error-container":"#ffdad6","surface-container":"#1f1f22","secondary":"#62dcad","on-secondary":"#003827","surface-container-high":"#2a2a2d","surface-dim":"#131316","secondary-container":"#18a479","inverse-on-surface":"#303033","surface-bright":"#39393c","on-primary":"#381385","inverse-primary":"#674bb5","on-primary-fixed":"#21005e","surface-container-lowest":"#0e0e11","on-background":"#e4e1e6","surface":"#131316","tertiary":"#ffafd3","outline":"#948e9d","on-secondary-fixed":"#002115","on-error":"#690005","on-tertiary":"#620040","secondary-fixed":"#80f9c8","on-tertiary-container":"#6a0045","tertiary-container":"#f170b4","tertiary-fixed":"#ffd8e7","surface-tint":"#cebdff","primary":"#cebdff","secondary-fixed-dim":"#62dcad","surface-container-low":"#1b1b1e","on-tertiary-fixed":"#3d0026","tertiary-fixed-dim":"#ffafd3","on-tertiary-fixed-variant":"#85145a","primary-fixed-dim":"#cebdff","on-primary-container":"#3c1989","error-container":"#93000a","inverse-surface":"#e4e1e6","outline-variant":"#494552"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","space-md":"1rem","margin-mobile":"1rem","gutter-mobile":"0.75rem","gutter":"1.5rem","space-xl":"2.5rem","space-xs":"0.25rem","space-lg":"1.5rem","margin":"3rem"},"fontFamily":{"headline-md":["Playfair Display"],"body-lg":["Plus Jakarta Sans"],"meta-code":["Space Mono"],"display-hero-mobile":["Playfair Display"],"meta-timestamp":["Space Mono"],"title-editorial":["Playfair Display"],"headline-sm":["Playfair Display"],"display-hero":["Playfair Display"],"body-sm":["Plus Jakarta Sans"],"headline-lg":["Playfair Display"],"meta-badge":["Space Mono"],"body-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Playfair Display"]},"fontSize":{"headline-md":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.875rem","fontWeight":"400"}],"meta-code":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"0.02em","fontWeight":"400"}],"display-hero-mobile":["2.75rem",{"lineHeight":"3rem","letterSpacing":"-0.02em","fontWeight":"700"}],"meta-timestamp":["0.75rem",{"lineHeight":"1rem","fontWeight":"400"}],"title-editorial":["1.25rem",{"lineHeight":"1.75rem","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["1.5rem",{"lineHeight":"2rem","fontWeight":"500"}],"display-hero":["5rem",{"lineHeight":"5.25rem","letterSpacing":"-0.03em","fontWeight":"700"}],"body-sm":["0.875rem",{"lineHeight":"1.375rem","fontWeight":"400"}],"headline-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.02em","fontWeight":"600"}],"meta-badge":["0.6875rem",{"lineHeight":"1rem","letterSpacing":"0.08em","fontWeight":"700"}],"body-md":["1rem",{"lineHeight":"1.625rem","fontWeight":"400"}],"headline-lg-mobile":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 z-50 bg-[#0E0E11]/90 backdrop-blur-md border-b border-[#27272F]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg shrink-0"><a class="flex items-center gap-space-sm group" data-path="archive-index" href="#"><img alt="Wet Pillow Club" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant group-hover:ring-primary transition-all" src="https://lh3.googleusercontent.com/aida/ALJJyrAc9U8oxn-843AnzXJve99bx2bo02S4peqVFdYPyUTFilVmmhjwHZzPIPeDn0zHyQ6jBsMm9xE3QeDUwV3s8kFg01A65cAuU7A4x3Ayto7UfHsheWAmPPPxFsgYIVsc8xVyolYb8uCqq3ggV-NMebkos1tJamTVaD3adHN6CJKhX_v6zN6vL-rhcQAv5gY8E2W5hOw26oQ-wN5xXLaLtbaNfrt2_L57f8-9CNUwm10"/><div class="flex flex-col"><span class="font-headline-sm text-title-editorial tracking-tight text-on-surface leading-none group-hover:text-primary transition-colors">Wet Pillow Club</span><span class="font-meta-badge text-meta-badge uppercase tracking-widest text-outline mt-0.5">Archive • Webzine</span></div></a><nav class="hidden xl:flex items-center space-x-1 border-l border-[#27272F] pl-space-md" data-active-classes="text-primary font-bold bg-surface-container-high"><a class="px-space-sm py-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="genres" href="#">Genres</a><a class="px-space-sm py-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="artists" href="#">Artists</a><a class="px-space-sm py-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="albums" href="#">Albums</a><a class="px-space-sm py-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="articles" href="#">Articles</a><a class="px-space-sm py-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="sonic-gear-and-pedals" href="#">Sonic Gear &amp; Pedals</a><a class="px-space-sm py-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="wiki-contributor-hub" href="#">Wiki Contributor Hub</a></nav></div><div class="flex-1 max-w-md hidden md:block mx-space-sm"><div class="relative flex items-center bg-surface-container border border-[#27272F] px-space-sm py-1.5 focus-within:border-primary transition-colors"><span class="material-symbols-outlined text-outline text-lg mr-2 select-none">search</span><input class="w-full bg-transparent font-meta-code text-meta-code text-on-surface placeholder-outline focus:outline-none" placeholder="⌘K Quick Wiki Search..." type="text"/><kbd class="font-meta-badge text-meta-badge bg-surface-container-high text-outline px-1.5 py-0.5 border border-[#27272F] select-none">⌘K</kbd></div></div><div class="flex items-center gap-space-sm shrink-0"><div class="hidden 2xl:flex items-center gap-1.5 px-space-sm py-1 bg-surface-container border border-[#27272F] font-meta-badge text-meta-badge text-outline"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span>4,812 ENTRIES INDEXED</span></div><button class="p-1.5 bg-surface-container border border-[#27272F] text-on-surface-variant hover:text-on-surface hover:border-outline-variant hover:bg-surface-container-high transition-all flex items-center justify-center" title="Random Archival Entry"><span class="material-symbols-outlined text-lg">casino</span></button><a class="hidden sm:inline-flex items-center gap-1 px-space-sm py-1.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface hover:bg-surface-container-high hover:border-outline-variant transition-all" data-path="contributor-portal" href="#"><span class="material-symbols-outlined text-sm text-primary">edit_note</span><span>Edit Mode</span></a><a class="px-space-md py-1.5 bg-primary-container text-on-primary font-meta-code text-meta-code font-bold hover:bg-primary transition-all flex items-center gap-1" data-path="login" href="#"><span class="material-symbols-outlined text-sm">login</span><span>Log In</span></a><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida/ALJJyrAc9U8oxn-843AnzXJve99bx2bo02S4peqVFdYPyUTFilVmmhjwHZzPIPeDn0zHyQ6jBsMm9xE3QeDUwV3s8kFg01A65cAuU7A4x3Ayto7UfHsheWAmPPPxFsgYIVsc8xVyolYb8uCqq3ggV-NMebkos1tJamTVaD3adHN6CJKhX_v6zN6vL-rhcQAv5gY8E2W5hOw26oQ-wN5xXLaLtbaNfrt2_L57f8-9CNUwm10"/></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- Archival Dossier Telemetry & Breadcrumb Ribbon -->
+<section class="w-full bg-surface-container-low px-gutter py-space-sm border-b border-surface-container-highest/40">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-space-sm">
+<!-- Breadcrumb Path -->
+<nav aria-label="Archive Breadcrumbs" class="flex items-center flex-wrap gap-1.5 font-meta-code text-meta-code text-outline">
+<a class="hover:text-primary transition-colors" href="#">ARCHIVE</a>
+<span class="text-surface-container-highest">/</span>
+<a class="hover:text-primary transition-colors" href="#">ARTICLES</a>
+<span class="text-surface-container-highest">/</span>
+<a class="hover:text-primary transition-colors" href="#">MONOGRAPHS</a>
+<span class="text-surface-container-highest">/</span>
+<span class="text-secondary font-bold">#MONO-042</span>
+<span class="text-surface-container-highest">/</span>
+<span class="text-on-surface truncate max-w-xs md:max-w-md">KEVIN SHIELDS - LOVELESS</span>
+</nav>
+<!-- Archival Actions -->
+<div class="flex items-center flex-wrap gap-2">
+<button class="px-space-sm py-1 bg-surface-container text-on-surface hover:text-primary hover:bg-surface-container-high transition-colors font-meta-code text-meta-code flex items-center gap-1.5 shadow-sm" onclick="navigator.clipboard.writeText('@article{shields_loveless_decay_2024, title={The Architecture of Decay}, author={Vane, Julian and Galloway, Tristan}, journal={Wet Pillow Club Webzine}, year={2024}}'); alert('BibTeX citation copied to clipboard.');">
+<span class="material-symbols-outlined text-sm text-primary">format_quote</span>
+<span>Cite (BibTeX)</span>
+</button>
+<button class="px-space-sm py-1 bg-surface-container text-on-surface hover:text-primary hover:bg-surface-container-high transition-colors font-meta-code text-meta-code flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-sm text-secondary">download</span>
+<span>PDF Transcript</span>
+</button>
+<button class="px-space-sm py-1 bg-surface-container text-on-surface hover:text-primary hover:bg-surface-container-high transition-colors font-meta-code text-meta-code flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-sm text-tertiary">graphic_eq</span>
+<span>Isolated Stems</span>
+</button>
+<a class="px-space-sm py-1 bg-primary text-on-primary font-meta-code text-meta-code font-bold hover:bg-primary-fixed transition-colors flex items-center gap-1 shadow-sm" href="#peer-review">
+<span class="material-symbols-outlined text-sm">edit_note</span>
+<span>Propose Edit</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Technical Telemetry Strip -->
+<section class="w-full bg-surface-container-lowest px-gutter py-2 border-b border-surface-container-highest/20 font-meta-timestamp text-meta-timestamp text-outline">
+<div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-y-1 gap-x-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-on-surface font-bold">STATUS:</span> PEER REVIEW VERIFIED ARCHIVAL
+      </div>
+<div><span class="text-on-surface-variant font-bold">CANON REF:</span> 130dB SPL (WHITE REVERB)</div>
+<div><span class="text-on-surface-variant font-bold">READING DEPTH:</span> 18 MIN (4,420 WORDS)</div>
+<div><span class="text-on-surface-variant font-bold">CROSS-REFERENCES:</span> 42 CITATIONS</div>
+<div><span class="text-on-surface-variant font-bold">RECORD REGISTRY:</span> AUGUST 2024 (REV. 12)</div>
+</div>
+</section>
+<!-- Master Monograph Editorial Header -->
+<header class="w-full relative overflow-hidden bg-gradient-to-b from-surface-container-low via-surface-container-lowest to-surface-container-lowest px-gutter pt-space-xl pb-space-lg">
+<div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto relative z-10 space-y-space-md">
+<!-- Taxonomy Graph Entity Pills -->
+<div class="flex flex-wrap items-center gap-2 pt-space-xs">
+<a class="px-space-sm py-1 bg-surface-container text-secondary border border-secondary/20 hover:border-secondary transition-colors font-meta-badge text-meta-badge uppercase tracking-wider flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-xs">album</span>
+          GENRE // UK FIRST-WAVE SHOEGAZE (#SG-01)
+        </a>
+<a class="px-space-sm py-1 bg-surface-container text-primary border border-primary/20 hover:border-primary transition-colors font-meta-badge text-meta-badge uppercase tracking-wider flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-xs">record_voice_over</span>
+          ARTIST // MY BLOODY VALENTINE
+        </a>
+<a class="px-space-sm py-1 bg-surface-container text-tertiary border border-tertiary/20 hover:border-tertiary transition-colors font-meta-badge text-meta-badge uppercase tracking-wider flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-xs">disc_full</span>
+          ALBUM // LOVELESS (1991) [CRECD060]
+        </a>
+<span class="px-space-sm py-1 bg-surface-container-high text-outline font-meta-badge text-meta-badge uppercase tracking-wider">
+          TAPE INDEX: 2" OTARI 24-TRACK
+        </span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface leading-tight tracking-tight max-w-5xl">
+        The Architecture of Decay: How Kevin Shields Sculpted the Iridescent Cathedrals of <span class="text-primary italic">‘Loveless’</span>
+</h1>
+<!-- Subtitle -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-4xl leading-relaxed">
+        An exhaustive technical dissection of the legendary 1989–1991 Creation Records recording sessions, microtonal tremolo arm modulation, psychoacoustic room phase cancellation, and the physical consequence of sustained 130dB pink noise.
+      </p>
+<!-- Byline & Contributor Ledger -->
+<div class="pt-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-space-md border-t border-surface-container-highest/40">
+<div class="flex items-center gap-space-md">
+<img class="w-12 h-12 rounded-full object-cover ring-2 ring-primary/40 shadow-md" data-alt="Black and white high-contrast editorial portrait photograph of music critic Julian Vane with archival audio headphones in an analog recording studio control room with glowing VU meters." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdwW-nQGz3-AROOITBuGcigtSOONXebsoXDAFO0xKRzo7fmU2rBBGy4tWAsxm66GEUkuqCBwA0MfXSGcMc3dr-y2Z0eBsXbNZukjuOeF3Opjuz0zkY20n3T34OJCcIjYDJBUbdb8b3RbBkoL1QHCqCnFBy8IWfCYDIUUCPKP0i19RDMqnswFk1On7okEKm6N1vhXkdBkGgsDCVNEX9xkO-RNB56aCXwcbbJdLmKWw"/>
+<div>
+<div class="font-body-md text-body-md font-bold text-on-surface">Julian Vane &amp; Tristan Galloway</div>
+<div class="font-meta-code text-meta-code text-outline">Sound &amp; Psychoacoustics Department · Primary Archival Verification</div>
+</div>
+</div>
+<!-- Hardware Tags -->
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="px-2 py-0.5 bg-surface-container text-tertiary font-meta-badge text-meta-badge">#GLIDEGUITAR</span>
+<span class="px-2 py-0.5 bg-surface-container text-secondary font-meta-badge text-meta-badge">#YAMAHASPX90</span>
+<span class="px-2 py-0.5 bg-surface-container text-primary font-meta-badge text-meta-badge">#REVERSEREVERB</span>
+<span class="px-2 py-0.5 bg-surface-container text-outline font-meta-badge text-meta-badge">#19STUDIOSEXODUS</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Editorial Master Layout: 2-Column Asymmetric Grid -->
+<main class="w-full px-gutter py-space-xl bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl relative">
+<!-- LEFT COLUMN: Primary Monograph Text & Technical Artifacts (8 Cols / ~67%) -->
+<article class="lg:col-span-8 space-y-space-xl">
+<!-- Hero Visual Element with Tape Reel Texture -->
+<div class="w-full relative bg-surface-container overflow-hidden shadow-xl">
+<div class="relative w-full h-80 sm:h-96 bg-cover bg-center" data-alt="Moody cinematic wide shot of an offset vintage electric guitar resting against a glowing vintage Vox AC30 tube amplifier in a smoke-filled dark studio space, bathed in deep magenta, soft violet and nocturnal teal neon light leaks." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBN5pa80U5M_6rory5lei61wKpy6rmsIjSopRAdiDEG7L7_UTxaasqG7jo6uy8sslfxRWFA6FDxNmG-VDwgUKrYWrCNMLo80LO_IgL-dKnZcuUOsgshIB8c3dZw0L8mDG6e04QBYLYeaSqSe2G7crOKo1Y4-7eZRHFuKOYTeDqyNiwLtAmJbOSt-QZZltZaEwAOiboWN9z0vlzuThlHSFbJkC9uQPU5_d35rc9fHrM')">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/40 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4 flex items-center justify-between font-meta-timestamp text-meta-timestamp text-on-surface-variant bg-surface-container-lowest/80 backdrop-blur-md px-space-md py-2 border-l-2 border-primary">
+<div>FIG 01.0 // 1964 Fender Jazzmaster tremolo assembly with bent whammy arm modification.</div>
+<div class="text-secondary">ARCHIVE REF: CRE-89-PHOT-04</div>
+</div>
+</div>
+</div>
+<!-- Lead Narrative Section -->
+<div class="space-y-space-md">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed first-letter:float-left first-letter:text-6xl first-letter:pr-4 first-letter:font-headline-lg first-letter:text-primary first-letter:leading-none">
+            Between February 1989 and September 1991, My Bloody Valentine inhabited nineteen distinct recording facilities across the United Kingdom. They chewed through nineteen sound engineers, drained Alan McGee’s Creation Records of an estimated £250,000, and pushed the analog recording medium past its logical point of fracture. What emerged from this protracted financial spiral was not a record constructed from guitar amplifier rage, but rather an ethereal acoustic mirage: an architecture carved out of phase cancellation, continuous tremolo manipulation, and early digital reverb artifacts.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            The prevailing historical narrative posits <em class="text-on-surface">Loveless</em> as the apotheosis of guitar distortion. Yet, an examination of the master 2-inch multitrack tapes reveals an inversion: Kevin Shields rarely employed heavy fuzz pedals during tracking. Instead, the monumental, undulating sheets of sound were produced through clean or subtly driven signal paths bent through microtonal tremolo arm modulations, routed into reverse digital gates, and subjected to deliberate acoustic phase inversion across adjacent ribbon microphones.
+          </p>
+</div>
+<!-- Archival Pull Quote Block -->
+<figure class="my-space-xl p-space-lg bg-surface-container-low border-l-4 border-primary relative overflow-hidden shadow-md">
+<div class="absolute top-2 right-4 font-headline-lg text-8xl text-surface-container-highest/20 select-none pointer-events-none">“</div>
+<blockquote class="font-headline-sm text-headline-sm text-on-surface italic leading-snug relative z-10">
+            “We weren't turning it up because it was aggressive. We turned it up because when a wall of glide frequencies hits 115 decibels, your inner ear physically vibrates and generates acoustic third-order harmonic overtones that aren't actually on the tape.”
+          </blockquote>
+<figcaption class="mt-space-md font-meta-code text-meta-code text-primary flex items-center justify-between">
+<span>— Kevin Shields, Tape Op Oral History, 1992</span>
+<span class="text-outline font-meta-timestamp text-meta-timestamp">TRANSCRIPT ID: ARCH-KS-889</span>
+</figcaption>
+</figure>
+<!-- Chapter 01 -->
+<section class="space-y-space-md pt-space-md" id="chapter-01">
+<div class="flex items-center gap-space-sm font-meta-badge text-meta-badge text-secondary tracking-widest uppercase">
+<span>Chapter 01</span>
+<span class="w-8 h-px bg-secondary"></span>
+<span>Signal Pathology</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">
+            The Myth of Distortion: Reverse Gates vs. Fuzz Walls
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            In common studio mythology, the monolithic shoegaze wall is attributed to cascades of electro-harmonix Big Muff fuzz units. In the specific case of <em class="text-on-surface">Loveless</em>, the primary tone generator was a 1964 Fender Jazzmaster strummed with the tremolo arm taped into Kevin Shields’ loose palm, strumming continuously while maintaining slight rotational pressure against the bridge spring mechanism.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            This technique—christened by Shields as “glide guitar”—relies on micro-tuning fluctuation. The pitch never settles at equal temperament (A=440Hz); it hovers in a ±18 cent oscillation envelope. When fed into a Yamaha SPX90 II multi-effects processor configured with <em>Early Reflection Preset 7 (Reverse Reverb)</em>, the decay envelope is played backward with 100% wet mix, eliminating the dry transient attack entirely.
+          </p>
+</section>
+<!-- Acoustic Stem / Waveform Breakdown Widget -->
+<div class="w-full bg-surface-container p-space-md space-y-space-sm shadow-md">
+<div class="flex items-center justify-between font-meta-code text-meta-code border-b border-surface-container-highest pb-2">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-on-surface font-bold">MULTITRACK STEM AUDITION:</span>
+<span class="text-primary truncate">"To Here Knows When" (Glide Guitars L/R Isolated)</span>
+</div>
+<span class="text-outline text-meta-timestamp">48kHz / 24-Bit FLAC</span>
+</div>
+<!-- Waveform Visualizer & Telemetry -->
+<div class="relative w-full h-24 bg-surface-container-lowest flex items-center justify-center overflow-hidden px-4">
+<!-- Simulated Vector Waveform Bars -->
+<div class="w-full h-16 flex items-center justify-between gap-0.5">
+<div class="w-1 bg-primary/40 h-4"></div>
+<div class="w-1 bg-primary/60 h-8"></div>
+<div class="w-1 bg-primary/80 h-12"></div>
+<div class="w-1 bg-primary h-14"></div>
+<div class="w-1 bg-secondary h-16"></div>
+<div class="w-1 bg-secondary/80 h-10"></div>
+<div class="w-1 bg-primary h-14"></div>
+<div class="w-1 bg-primary/70 h-12"></div>
+<div class="w-1 bg-primary/50 h-6"></div>
+<div class="w-1 bg-secondary h-14"></div>
+<div class="w-1 bg-secondary/90 h-16"></div>
+<div class="w-1 bg-primary h-12"></div>
+<div class="w-1 bg-tertiary h-10"></div>
+<div class="w-1 bg-tertiary/70 h-8"></div>
+<div class="w-1 bg-primary/80 h-14"></div>
+<div class="w-1 bg-secondary h-16"></div>
+<div class="w-1 bg-secondary/60 h-10"></div>
+<div class="w-1 bg-primary h-14"></div>
+<div class="w-1 bg-primary/70 h-8"></div>
+<div class="w-1 bg-tertiary/50 h-5"></div>
+<div class="w-1 bg-primary h-12"></div>
+<div class="w-1 bg-secondary h-15"></div>
+<div class="w-1 bg-secondary/80 h-16"></div>
+<div class="w-1 bg-primary/60 h-8"></div>
+<div class="w-1 bg-primary/40 h-4"></div>
+<div class="w-1 bg-primary h-12"></div>
+<div class="w-1 bg-secondary h-16"></div>
+<div class="w-1 bg-primary/80 h-10"></div>
+<div class="w-1 bg-primary/50 h-6"></div>
+</div>
+<!-- Scrub Playhead Line -->
+<div class="absolute left-1/3 top-0 bottom-0 w-0.5 bg-secondary shadow-[0_0_8px_#62dcad]"></div>
+<div class="absolute top-2 right-4 font-meta-code text-meta-badge bg-surface-container-high px-2 py-0.5 text-secondary">
+              RMS: -14.2 dBFS // CORRELATION: 0.18
+            </div>
+</div>
+<!-- Player Controls -->
+<div class="flex items-center justify-between font-meta-code text-meta-code pt-1">
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 bg-primary text-on-primary flex items-center justify-center hover:bg-primary-fixed transition-colors" id="stemPlayBtn" onclick="const icon = this.querySelector('.material-symbols-outlined'); if(icon.innerText==='play_arrow'){ icon.innerText='pause'; } else { icon.innerText='play_arrow'; }">
+<span class="material-symbols-outlined text-lg">play_arrow</span>
+</button>
+<div class="space-x-1 text-on-surface">
+<span class="text-primary font-bold">01:42</span>
+<span class="text-outline">/</span>
+<span class="text-outline">05:31</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-meta-timestamp text-outline">
+<span class="hidden sm:inline">PAN: 68% L / 72% R DUAL-MONO</span>
+<button class="hover:text-on-surface flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm">volume_up</span>
+<span>STEM VOL: 100%</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive Technical Diagram: Signal Flow -->
+<section class="space-y-space-sm pt-space-md">
+<div class="font-meta-badge text-meta-badge text-primary uppercase tracking-widest">
+            Fig 02.1 // Acoustic Signal Topology
+          </div>
+<h3 class="font-title-editorial text-title-editorial text-on-surface">
+            The Non-Linear Signal Chain of Track #3 "To Here Knows When"
+          </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            A schematic reconstruction compiled from engineer Alan Moulder’s console scratch notes and session recollections at Blackwing Studios (1990).
+          </p>
+<!-- Flow Chart Block -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-2 pt-space-xs font-meta-code text-meta-code">
+<div class="p-space-sm bg-surface-container border-t-2 border-primary space-y-1">
+<div class="text-primary text-meta-badge uppercase">Node A: Source</div>
+<div class="text-on-surface font-bold text-sm">1964 Jazzmaster</div>
+<div class="text-outline text-meta-timestamp leading-tight">Tremolo arm depressed 12-18% continuously; D-A-D-A-A-E Open Modal Tuning.</div>
+</div>
+<div class="p-space-sm bg-surface-container border-t-2 border-secondary space-y-1">
+<div class="text-secondary text-meta-badge uppercase">Node B: Pre-Amp DSP</div>
+<div class="text-on-surface font-bold text-sm">Yamaha SPX90 II</div>
+<div class="text-outline text-meta-timestamp leading-tight">Early Ref 7 (Reverse Reverb). Mix 100% Wet. Initial delay: 240ms. Feedback: Max.</div>
+</div>
+<div class="p-space-sm bg-surface-container border-t-2 border-tertiary space-y-1">
+<div class="text-tertiary text-meta-badge uppercase">Node C: Power Stage</div>
+<div class="text-on-surface font-bold text-sm">Vox AC30 Top Boost</div>
+<div class="text-outline text-meta-timestamp leading-tight">Master Volume at 10. Normal channel pushed past power amp tube threshold saturation.</div>
+</div>
+<div class="p-space-sm bg-surface-container border-t-2 border-primary space-y-1">
+<div class="text-primary text-meta-badge uppercase">Node D: Transduction</div>
+<div class="text-on-surface font-bold text-sm">Coles 4038 Ribbon</div>
+<div class="text-outline text-meta-timestamp leading-tight">Placed 14 feet back in live stone room. Phase-inverted 180° against close Shure SM57.</div>
+</div>
+</div>
+</section>
+<!-- Chapter 02 -->
+<section class="space-y-space-md pt-space-lg" id="chapter-02">
+<div class="flex items-center gap-space-sm font-meta-badge text-meta-badge text-secondary tracking-widest uppercase">
+<span>Chapter 02</span>
+<span class="w-8 h-px bg-secondary"></span>
+<span>Spatial Attrition</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">
+            The 19-Studio Pilgrimage: 16 Engineers Dismissed
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            The creation of the record became an existential campaign against conventional studio practice. Traditional British sound engineers were trained in transient discipline: snare drums should have clean crack, vocals should cut through at 3.5 kHz, and phase coherence was sacred. Shields demanded precisely the opposite: sound was treated as a malleable liquid slurry without discrete spatial localization.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Engineers who attempted to isolate track bleed or eliminate harmonic distortion were progressively sacked. By the time the sessions transferred to Shipton Manor, Shields and Colm Ó Cíosóig were sleeping on control room floors for weeks at a time, working 24-hour cycles fueled by black coffee and sheer sonic fixation.
+          </p>
+<!-- Studio Exodus Data Registry Table -->
+<div class="w-full bg-surface-container p-space-md space-y-space-sm overflow-x-auto shadow-sm">
+<div class="font-meta-code text-meta-code text-primary font-bold">
+              LOG: RECORDING ENVIRONMENT EXPEDITION (1989-1991)
+            </div>
+<table class="w-full text-left font-meta-code text-meta-code">
+<thead>
+<tr class="text-outline border-b border-surface-container-highest text-meta-timestamp">
+<th class="py-2 pr-4">STUDIO LOCATION</th>
+<th class="py-2 pr-4">PRIMARY SESSIONS</th>
+<th class="py-2 pr-4">CHIEF ENGINEER</th>
+<th class="py-2">STATUS / OUTCOME</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest text-on-surface-variant">
+<tr>
+<td class="py-2.5 font-bold text-on-surface">Blackwing Studios (London)</td>
+<td class="py-2.5">Initial drum tracking &amp; guitar experiments</td>
+<td class="py-2.5">Nick Robbins</td>
+<td class="py-2.5 text-tertiary">Dismissed (Acoustic friction)</td>
+</tr>
+<tr>
+<td class="py-2.5 font-bold text-on-surface">The Elephant (London)</td>
+<td class="py-2.5">Rhythm loops &amp; bass foundation</td>
+<td class="py-2.5">Harold Burgon</td>
+<td class="py-2.5 text-secondary">Tapes retained</td>
+</tr>
+<tr>
+<td class="py-2.5 font-bold text-on-surface">Shipton Manor (Oxfordshire)</td>
+<td class="py-2.5">Glide guitar multitracking layers</td>
+<td class="py-2.5">Alan Moulder</td>
+<td class="py-2.5 text-primary">Master sessions achieved</td>
+</tr>
+<tr>
+<td class="py-2.5 font-bold text-on-surface">Church Studios (Crouch End)</td>
+<td class="py-2.5">Final mixdown &amp; vocal ghost whispers</td>
+<td class="py-2.5">Kevin Shields / Moulder</td>
+<td class="py-2.5 text-secondary">Final print to 1/2" tape</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Chapter 03 -->
+<section class="space-y-space-md pt-space-lg" id="chapter-03">
+<div class="flex items-center gap-space-sm font-meta-badge text-meta-badge text-secondary tracking-widest uppercase">
+<span>Chapter 03</span>
+<span class="w-8 h-px bg-secondary"></span>
+<span>Vocal Deconstruction</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">
+            Vocal Hibernation: Bilinda Butcher’s Whispered Ghost Harmonies
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            The vocal tracks on <em class="text-on-surface">Loveless</em> do not sit atop the instrumental mix; they are buried within the guitar frequencies like archaeological fossils. Bilinda Butcher was regularly awakened at 4:30 AM to record vocal takes immediately upon opening her eyes—her throat still constricted by sleep, producing an involuntary breathy, half-lucid sibilance that resisted linguistic articulation.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Shields then stacked between twelve and twenty-four whispered takes, bouncing them down to a single mono track. The result was not pitch-corrected harmony, but an eerie chorus effect created by minute human micro-pitch variations and breath disparities that blur consonants into pink noise.
+          </p>
+</section>
+<!-- Footnotes & Citations Section -->
+<footer class="pt-space-xl border-t border-surface-container-highest space-y-space-md font-meta-code text-meta-code">
+<div class="font-meta-badge text-meta-badge text-outline uppercase tracking-wider">
+            Archival Citations &amp; Source Index (42 Indexed)
+          </div>
+<ol class="space-y-2 text-outline text-meta-timestamp list-decimal list-inside">
+<li><span class="text-on-surface">Moulder, Alan.</span> "Mixing Loveless: The Blackwing and Church Diaries," <em>Sound on Sound</em>, Vol 9, Issue 4, April 1992.</li>
+<li><span class="text-on-surface">McGee, Alan.</span> <em>Creation Stories: Riots, Raves and Running a Label</em>, Pan Macmillan, 2013, pp. 112–119.</li>
+<li><span class="text-on-surface">DeRogatis, Jim.</span> <em>Turn On Your Mind: Four Decades of Great Psychedelic Rock</em>, Hal Leonard Corporation, 2003.</li>
+<li><span class="text-on-surface">Shields, Kevin.</span> Technical lecture on tremolo arm calibration and early-reflection digital gates, Dublin Audio Heritage Society, Nov 2018.</li>
+</ol>
+</footer>
+</article>
+<!-- RIGHT COLUMN: Sticky Archival Context Rail (4 Cols / ~33%) -->
+<aside class="lg:col-span-4 space-y-space-lg">
+<div class="sticky top-20 space-y-space-md">
+<!-- WIDGET A: Primary Connected Knowledge Graph Entities -->
+<div class="bg-surface-container p-space-md space-y-space-md shadow-md">
+<div class="flex items-center justify-between font-meta-badge text-meta-badge border-b border-surface-container-highest pb-2">
+<span class="text-primary tracking-widest uppercase">RELATIONAL ENTITY GRAPH</span>
+<span class="material-symbols-outlined text-sm text-outline">hub</span>
+</div>
+<!-- Primary Artist Node -->
+<div class="space-y-2">
+<span class="font-meta-timestamp text-meta-timestamp text-outline uppercase">Primary Artist Dossier</span>
+<a class="group flex items-center gap-space-sm p-2 bg-surface-container-low hover:bg-surface-container-high transition-colors" href="#">
+<img class="w-12 h-12 object-cover" data-alt="Grainy black and white archival live photo of My Bloody Valentine performing on stage enveloped in dense smoke, blinding white stage spotlights, and guitar feedback." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvpJ1Teu732KB4hLbwgSQblW0bLK7NmR8td5Uvm0VFJgMEVwyiRKcOzbnxaLHTITF2oHU3Z8iKc45p_Uhsp6jX0nUAOL2sUdQO1zkbdwVwJ3s195xPJLfW5qeh_mh6hHrjsejD_fn0fn8ccCFRDb-Z65lhP-wq6pV3sdiGaisDgEOI4nZ4r0BP-ByU2oEOR_HmrphaPgpLhaOMSVbkLDY9-XRKWb405UZhDRQEpCY"/>
+<div class="min-w-0">
+<div class="font-title-editorial text-title-editorial text-on-surface group-hover:text-primary transition-colors truncate">
+                    My Bloody Valentine
+                  </div>
+<div class="font-meta-code text-meta-timestamp text-secondary">
+                    Active: 1983–Present // Dublin, IE
+                  </div>
+</div>
+</a>
+</div>
+<!-- Primary Album Dossier -->
+<div class="space-y-2">
+<span class="font-meta-timestamp text-meta-timestamp text-outline uppercase">Master Album Node</span>
+<a class="group flex items-center gap-space-sm p-2 bg-surface-container-low hover:bg-surface-container-high transition-colors" href="#">
+<img class="w-12 h-12 object-cover" data-alt="Iconic blurry magenta and deep crimson electric guitar abstract artwork reminiscent of the Loveless album sleeve texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJHzREGa44NP2wkda5V29G7p-khccqAiFmcf0i5int4CZK5Ajry7le8fm6XWG6YIXI69qu-mMyZeTcTqapuNPvhqeL3PMPfbuSyer-_FCn6iBJ43goK_u7PAjS65TLXBxRUZM-dRQJaddCSCK29megSxJtavrrGNSxdqMY7I2CMmsw0v8HxWrFpFQ9rb378s3oAG_N-Q7okymuhGBfM9PXs0Z5kqZo02k1vvbjHYU"/>
+<div class="min-w-0">
+<div class="font-title-editorial text-title-editorial text-on-surface group-hover:text-primary transition-colors truncate">
+                    Loveless (1991)
+                  </div>
+<div class="font-meta-code text-meta-timestamp text-tertiary">
+                    Catalog: CRECD060 // DR12 Master
+                  </div>
+</div>
+</a>
+</div>
+<!-- Genre Taxonomy Connection -->
+<div class="p-2 bg-surface-container-low space-y-1 font-meta-code text-meta-code">
+<div class="flex items-center justify-between">
+<span class="text-outline text-meta-timestamp">GENRE AFFINITY:</span>
+<span class="text-secondary font-bold">100% CANONICAL</span>
+</div>
+<div class="text-on-surface font-bold text-sm">UK First-Wave Shoegaze</div>
+<div class="text-meta-timestamp text-outline">Cluster #SG-01 (1988–1995)</div>
+</div>
+</div>
+<!-- WIDGET B: Chapter Navigator / Table of Contents -->
+<nav aria-label="Monograph Outline" class="bg-surface-container p-space-md space-y-space-sm shadow-md font-meta-code text-meta-code">
+<div class="flex items-center justify-between border-b border-surface-container-highest pb-2 font-meta-badge text-meta-badge text-secondary">
+<span class="tracking-widest uppercase">MONOGRAPH OUTLINE</span>
+<span class="material-symbols-outlined text-sm">toc</span>
+</div>
+<ul class="space-y-2 text-on-surface-variant">
+<li>
+<a class="flex items-center justify-between hover:text-primary transition-colors py-1 group" href="#chapter-01">
+<span class="truncate">01. The Myth of Distortion</span>
+<span class="text-outline text-meta-timestamp group-hover:text-primary">04:20</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between hover:text-primary transition-colors py-1 group" href="#chapter-02">
+<span class="truncate">02. The 19-Studio Pilgrimage</span>
+<span class="text-outline text-meta-timestamp group-hover:text-primary">09:15</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between hover:text-primary transition-colors py-1 group" href="#chapter-03">
+<span class="truncate">03. Vocal Hibernation</span>
+<span class="text-outline text-meta-timestamp group-hover:text-primary">14:40</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between hover:text-secondary transition-colors py-1 group" href="#peer-review">
+<span class="truncate">04. Wiki Annotation Ledger</span>
+<span class="text-outline text-meta-timestamp group-hover:text-secondary">REV</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- WIDGET C: Sonic Gear & Studio Hardware Cited -->
+<div class="bg-surface-container p-space-md space-y-space-sm shadow-md font-meta-code text-meta-code">
+<div class="flex items-center justify-between border-b border-surface-container-highest pb-2 font-meta-badge text-meta-badge text-tertiary">
+<span class="tracking-widest uppercase">HARDWARE CITED</span>
+<span class="material-symbols-outlined text-sm">pedal_bike</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-2 bg-surface-container-low">
+<span class="text-on-surface font-bold text-sm">Fender Jazzmaster (1964)</span>
+<span class="text-tertiary text-meta-timestamp">GUITAR</span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-low">
+<span class="text-on-surface font-bold text-sm">Yamaha SPX90 II</span>
+<span class="text-secondary text-meta-timestamp">DSP RACK</span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-low">
+<span class="text-on-surface font-bold text-sm">Marshall Shredmaster</span>
+<span class="text-primary text-meta-timestamp">OVERDRIVE</span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-low">
+<span class="text-on-surface font-bold text-sm">Otari MTR-90 2" 24-Trk</span>
+<span class="text-outline text-meta-timestamp">TAPE</span>
+</div>
+</div>
+</div>
+<!-- WIDGET D: Sound Matrix Cloud -->
+<div class="bg-surface-container p-space-md space-y-space-sm shadow-md">
+<div class="font-meta-badge text-meta-badge text-outline tracking-widest uppercase border-b border-surface-container-highest pb-2">
+              SOUND MATRIX VECTORS
+            </div>
+<div class="flex flex-wrap gap-1.5 font-meta-code text-meta-code">
+<a class="px-2 py-1 bg-surface-container-low text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" href="#">#GlideGuitar</a>
+<a class="px-2 py-1 bg-surface-container-low text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-colors" href="#">#ReverseGate</a>
+<a class="px-2 py-1 bg-surface-container-low text-on-surface-variant hover:text-tertiary hover:bg-surface-container-high transition-colors" href="#">#PinkNoise</a>
+<a class="px-2 py-1 bg-surface-container-low text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" href="#">#PhaseInversion</a>
+<a class="px-2 py-1 bg-surface-container-low text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-colors" href="#">#CreationRecords</a>
+<a class="px-2 py-1 bg-surface-container-low text-on-surface-variant hover:text-tertiary hover:bg-surface-container-high transition-colors" href="#">#Microtonal</a>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Related Monographs & Webzine Essays (3-Column Asymmetric Grid) -->
+<section class="w-full bg-surface-container-low px-gutter py-space-xl border-t border-surface-container-highest">
+<div class="max-w-7xl mx-auto space-y-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm">
+<div>
+<span class="font-meta-badge text-meta-badge text-secondary tracking-widest uppercase">The Knowledge Constellation</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Related Critical Monographs</h2>
+</div>
+<a class="font-meta-code text-meta-code text-primary hover:text-primary-fixed flex items-center gap-1 transition-colors" href="#">
+<span>View all 318 Monograph Indices</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- 3-Column Card Matrix -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Related 1 -->
+<article class="bg-surface-container p-space-md flex flex-col justify-between space-y-space-md hover:bg-surface-container-high transition-colors shadow-md group">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between font-meta-badge text-meta-badge">
+<span class="text-tertiary">ORAL HISTORY</span>
+<span class="text-outline">9 MIN READ</span>
+</div>
+<div class="w-full h-40 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dense wall of Marshall full stack amplifiers standing in a hazy concert venue illuminated by strobes with blurred silhouettes of crowd members covering their ears." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEDwYg9NRHml7TWDYVnSVBsoud6OiogEePrLhY2cdNvY9xZdWZNXtKfT_8veTS5yPHQPzXkJIQ6nPNvnQeJNRMEqspvXwZRNgo0fy4bFhKX5GepqYDgQKxBlyDk07tQCwE03zgGS8X8pT2gIPHYEoaI6pRLwC2Y_NUAIuAFc8W5LTlIoMWzgNS8rb2c6K5KZlHCRJrwvrg-uo3T54wl5oS5qoCaEzGPOpy98Xt4Cg"/>
+</div>
+<h3 class="font-title-editorial text-title-editorial text-on-surface group-hover:text-primary transition-colors">
+              The 130dB Rite of Passage: An Oral History of the ‘You Made Me Realise’ Holocaust Section
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+              How thirty minutes of unyielding, formless white noise turned live music into a visceral psychosomatic ritual that caused venue evacuations and fainting spells.
+            </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container-highest flex items-center justify-between font-meta-code text-meta-timestamp text-outline">
+<span>By Felix Moreau</span>
+<span class="text-secondary font-bold">#MONO-038</span>
+</div>
+</article>
+<!-- Related 2 -->
+<article class="bg-surface-container p-space-md flex flex-col justify-between space-y-space-md hover:bg-surface-container-high transition-colors shadow-md group">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between font-meta-badge text-meta-badge">
+<span class="text-secondary">GEAR ARCHEOLOGY</span>
+<span class="text-outline">12 MIN READ</span>
+</div>
+<div class="w-full h-40 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up photograph of a vintage 1980s 19-inch rackmount digital effects processor showing glowing green alphanumeric LED matrix display and sliders." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkxJTq10mAiOfqkoqhFI6mhh_4ys0qta1vOPibDjmRNDaGAvykpKGENZWy9nEb1OOqdaHPGFxX8-pNRvTxkUC1MmRb29pvjLj1fpUl1haOd9JL7vih1kFg3hBy2XTZQGsQBO3abKkVaYh67raDWM8fYXxcDIuNa4Y_eB_9kCqEE_83P1Xj7eVP1DZa5vd-jQnfjahI165nva66JdS2Jja16mebJTy9PfGIOagBsWw"/>
+</div>
+<h3 class="font-title-editorial text-title-editorial text-on-surface group-hover:text-primary transition-colors">
+              Deconstructing the SPX90 Reverse Gate: Why Early Digital Imperfection Created a New Genre
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+              12-bit quantization noise and algorithmic anti-aliasing errors became the unintended sonic brushstrokes of the London shoegaze movement.
+            </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container-highest flex items-center justify-between font-meta-code text-meta-timestamp text-outline">
+<span>By Robin Guthrie &amp; Staff</span>
+<span class="text-secondary font-bold">#MONO-019</span>
+</div>
+</article>
+<!-- Related 3 -->
+<article class="bg-surface-container p-space-md flex flex-col justify-between space-y-space-md hover:bg-surface-container-high transition-colors shadow-md group">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between font-meta-badge text-meta-badge">
+<span class="text-primary">ARCHIVAL INVESTIGATION</span>
+<span class="text-outline">24 MIN READ</span>
+</div>
+<div class="w-full h-40 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Archive metal reel-to-reel magnetic tape box with yellowed masking tape handwritten track notes, cue times, and red grease pencil markings from an early nineties recording session." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIPJBQBfYT4QzAKof9mCE-cnYuzMuYLK8qoT0QnvYHtiAZ96x-Zms1H4PbI_rhd70vb--h-J2OpuRSvIanwe7AHt-xShzq1c_-hzlXcu6UMKK0azUvORksJL57VUM5rRl3CNtgi1Th0m8KfL0-EAPPAntmMsmF1HI-BMFu4g4pXretqUvK6EfDNrQKiAK9x62FMCgPTrRpOz4E4bhJp724-zixnk69UQsUeOkoook"/>
+</div>
+<h3 class="font-title-editorial text-title-editorial text-on-surface group-hover:text-primary transition-colors">
+              The 1989–1991 Tape Diaries: Deciphering the 2-Inch Multitrack Reels
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+              A forensic examination of master reel track sheets from Chipping Norton, Blackwing, and Master Rock studios, documenting hundreds of abandoned glide layers.
+            </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container-highest flex items-center justify-between font-meta-code text-meta-timestamp text-outline">
+<span>By Tristan Galloway</span>
+<span class="text-secondary font-bold">#MONO-041</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Open Wiki Peer Review & Comment/Discussion Box -->
+<section class="w-full bg-surface-container-lowest px-gutter py-space-xl border-t border-surface-container-highest" id="peer-review">
+<div class="max-w-4xl mx-auto space-y-space-lg">
+<!-- Section Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm border-b border-surface-container-highest pb-space-sm">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-meta-badge text-meta-badge text-secondary uppercase tracking-widest">WIKI PEER REVIEW REPOSITORY</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Community Archival Annotations (14)</h2>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-space-sm py-1 bg-surface-container text-on-surface hover:text-primary font-meta-code text-meta-code flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm">history</span>
+<span>View Changelog (v12)</span>
+</button>
+</div>
+</div>
+<!-- Existing Community Verification Thread -->
+<div class="space-y-space-md">
+<!-- Comment 1 -->
+<div class="bg-surface-container p-space-md space-y-2 border-l-2 border-secondary shadow-sm">
+<div class="flex items-center justify-between font-meta-code text-meta-code">
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface">@tape_archivist_88</span>
+<span class="text-secondary font-meta-badge text-meta-badge bg-surface-container-high px-1.5 py-0.5">VERIFIED CURATOR</span>
+</div>
+<span class="text-outline text-meta-timestamp">3 DAYS AGO // REV. REF #74</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            In Chapter 01 regarding the reverse gate on "To Here Knows When", it's worth noting Shields also had an Alesis Midiverb II patch #45 engaged in series behind the SPX90 during the September 1990 Church Studios re-tracking. The Midiverb added the distinct low-mid resonant smear that eliminated the Fender Jazzmaster’s string click.
+          </p>
+<div class="flex items-center gap-4 font-meta-code text-meta-timestamp text-outline pt-1">
+<button class="hover:text-primary flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-xs">thumb_up</span>
+<span>18 Upvotes</span>
+</button>
+<button class="hover:text-secondary flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-xs">reply</span>
+<span>Reply</span>
+</button>
+</div>
+</div>
+<!-- Comment 2 -->
+<div class="bg-surface-container p-space-md space-y-2 border-l-2 border-surface-container-highest shadow-sm">
+<div class="flex items-center justify-between font-meta-code text-meta-code">
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface">@glide_frequency</span>
+<span class="text-outline font-meta-badge text-meta-badge bg-surface-container-high px-1.5 py-0.5">CONTRIBUTOR</span>
+</div>
+<span class="text-outline text-meta-timestamp">1 WEEK AGO</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Can anyone confirm the string gauge used for the open D-A-D-A-A-E tuning? Most accounts cite .010 to .046 standard Ernie Ball, but the slackness required for the thumb tremolo action suggests a lighter G string substitution.
+          </p>
+<div class="flex items-center gap-4 font-meta-code text-meta-timestamp text-outline pt-1">
+<button class="hover:text-primary flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-xs">thumb_up</span>
+<span>7 Upvotes</span>
+</button>
+<button class="hover:text-secondary flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-xs">reply</span>
+<span>Reply</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Propose Revision / Annotation Input Box -->
+<div class="bg-surface-container-low p-space-md space-y-space-sm shadow-md">
+<div class="flex items-center justify-between font-meta-code text-meta-code">
+<span class="text-on-surface font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">add_comment</span>
+<span>Submit Archival Correction or Citation</span>
+</span>
+<span class="text-outline text-meta-timestamp">Markdown &amp; LaTeX Syntax Supported</span>
+</div>
+<textarea class="w-full bg-surface-container text-on-surface placeholder:text-outline p-space-sm font-meta-code text-meta-code border border-surface-container-highest focus:outline-none focus:border-primary transition-colors resize-y" placeholder="Cite interview source, multitrack reel catalog number, or suggest precise technical amendment for peer review..." rows="4"></textarea>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-1">
+<div class="flex items-center gap-2 text-outline font-meta-code text-meta-timestamp">
+<span class="material-symbols-outlined text-xs text-secondary">verified_user</span>
+<span>Submissions undergo editorial cryptographic peer verification</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-space-md py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface font-meta-code text-meta-code transition-colors">
+              Preview Diff
+            </button>
+<button class="px-space-md py-1.5 bg-primary text-on-primary font-meta-code text-meta-code font-bold hover:bg-primary-fixed transition-colors shadow-sm">
+              Commit Annotation PR
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-[#27272F] font-body-sm text-on-surface-variant"><div class="w-full px-gutter py-space-xl"><div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 border border-[#27272F]"><div class="lg:col-span-4 p-space-lg border-b lg:border-b-0 lg:border-r border-[#27272F] flex flex-col justify-between"><div class="space-y-space-sm"><div class="flex items-center gap-space-sm"><img alt="Wet Pillow Club Logo" class="w-6 h-6 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrAc9U8oxn-843AnzXJve99bx2bo02S4peqVFdYPyUTFilVmmhjwHZzPIPeDn0zHyQ6jBsMm9xE3QeDUwV3s8kFg01A65cAuU7A4x3Ayto7UfHsheWAmPPPxFsgYIVsc8xVyolYb8uCqq3ggV-NMebkos1tJamTVaD3adHN6CJKhX_v6zN6vL-rhcQAv5gY8E2W5hOw26oQ-wN5xXLaLtbaNfrt2_L57f8-9CNUwm10"/><span class="font-headline-sm text-title-editorial text-on-surface">Wet Pillow Club</span></div><p class="font-body-sm text-body-sm text-outline leading-relaxed max-w-sm">An open critical encyclopedic index and neo-editorial webzine chronicling the textures, walls of sound, and sonic lineage of Shoegaze, Dream Pop, and ethereal alternative music.</p></div><div class="pt-space-lg space-y-1 font-meta-timestamp text-meta-timestamp text-outline"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-xs text-secondary">update</span><span>REV. 2024.11-SHOEGAZE.84A</span></div><div>CC BY-NC-SA 4.0 ARCHIVAL REPOSITORY</div></div></div><div class="lg:col-span-3 p-space-lg border-b md:border-b-0 md:border-r border-[#27272F] space-y-space-md"><div class="font-meta-badge text-meta-badge text-primary uppercase tracking-widest">Sound Matrices</div><div class="flex flex-wrap gap-1.5"><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#ReverseReverb</span><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#GlideGuitar</span><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#EtherealWave</span><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#Slowcore</span><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#FuzzWall</span><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#Dreampop</span><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#CocteauVibes</span></div></div><div class="lg:col-span-3 p-space-lg border-b md:border-b-0 md:border-r border-[#27272F] space-y-space-md"><div class="font-meta-badge text-meta-badge text-secondary uppercase tracking-widest">Registry Index</div><ul class="space-y-1.5 font-meta-code text-meta-code"><li class="flex justify-between items-center"><span class="text-outline">Band Discographies</span><span class="text-on-surface">1,240</span></li><li class="flex justify-between items-center"><span class="text-outline">Pedal Schematics</span><span class="text-on-surface">482</span></li><li class="flex justify-between items-center"><span class="text-outline">Master Critical Essays</span><span class="text-on-surface">318</span></li><li class="flex justify-between items-center"><span class="text-outline">Bootleg Session Tapes</span><span class="text-on-surface">895</span></li></ul></div><div class="lg:col-span-2 p-space-lg flex flex-col justify-between space-y-space-md"><div class="space-y-space-sm"><div class="font-meta-badge text-meta-badge text-tertiary uppercase tracking-widest">Syndication</div><div class="flex flex-col space-y-2 font-meta-code text-meta-code"><a class="flex items-center gap-1.5 text-on-surface-variant hover:text-tertiary transition-colors" href="#"><span class="material-symbols-outlined text-sm">rss_feed</span><span>RSS Feed</span></a><a class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-sm">code</span><span>API Data Dump</span></a><a class="flex items-center gap-1.5 text-on-surface-variant hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-sm">history_edu</span><span>Changelog</span></a></div></div><div class="font-meta-timestamp text-meta-timestamp text-outline pt-space-md border-t border-[#27272F]">© 2024 Wet Pillow Club Archive.</div></div></div></div></footer></body></html>

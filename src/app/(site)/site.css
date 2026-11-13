@@ -1,0 +1,146 @@
+@import 'tailwindcss';
+
+/*
+  Design tokens (dark). Light theme can add [data-theme='light'] later.
+  Hex values live ONLY here — components use role utilities.
+*/
+:root,
+[data-theme='dark'] {
+  --wpc-surface-canvas: #0e0e11;
+  --wpc-surface: #17171c;
+  --wpc-surface-hover: #1f1f26;
+  --wpc-border: #27272f;
+  --wpc-text: #f4f4f6;
+  --wpc-text-muted: #9a9aa6;
+  --wpc-text-subtle: #6e6e7c;
+  --wpc-accent: #a78bfa;
+  --wpc-accent-hover: #c4b5fd;
+  --wpc-mint: #6ee7b7;
+  --wpc-rose: #f472b6;
+}
+
+@theme inline {
+  --color-surface-canvas: var(--wpc-surface-canvas);
+  --color-surface: var(--wpc-surface);
+  --color-surface-hover: var(--wpc-surface-hover);
+  --color-border: var(--wpc-border);
+  --color-text: var(--wpc-text);
+  --color-text-muted: var(--wpc-text-muted);
+  --color-text-subtle: var(--wpc-text-subtle);
+  --color-accent: var(--wpc-accent);
+  --color-accent-hover: var(--wpc-accent-hover);
+  --color-mint: var(--wpc-mint);
+  --color-rose: var(--wpc-rose);
+
+  --font-display: var(--font-playfair), var(--font-noto-serif-kr), serif;
+  --font-sans: var(--font-jakarta), var(--font-noto-sans-kr), sans-serif;
+  --font-mono: var(--font-space-mono), var(--font-noto-sans-kr), monospace;
+
+  --radius-none: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
+  --radius-4xl: 0;
+  --radius: 0;
+  --radius-full: 9999px;
+
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-mobile: 0.75rem;
+  --spacing-margin: 3rem;
+  --spacing-margin-mobile: 1rem;
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+
+  --text-display-hero: 5rem;
+  --text-display-hero--line-height: 5.25rem;
+  --text-display-hero--letter-spacing: -0.03em;
+  --text-display-hero--font-weight: 700;
+
+  --text-display-hero-mobile: 2.75rem;
+  --text-display-hero-mobile--line-height: 3rem;
+  --text-display-hero-mobile--letter-spacing: -0.02em;
+  --text-display-hero-mobile--font-weight: 700;
+
+  --text-headline-lg: 3rem;
+  --text-headline-lg--line-height: 3.5rem;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-lg-mobile: 2rem;
+  --text-headline-lg-mobile--line-height: 2.5rem;
+  --text-headline-lg-mobile--letter-spacing: -0.01em;
+  --text-headline-lg-mobile--font-weight: 600;
+
+  --text-headline-md: 2rem;
+  --text-headline-md--line-height: 2.5rem;
+  --text-headline-md--letter-spacing: -0.01em;
+  --text-headline-md--font-weight: 600;
+
+  --text-headline-sm: 1.5rem;
+  --text-headline-sm--line-height: 2rem;
+  --text-headline-sm--font-weight: 500;
+
+  --text-title-editorial: 1.25rem;
+  --text-title-editorial--line-height: 1.75rem;
+  --text-title-editorial--letter-spacing: -0.01em;
+  --text-title-editorial--font-weight: 600;
+
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.875rem;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 1rem;
+  --text-body-md--line-height: 1.625rem;
+  --text-body-md--font-weight: 400;
+
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.375rem;
+  --text-body-sm--font-weight: 400;
+
+  --text-meta-code: 0.8125rem;
+  --text-meta-code--line-height: 1.25rem;
+  --text-meta-code--letter-spacing: 0.02em;
+  --text-meta-code--font-weight: 400;
+
+  /* DESIGN.md was 0.6875rem; raised to ≥0.75rem for mobile minimum */
+  --text-meta-badge: 0.75rem;
+  --text-meta-badge--line-height: 1rem;
+  --text-meta-badge--letter-spacing: 0.08em;
+  --text-meta-badge--font-weight: 700;
+
+  --text-meta-timestamp: 0.75rem;
+  --text-meta-timestamp--line-height: 1rem;
+  --text-meta-timestamp--font-weight: 400;
+}
+
+.site-root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--wpc-surface-canvas);
+  color: var(--wpc-text);
+  font-family: var(--font-jakarta), var(--font-noto-sans-kr), sans-serif;
+  font-size: 1rem;
+  line-height: 1.625rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-root input,
+.site-root textarea,
+.site-root select {
+  font-size: 1rem;
+}
+
+.font-display {
+  font-family: var(--font-playfair), var(--font-noto-serif-kr), serif;
+}
+
+.font-mono {
+  font-family: var(--font-space-mono), var(--font-noto-sans-kr), monospace;
+}

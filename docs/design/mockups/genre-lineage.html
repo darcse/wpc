@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"surface-container-highest":"#353438","primary-container":"#a78bfa","on-surface-variant":"#cac4d4","on-primary-fixed-variant":"#4f319c","on-secondary-container":"#003121","on-secondary-fixed-variant":"#00513a","primary-fixed":"#e8ddff","error":"#ffb4ab","on-surface":"#e4e1e6","surface-variant":"#353438","background":"#131316","on-error-container":"#ffdad6","surface-container":"#1f1f22","secondary":"#62dcad","on-secondary":"#003827","surface-container-high":"#2a2a2d","surface-dim":"#131316","secondary-container":"#18a479","inverse-on-surface":"#303033","surface-bright":"#39393c","on-primary":"#381385","inverse-primary":"#674bb5","on-primary-fixed":"#21005e","surface-container-lowest":"#0e0e11","on-background":"#e4e1e6","surface":"#131316","tertiary":"#ffafd3","outline":"#948e9d","on-secondary-fixed":"#002115","on-error":"#690005","on-tertiary":"#620040","secondary-fixed":"#80f9c8","on-tertiary-container":"#6a0045","tertiary-container":"#f170b4","tertiary-fixed":"#ffd8e7","surface-tint":"#cebdff","primary":"#cebdff","secondary-fixed-dim":"#62dcad","surface-container-low":"#1b1b1e","on-tertiary-fixed":"#3d0026","tertiary-fixed-dim":"#ffafd3","on-tertiary-fixed-variant":"#85145a","primary-fixed-dim":"#cebdff","on-primary-container":"#3c1989","error-container":"#93000a","inverse-surface":"#e4e1e6","outline-variant":"#494552"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","space-md":"1rem","margin-mobile":"1rem","gutter-mobile":"0.75rem","gutter":"1.5rem","space-xl":"2.5rem","space-xs":"0.25rem","space-lg":"1.5rem","margin":"3rem"},"fontFamily":{"headline-md":["Playfair Display"],"body-lg":["Plus Jakarta Sans"],"meta-code":["Space Mono"],"display-hero-mobile":["Playfair Display"],"meta-timestamp":["Space Mono"],"title-editorial":["Playfair Display"],"headline-sm":["Playfair Display"],"display-hero":["Playfair Display"],"body-sm":["Plus Jakarta Sans"],"headline-lg":["Playfair Display"],"meta-badge":["Space Mono"],"body-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Playfair Display"]},"fontSize":{"headline-md":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.875rem","fontWeight":"400"}],"meta-code":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"0.02em","fontWeight":"400"}],"display-hero-mobile":["2.75rem",{"lineHeight":"3rem","letterSpacing":"-0.02em","fontWeight":"700"}],"meta-timestamp":["0.75rem",{"lineHeight":"1rem","fontWeight":"400"}],"title-editorial":["1.25rem",{"lineHeight":"1.75rem","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["1.5rem",{"lineHeight":"2rem","fontWeight":"500"}],"display-hero":["5rem",{"lineHeight":"5.25rem","letterSpacing":"-0.03em","fontWeight":"700"}],"body-sm":["0.875rem",{"lineHeight":"1.375rem","fontWeight":"400"}],"headline-lg":["3rem",{"lineHeight":"3.5rem","letterSpacing":"-0.02em","fontWeight":"600"}],"meta-badge":["0.6875rem",{"lineHeight":"1rem","letterSpacing":"0.08em","fontWeight":"700"}],"body-md":["1rem",{"lineHeight":"1.625rem","fontWeight":"400"}],"headline-lg-mobile":["2rem",{"lineHeight":"2.5rem","letterSpacing":"-0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 z-50 bg-[#0E0E11]/90 backdrop-blur-md border-b border-[#27272F]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg shrink-0"><a class="flex items-center gap-space-sm group" data-path="archive-index" href="#"><img alt="Wet Pillow Club" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant group-hover:ring-primary transition-all" src="https://lh3.googleusercontent.com/aida/ALJJyrAc9U8oxn-843AnzXJve99bx2bo02S4peqVFdYPyUTFilVmmhjwHZzPIPeDn0zHyQ6jBsMm9xE3QeDUwV3s8kFg01A65cAuU7A4x3Ayto7UfHsheWAmPPPxFsgYIVsc8xVyolYb8uCqq3ggV-NMebkos1tJamTVaD3adHN6CJKhX_v6zN6vL-rhcQAv5gY8E2W5hOw26oQ-wN5xXLaLtbaNfrt2_L57f8-9CNUwm10"/><div class="flex flex-col"><span class="font-headline-sm text-title-editorial tracking-tight text-on-surface leading-none group-hover:text-primary transition-colors">Wet Pillow Club</span><span class="font-meta-badge text-meta-badge uppercase tracking-widest text-outline mt-0.5">Archive • Webzine</span></div></a><nav class="hidden xl:flex items-center space-x-1 border-l border-[#27272F] pl-space-md" data-active-classes="text-primary font-bold bg-surface-container-high"><a class="px-space-sm py-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="genres" href="#">Genres</a><a class="px-space-sm py-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="artists" href="#">Artists</a><a class="px-space-sm py-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="albums" href="#">Albums</a><a class="px-space-sm py-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="articles" href="#">Articles</a><a class="px-space-sm py-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="sonic-gear-and-pedals" href="#">Sonic Gear &amp; Pedals</a><a class="px-space-sm py-1 font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="wiki-contributor-hub" href="#">Wiki Contributor Hub</a></nav></div><div class="flex-1 max-w-md hidden md:block mx-space-sm"><div class="relative flex items-center bg-surface-container border border-[#27272F] px-space-sm py-1.5 focus-within:border-primary transition-colors"><span class="material-symbols-outlined text-outline text-lg mr-2 select-none">search</span><input class="w-full bg-transparent font-meta-code text-meta-code text-on-surface placeholder-outline focus:outline-none" placeholder="⌘K Quick Wiki Search..." type="text"/><kbd class="font-meta-badge text-meta-badge bg-surface-container-high text-outline px-1.5 py-0.5 border border-[#27272F] select-none">⌘K</kbd></div></div><div class="flex items-center gap-space-sm shrink-0"><div class="hidden 2xl:flex items-center gap-1.5 px-space-sm py-1 bg-surface-container border border-[#27272F] font-meta-badge text-meta-badge text-outline"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span>4,812 ENTRIES INDEXED</span></div><button class="p-1.5 bg-surface-container border border-[#27272F] text-on-surface-variant hover:text-on-surface hover:border-outline-variant hover:bg-surface-container-high transition-all flex items-center justify-center" title="Random Archival Entry"><span class="material-symbols-outlined text-lg">casino</span></button><a class="hidden sm:inline-flex items-center gap-1 px-space-sm py-1.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface hover:bg-surface-container-high hover:border-outline-variant transition-all" data-path="contributor-portal" href="#"><span class="material-symbols-outlined text-sm text-primary">edit_note</span><span>Edit Mode</span></a><a class="px-space-md py-1.5 bg-primary-container text-on-primary font-meta-code text-meta-code font-bold hover:bg-primary transition-all flex items-center gap-1" data-path="login" href="#"><span class="material-symbols-outlined text-sm">login</span><span>Log In</span></a><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida/ALJJyrAc9U8oxn-843AnzXJve99bx2bo02S4peqVFdYPyUTFilVmmhjwHZzPIPeDn0zHyQ6jBsMm9xE3QeDUwV3s8kFg01A65cAuU7A4x3Ayto7UfHsheWAmPPPxFsgYIVsc8xVyolYb8uCqq3ggV-NMebkos1tJamTVaD3adHN6CJKhX_v6zN6vL-rhcQAv5gY8E2W5hOw26oQ-wN5xXLaLtbaNfrt2_L57f8-9CNUwm10"/></div></div></header><main class="w-full pt-16 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Utility Bar / Archival Breadcrumbs -->
+<section class="w-full bg-surface-container-lowest px-gutter py-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-y-2 font-meta-code text-meta-code text-outline">
+<div class="flex items-center gap-2">
+<span class="text-secondary font-bold">ARCHIVE</span>
+<span class="text-outline-variant select-none">//</span>
+<span class="text-on-surface">TAXONOMY</span>
+<span class="text-outline-variant select-none">//</span>
+<span class="bg-surface-container px-2 py-0.5 text-primary tracking-wider uppercase font-meta-badge text-meta-badge">GENRE_TREE_ID: SG-ROOTS-1988-PRESENT</span>
+</div>
+<div class="flex items-center gap-4 text-meta-timestamp">
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>42 NODES RESOLVED</span>
+<span class="text-outline-variant">|</span>
+<span>TOPOLOGY: ACOUSTIC-GRAPH-V4.1</span>
+<span class="text-outline-variant">|</span>
+<span>LAST MUTATION: 18 HOURS AGO</span>
+</div>
+</div>
+</section>
+<!-- Editorial Hero Section -->
+<section class="w-full bg-surface-container-low px-gutter py-space-lg relative overflow-hidden">
+<div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 left-1/4 w-80 h-80 rounded-full bg-secondary/5 blur-3xl pointer-events-none"></div>
+<div class="max-w-6xl space-y-space-sm relative z-10">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-primary/10 text-primary font-meta-badge text-meta-badge uppercase tracking-widest">Acoustic Genealogy &amp; Signal Lineage</span>
+<span class="text-outline text-meta-timestamp font-meta-timestamp">SYS.CANON // REF-8924</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-tight">
+        Sonic Taxonomy &amp; <span class="italic font-normal text-primary">Genre Lineage Matrix</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-4xl leading-relaxed">
+        A cartography of heavy modulation, psychoacoustic reverb walls, post-punk dissonance, and the evolutionary lineage of ethereal noise (1978–Present). Visualizing four decades of sonic bleed, reverse gating, and guitar anti-technique.
+      </p>
+</div>
+<!-- Global Graph Toolbar Controls -->
+<div class="mt-space-lg pt-space-md bg-surface-container/60 p-space-md backdrop-blur-md">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- View Switchers -->
+<div class="flex flex-wrap items-center gap-1">
+<button class="px-3 py-1.5 bg-primary text-on-primary font-meta-code text-meta-code font-bold flex items-center gap-1.5 shadow-sm transition-all hover:bg-primary-fixed" id="view-2d">
+<span class="material-symbols-outlined text-sm">hub</span>
+<span>2D Force Graph</span>
+</button>
+<button class="px-3 py-1.5 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright font-meta-code text-meta-code flex items-center gap-1.5 transition-all" id="view-timeline">
+<span class="material-symbols-outlined text-sm">account_tree</span>
+<span>Chronological Tree</span>
+</button>
+<button class="px-3 py-1.5 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright font-meta-code text-meta-code flex items-center gap-1.5 transition-all" id="view-orbit">
+<span class="material-symbols-outlined text-sm">adjust</span>
+<span>Frequency Orbit</span>
+</button>
+<button class="px-3 py-1.5 bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright font-meta-code text-meta-code flex items-center gap-1.5 transition-all" id="view-3d">
+<span class="material-symbols-outlined text-sm">view_in_ar</span>
+<span>Waveform Matrix</span>
+</button>
+</div>
+<!-- Layer Toggles -->
+<div class="flex flex-wrap items-center gap-2 text-meta-code font-meta-code">
+<span class="text-outline text-meta-badge uppercase tracking-wider mr-1">LAYERS:</span>
+<button class="px-2.5 py-1 bg-surface-container-highest text-secondary text-meta-badge uppercase flex items-center gap-1.5 transition-all" data-active="true" onclick="toggleLayer(this)">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Era Bounds
+          </button>
+<button class="px-2.5 py-1 bg-surface-container-highest text-primary text-meta-badge uppercase flex items-center gap-1.5 transition-all" data-active="true" onclick="toggleLayer(this)">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Acoustic Physics (dB/RT60)
+          </button>
+<button class="px-2.5 py-1 bg-surface-container-high text-outline text-meta-badge uppercase flex items-center gap-1.5 hover:text-on-surface transition-all" data-active="false" onclick="toggleLayer(this)">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>Pedal Schematics
+          </button>
+<button class="px-2.5 py-1 bg-surface-container-high text-outline text-meta-badge uppercase flex items-center gap-1.5 hover:text-on-surface transition-all" data-active="false" onclick="toggleLayer(this)">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>Geo Coordinates
+          </button>
+</div>
+<!-- HUD Controls: Search & Zoom -->
+<div class="flex items-center gap-2">
+<div class="relative flex items-center bg-surface-container-lowest px-2 py-1">
+<span class="material-symbols-outlined text-outline text-sm mr-1">filter_list</span>
+<input class="bg-transparent text-on-surface font-meta-code text-meta-code placeholder-outline focus:outline-none w-36 focus:w-48 transition-all" id="node-search" placeholder="Filter 42 nodes..." type="text"/>
+</div>
+<div class="flex items-center bg-surface-container-lowest p-0.5">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors" onclick="adjustZoom(0.1)" title="Zoom in"><span class="material-symbols-outlined text-sm">add</span></button>
+<button class="px-1.5 font-meta-badge text-meta-badge text-outline hover:text-on-surface" onclick="resetZoom()" title="Reset Zoom">100%</button>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors" onclick="adjustZoom(-0.1)" title="Zoom out"><span class="material-symbols-outlined text-sm">remove</span></button>
+</div>
+<button class="p-1.5 bg-surface-container-lowest text-on-surface-variant hover:text-secondary transition-colors" id="freeze-physics-btn" onclick="togglePhysics()" title="Freeze Dynamic Physics Engine">
+<span class="material-symbols-outlined text-sm">motion_photos_pause</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Nodal Graph Canvas Area -->
+<section class="w-full bg-surface-container-lowest px-gutter py-space-md">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md items-start">
+<!-- Graph Canvas Container (Cols 1-8/9) -->
+<div class="xl:col-span-8 2xl:col-span-9 bg-surface-container-low relative overflow-hidden h-[720px] flex flex-col justify-between">
+<!-- Canvas Background Grid Simulation -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle, #cebdff 0.75px, transparent 0.75px); background-size: 24px 24px;"></div>
+<!-- Subtle Ambient Energy Gradient -->
+<div class="absolute inset-0 pointer-events-none bg-gradient-to-tr from-primary/5 via-transparent to-secondary/5"></div>
+<!-- Graph HUD Status Overlay -->
+<div class="absolute top-4 left-4 z-20 flex flex-col gap-1 pointer-events-none">
+<div class="flex items-center gap-2 bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1 font-meta-badge text-meta-badge text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>FORCE_FIELD_ACTIVE: LEIDEN CLUSTERING // ITERATION #1,402</span>
+</div>
+<div class="text-outline font-meta-timestamp text-meta-timestamp px-3">
+            X: 512.44 // Y: -128.02 // DAMPING: 0.85
+          </div>
+</div>
+<!-- Era Timeline Background Bands Overlay -->
+<div class="absolute inset-0 grid grid-cols-5 pointer-events-none opacity-30 text-outline font-meta-badge text-meta-badge" id="era-overlay">
+<div class="p-3 bg-surface-container-lowest/40 flex flex-col justify-between">
+<span>ERA I: 1978–1985</span>
+<span class="opacity-50 text-[10px]">POST-PUNK &amp; ETHEREAL</span>
+</div>
+<div class="p-3 bg-surface-container-lowest/20 flex flex-col justify-between">
+<span>ERA II: 1986–1993</span>
+<span class="opacity-50 text-[10px]">FIRST WAVE APOGEE</span>
+</div>
+<div class="p-3 bg-surface-container-lowest/40 flex flex-col justify-between">
+<span>ERA III: 1994–2003</span>
+<span class="opacity-50 text-[10px]">SPACE ROCK &amp; SLOWCORE</span>
+</div>
+<div class="p-3 bg-surface-container-lowest/20 flex flex-col justify-between">
+<span>ERA IV: 2004–2016</span>
+<span class="opacity-50 text-[10px]">NU-GAZE &amp; BLACKGAZE</span>
+</div>
+<div class="p-3 bg-surface-container-lowest/40 flex flex-col justify-between">
+<span>ERA V: 2017–PRES</span>
+<span class="opacity-50 text-[10px]">HYPER-GAZE &amp; AMBIENT</span>
+</div>
+</div>
+<!-- Interactive SVG Nodes & Connections Graphic View -->
+<div class="relative w-full h-full cursor-grab active:cursor-grabbing select-none overflow-hidden" id="graph-viewport">
+<svg class="w-full h-full" id="network-svg" preserveaspectratio="xMidYMid meet" viewbox="0 0 1000 700">
+<defs>
+<!-- Glowing Filters -->
+<filter height="140%" id="glow-primary" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="4"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+<filter height="140%" id="glow-secondary" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+<lineargradient id="grad-line-primary" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#948e9d" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#a78bfa" stop-opacity="0.8"></stop>
+</lineargradient>
+<lineargradient id="grad-line-secondary" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#a78bfa" stop-opacity="0.8"></stop>
+<stop offset="100%" stop-color="#62dcad" stop-opacity="0.8"></stop>
+</lineargradient>
+</defs>
+<!-- Spline Edges / Lineage Connections -->
+<g class="edges" stroke-width="1.5">
+<!-- Post Punk to Noise Pop -->
+<path d="M 120 180 Q 180 220 230 240" fill="none" stroke="#494552" stroke-dasharray="3,3"></path>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="145" y="200">FEEDBACK SEED</text>
+<!-- Noise Pop to UK First Wave -->
+<path d="M 230 240 Q 340 280 470 330" fill="none" stroke="url(#grad-line-primary)" stroke-width="2"></path>
+<text class="font-meta-timestamp text-[9px] font-bold" fill="#cebdff" x="310" y="270">FUZZ SATURATION</text>
+<!-- Dream Pop to UK First Wave -->
+<path d="M 170 380 Q 320 370 470 350" fill="none" stroke="#a78bfa" stroke-opacity="0.7" stroke-width="2"></path>
+<text class="font-meta-timestamp text-[9px]" fill="#cebdff" x="280" y="385">CHORUS MODULATION</text>
+<!-- Ethereal Wave to UK First Wave -->
+<path d="M 140 490 Q 310 440 470 370" fill="none" stroke="#494552" stroke-dasharray="4,2"></path>
+<!-- Psychedelic Revival to UK First Wave -->
+<path d="M 220 120 Q 370 200 480 320" fill="none" stroke="#494552"></path>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="340" y="190">REVERSE ECHOES</text>
+<!-- UK First Wave to Space Rock -->
+<path d="M 530 320 Q 640 240 690 220" fill="none" stroke="url(#grad-line-secondary)" stroke-width="1.5"></path>
+<text class="font-meta-timestamp text-[8px]" fill="#62dcad" x="590" y="250">REVERB DECAY</text>
+<!-- UK First Wave to Slowcore -->
+<path d="M 520 380 Q 590 490 640 520" fill="none" stroke="#494552" stroke-dasharray="3,3"></path>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="545" y="470">TEMPO DECELERATION</text>
+<!-- UK First Wave to Post Rock -->
+<path d="M 540 350 Q 650 360 740 340" fill="none" stroke="#948e9d" stroke-opacity="0.5"></path>
+<!-- UK First Wave to Nu-Gaze (Primary Heir) -->
+<path d="M 540 330 Q 690 310 790 300" fill="none" stroke="#a78bfa" stroke-width="2.5"></path>
+<text class="font-meta-timestamp text-[9px] font-bold" fill="#cebdff" x="635" y="310">HERITAGE REVIVAL</text>
+<!-- Nu-Gaze to Blackgaze -->
+<path d="M 830 320 Q 860 410 840 460" fill="none" stroke="#f170b4" stroke-width="1.5"></path>
+<text class="font-meta-timestamp text-[8px]" fill="#ffafd3" x="850" y="400">TREMOLO BLASTS</text>
+<!-- Nu-Gaze to Hyper-Gaze / Deconstructed -->
+<path d="M 840 280 Q 890 230 920 190" fill="none" stroke="#62dcad" stroke-dasharray="2,2" stroke-width="1.5"></path>
+<text class="font-meta-timestamp text-[8px]" fill="#62dcad" x="890" y="225">BITCRUSH // GLITCH</text>
+<!-- Ambient Dream to Hyper-gaze -->
+<path d="M 870 120 Q 900 150 920 190" fill="none" stroke="#494552"></path>
+</g>
+<!-- Active Selection Aura (UK Shoegaze) -->
+<g id="epicenter-aura" transform="translate(500, 340)">
+<circle fill="#cebdff" fill-opacity="0.04" r="60"></circle>
+<circle class="animate-pulse" fill="#a78bfa" fill-opacity="0.08" r="44"></circle>
+<circle fill="none" r="32" stroke="#cebdff" stroke-dasharray="4,2" stroke-width="1"></circle>
+</g>
+<!-- Interactive Graph Nodes -->
+<!-- 1. Post-Punk (1978) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-110" data-node="post-punk" onclick="selectNode('post-punk')" transform="translate(120, 180)">
+<rect fill="#1b1b1e" height="32" rx="2" stroke="#494552" stroke-width="1" width="84" x="-42" y="-16"></rect>
+<circle cx="-30" cy="0" fill="#948e9d" r="3"></circle>
+<text class="font-meta-code text-[10px]" fill="#e4e1e6" x="-20" y="4">Post-Punk</text>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="-40" y="26">1978 // Wire, Siouxsie</text>
+</g>
+<!-- 2. Noise Pop (1984) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-110" data-node="noise-pop" onclick="selectNode('noise-pop')" transform="translate(230, 240)">
+<rect fill="#1f1f22" height="32" rx="2" stroke="#494552" stroke-width="1" width="92" x="-46" y="-16"></rect>
+<circle cx="-34" cy="0" fill="#a78bfa" r="3.5"></circle>
+<text class="font-meta-code text-[10px]" fill="#e4e1e6" x="-24" y="4">Noise Pop</text>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="-44" y="26">1984 // JAMC, Dino Jr</text>
+</g>
+<!-- 3. Dream Pop (1982) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-110" data-node="dream-pop" onclick="selectNode('dream-pop')" transform="translate(170, 380)">
+<rect fill="#1f1f22" height="36" rx="2" stroke="#a78bfa" stroke-width="1" width="100" x="-50" y="-18"></rect>
+<circle cx="-36" cy="0" fill="#cebdff" r="4"></circle>
+<text class="font-meta-code text-[11px] font-bold" fill="#cebdff" x="-26" y="4">Dream Pop</text>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="-48" y="28">1982 // Cocteau Twins</text>
+</g>
+<!-- 4. Ethereal Wave (1983) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-110" data-node="ethereal-wave" onclick="selectNode('ethereal-wave')" transform="translate(140, 490)">
+<rect fill="#1b1b1e" height="32" rx="2" stroke="#494552" stroke-width="1" width="100" x="-50" y="-16"></rect>
+<circle cx="-38" cy="0" fill="#ffafd3" r="3"></circle>
+<text class="font-meta-code text-[10px]" fill="#e4e1e6" x="-28" y="4">Ethereal Wave</text>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="-48" y="26">1983 // Dead Can Dance</text>
+</g>
+<!-- 5. Psychedelic Revival (1985) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-110" data-node="psych-revival" onclick="selectNode('psych-revival')" transform="translate(220, 120)">
+<rect fill="#1b1b1e" height="32" rx="2" stroke="#494552" stroke-width="1" width="104" x="-52" y="-16"></rect>
+<circle cx="-40" cy="0" fill="#62dcad" r="3"></circle>
+<text class="font-meta-code text-[10px]" fill="#e4e1e6" x="-30" y="4">Neo-Psychedelia</text>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="-50" y="26">1985 // Spacemen 3</text>
+</g>
+<!-- 6. THE CANONICAL EPICENTER: UK Shoegaze First Wave (1988-1993) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-105" data-node="uk-shoegaze" onclick="selectNode('uk-shoegaze')" transform="translate(500, 340)">
+<rect fill="#0e0e11" filter="url(#glow-primary)" height="56" rx="3" stroke="#cebdff" stroke-width="2" width="170" x="-85" y="-28"></rect>
+<rect fill="#1f1f22" height="52" width="166" x="-83" y="-26"></rect>
+<circle class="animate-ping" cx="-65" cy="-6" fill="#a78bfa" r="6"></circle>
+<circle cx="-65" cy="-6" fill="#cebdff" r="5"></circle>
+<text class="font-headline-sm text-[13px] tracking-tight font-bold" fill="#ffffff" x="-52" y="-2">UK SHOEGAZE</text>
+<text class="font-meta-code text-[9px] font-bold" fill="#a78bfa" x="-52" y="14">EPICENTER // 1988–1993</text>
+<text class="font-meta-timestamp text-[9px]" fill="#cac4d4" x="-80" y="40">MBV • Slowdive • Ride • Lush</text>
+</g>
+<!-- 7. American Space Rock (1993) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-110" data-node="space-rock" onclick="selectNode('space-rock')" transform="translate(690, 220)">
+<rect fill="#1b1b1e" height="32" rx="2" stroke="#494552" stroke-width="1" width="112" x="-56" y="-16"></rect>
+<circle cx="-44" cy="0" fill="#62dcad" r="3.5"></circle>
+<text class="font-meta-code text-[10px]" fill="#e4e1e6" x="-34" y="4">US Space Rock</text>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="-54" y="26">1993 // Bowery Electric</text>
+</g>
+<!-- 8. Slowcore / Sadcore (1992) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-110" data-node="slowcore" onclick="selectNode('slowcore')" transform="translate(640, 520)">
+<rect fill="#1b1b1e" height="32" rx="2" stroke="#494552" stroke-width="1" width="96" x="-48" y="-16"></rect>
+<circle cx="-36" cy="0" fill="#948e9d" r="3"></circle>
+<text class="font-meta-code text-[10px]" fill="#e4e1e6" x="-26" y="4">Slowcore</text>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="-46" y="26">1992 // Low, Duster, Bedhead</text>
+</g>
+<!-- 9. Post-Rock Convergence (1994) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-110" data-node="post-rock" onclick="selectNode('post-rock')" transform="translate(740, 340)">
+<rect fill="#1b1b1e" height="32" rx="2" stroke="#494552" stroke-width="1" width="100" x="-50" y="-16"></rect>
+<circle cx="-38" cy="0" fill="#948e9d" r="3.5"></circle>
+<text class="font-meta-code text-[10px]" fill="#e4e1e6" x="-28" y="4">Post-Rock</text>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="-48" y="26">1994 // Bark Psychosis</text>
+</g>
+<!-- 10. Nu-Gaze Revival (2009) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-110" data-node="nu-gaze" onclick="selectNode('nu-gaze')" transform="translate(790, 300)">
+<rect fill="#1f1f22" height="36" rx="2" stroke="#a78bfa" stroke-width="1" width="112" x="-56" y="-18"></rect>
+<circle cx="-42" cy="0" fill="#a78bfa" r="4"></circle>
+<text class="font-meta-code text-[10px] font-bold" fill="#cebdff" x="-32" y="4">Nu-Gaze (Revival)</text>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="-54" y="28">2009 // Whirr, Nothing, DIIV</text>
+</g>
+<!-- 11. Blackgaze (2010) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-110" data-node="blackgaze" onclick="selectNode('blackgaze')" transform="translate(840, 460)">
+<rect fill="#1f1f22" height="36" rx="2" stroke="#ffafd3" stroke-width="1" width="104" x="-52" y="-18"></rect>
+<circle cx="-38" cy="0" fill="#f170b4" r="4"></circle>
+<text class="font-meta-code text-[10px] font-bold" fill="#ffafd3" x="-28" y="4">Blackgaze</text>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="-50" y="28">2010 // Alcest, Deafheaven</text>
+</g>
+<!-- 12. Ambient Dream / Heavy Gaze (2018) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-110" data-node="ambient-gaze" onclick="selectNode('ambient-gaze')" transform="translate(870, 120)">
+<rect fill="#1b1b1e" height="32" rx="2" stroke="#494552" stroke-width="1" width="112" x="-56" y="-16"></rect>
+<circle cx="-44" cy="0" fill="#62dcad" r="3"></circle>
+<text class="font-meta-code text-[10px]" fill="#e4e1e6" x="-34" y="4">Ambient Gaze</text>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="-54" y="26">2018 // Grouper, Midwife</text>
+</g>
+<!-- 13. Hyper-Gaze / Deconstructed (2021) -->
+<g class="graph-node cursor-pointer transition-transform hover:scale-110" data-node="hyper-gaze" onclick="selectNode('hyper-gaze')" transform="translate(920, 190)">
+<rect fill="#1f1f22" height="36" rx="2" stroke="#62dcad" stroke-width="1" width="112" x="-56" y="-18"></rect>
+<circle cx="-42" cy="0" fill="#62dcad" r="4"></circle>
+<text class="font-meta-code text-[10px] font-bold" fill="#80f9c8" x="-32" y="4">Deconstructed Gaze</text>
+<text class="font-meta-timestamp text-[8px]" fill="#948e9d" x="-54" y="28">2021 // TAGABOW, Julie</text>
+</g>
+</svg>
+</div>
+<!-- Graph Footer Legend Bar -->
+<div class="p-space-sm bg-surface-container-lowest/90 backdrop-blur-md flex flex-wrap items-center justify-between text-meta-code font-meta-code text-on-surface-variant gap-2 relative z-20">
+<div class="flex items-center gap-4 text-meta-timestamp">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-1 bg-primary"></span> Direct Acoustic Lineage</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-1 bg-secondary"></span> Secondary Cross-Pollination</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-1 bg-tertiary"></span> Structural Divergence</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full border border-dashed border-outline"></span> Rhythmic Deceleration</span>
+</div>
+<div class="text-outline font-meta-timestamp">
+            CLICK ANY NODE TO INSPECT TELEMETRY &amp; SIGNAL CHAIN
+          </div>
+</div>
+</div>
+<!-- Interactive Node Inspector Sidebar (Cols 9-12) -->
+<aside class="xl:col-span-4 2xl:col-span-3 bg-surface-container p-space-md flex flex-col justify-between space-y-space-md shadow-lg" id="inspector-card">
+<!-- Inspector Header -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-meta-badge text-meta-badge bg-primary/20 text-primary px-2 py-0.5" id="insp-code">NODE #SG-01</span>
+<span class="font-meta-timestamp text-meta-timestamp text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>CANONICAL ANCHOR
+            </span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight" id="insp-title">
+              UK Shoegaze (First Wave)
+            </h2>
+<div class="font-meta-code text-meta-code text-outline mt-1" id="insp-era">
+              1988–1993 // London &amp; Thames Valley, UK
+            </div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="insp-desc">
+            The foundational wall-of-sound movement characterized by detuned glide-guitar strumming with continuous whammy-bar manipulation, 100% wet reverse reverb gates, cascaded gain stages, and buried, androgynous vocal coos acting as additional instruments.
+          </p>
+</div>
+<!-- Telemetry Data Grid -->
+<div class="space-y-space-xs bg-surface-container-low p-space-sm">
+<div class="font-meta-badge text-meta-badge text-outline uppercase tracking-wider mb-2">Sonic Signature Telemetry</div>
+<div class="flex justify-between items-center py-1 font-meta-code text-meta-code">
+<span class="text-outline">Modal Range</span>
+<span class="text-on-surface font-bold" id="insp-modal">432 Hz – 8.4 kHz (Saturated)</span>
+</div>
+<div class="flex justify-between items-center py-1 font-meta-code text-meta-code">
+<span class="text-outline">Reverb Decay (RT60)</span>
+<span class="text-primary font-bold" id="insp-rt60">4.8s (Reverse Gated)</span>
+</div>
+<div class="flex justify-between items-center py-1 font-meta-code text-meta-code">
+<span class="text-outline">Wet / Dry Balance</span>
+<span class="text-secondary font-bold" id="insp-wetdry">88% Wet / 12% Dry</span>
+</div>
+<div class="flex justify-between items-center py-1 font-meta-code text-meta-code">
+<span class="text-outline">Tempo Envelope</span>
+<span class="text-on-surface" id="insp-bpm">92 – 134 BPM</span>
+</div>
+<div class="flex justify-between items-center py-1 font-meta-code text-meta-code">
+<span class="text-outline">Dynamic Range / SPL</span>
+<span class="text-error font-bold" id="insp-db">118 dB (Threshold Peak)</span>
+</div>
+</div>
+<!-- Canonical Signal Chain Diagram Module -->
+<div class="space-y-2 bg-surface-container-low p-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-meta-badge text-meta-badge text-primary uppercase tracking-wider">Essential Signal Topology</span>
+<span class="font-meta-timestamp text-meta-timestamp text-outline">4 STAGES</span>
+</div>
+<div class="space-y-1.5 font-meta-code text-meta-code" id="insp-chain">
+<!-- Stage 1 -->
+<div class="p-2 bg-surface-container flex items-center justify-between text-body-sm">
+<span class="text-outline text-meta-badge">01. IN</span>
+<span class="text-on-surface">Fender Jazzmaster / Jaguar (Trem Arm)</span>
+</div>
+<!-- Stage 2 -->
+<div class="p-2 bg-surface-container flex items-center justify-between text-body-sm">
+<span class="text-outline text-meta-badge">02. MOD</span>
+<span class="text-tertiary">Yamaha SPX90 (Early Reflection #7)</span>
+</div>
+<!-- Stage 3 -->
+<div class="p-2 bg-surface-container flex items-center justify-between text-body-sm">
+<span class="text-outline text-meta-badge">03. GAIN</span>
+<span class="text-primary">Marshall Shredmaster / ProCo Rat 2</span>
+</div>
+<!-- Stage 4 -->
+<div class="p-2 bg-surface-container flex items-center justify-between text-body-sm">
+<span class="text-outline text-meta-badge">04. OUT</span>
+<span class="text-secondary">Vox AC30 + Roland JC-120 Stereo Pair</span>
+</div>
+</div>
+</div>
+<!-- Canonical Master Records -->
+<div class="space-y-1.5">
+<div class="font-meta-badge text-meta-badge text-outline uppercase tracking-wider">Canonical Anchor Releases</div>
+<div class="grid grid-cols-2 gap-1.5 font-meta-code text-meta-code" id="insp-records">
+<div class="p-2 bg-surface-container-low flex flex-col justify-between">
+<span class="text-primary font-bold truncate">Loveless</span>
+<span class="text-outline text-[10px]">My Bloody Valentine (1991)</span>
+</div>
+<div class="p-2 bg-surface-container-low flex flex-col justify-between">
+<span class="text-primary font-bold truncate">Souvlaki</span>
+<span class="text-outline text-[10px]">Slowdive (1993)</span>
+</div>
+<div class="p-2 bg-surface-container-low flex flex-col justify-between">
+<span class="text-primary font-bold truncate">Nowhere</span>
+<span class="text-outline text-[10px]">Ride (1990)</span>
+</div>
+<div class="p-2 bg-surface-container-low flex flex-col justify-between">
+<span class="text-primary font-bold truncate">Spooky</span>
+<span class="text-outline text-[10px]">Lush (1992)</span>
+</div>
+</div>
+</div>
+<!-- Direct Actions -->
+<div class="pt-2 flex flex-col gap-2">
+<button class="w-full py-2 bg-primary-container text-on-primary font-meta-code text-meta-code font-bold hover:bg-primary transition-all flex items-center justify-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-sm">menu_book</span>
+<span>Open Sub-Genre Dossier</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-1.5 bg-surface-container-high text-on-surface font-meta-code text-meta-code hover:bg-surface-bright flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary">graphic_eq</span>
+<span>Stems Lab</span>
+</button>
+<button class="py-1.5 bg-surface-container-high text-on-surface font-meta-code text-meta-code hover:bg-surface-bright flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">data_object</span>
+<span>Export JSON</span>
+</button>
+</div>
+</div>
+</aside>
+</div>
+</section>
+<!-- Comparative Sonic Spectrum & Waveform Analysis Section -->
+<section class="w-full bg-surface-container-low px-gutter py-space-xl">
+<div class="space-y-space-md">
+<!-- Section Title Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm pb-space-sm">
+<div>
+<span class="font-meta-badge text-meta-badge text-primary uppercase tracking-widest">Acoustic Physics &amp; FFT Frequency Profiles</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">
+            Psychoacoustic Spectrum Dissection
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+            Simulated fast Fourier transform (FFT) response comparisons demonstrating how distortion staging, chorus width, and reverse gating reshape harmonic density across lineages.
+          </p>
+</div>
+<!-- Comparative Selector Pills -->
+<div class="flex items-center gap-1.5 bg-surface-container p-1 font-meta-code text-meta-code">
+<button class="px-2.5 py-1 bg-surface-container-highest text-primary font-bold">1. Dream Pop</button>
+<span class="text-outline">vs</span>
+<button class="px-2.5 py-1 bg-surface-container-highest text-secondary font-bold">2. First-Wave Shoegaze</button>
+<span class="text-outline">vs</span>
+<button class="px-2.5 py-1 bg-surface-container-highest text-tertiary font-bold">3. Blackgaze</button>
+</div>
+</div>
+<!-- The Real-Time Waveform & FFT Visualization Box -->
+<div class="bg-surface-container-lowest p-space-md relative overflow-hidden">
+<!-- Frequency Scale Header -->
+<div class="flex justify-between text-outline font-meta-timestamp text-meta-timestamp pb-2 px-1">
+<span>20 Hz [Sub-rumble]</span>
+<span>120 Hz [Bass fundamental]</span>
+<span>440 Hz [Mid warmth]</span>
+<span>1.2 kHz [Glide sweep]</span>
+<span>3.8 kHz [Fuzz articulation]</span>
+<span>8.0 kHz [Reverse gate shimmer]</span>
+<span>16.0 kHz [Air / Tape hiss]</span>
+</div>
+<!-- Inline SVG Multi-Spectrum Curve Chart -->
+<div class="h-64 w-full relative flex items-center justify-center">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 240">
+<defs>
+<lineargradient id="dream-grad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#cebdff" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#cebdff" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient id="gaze-grad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#62dcad" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#62dcad" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient id="blackgaze-grad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ffafd3" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#ffafd3" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid horizontal lines (dB levels) -->
+<line stroke="#1f1f22" stroke-width="1" x1="0" x2="1000" y1="40" y2="40"></line>
+<line stroke="#1f1f22" stroke-width="1" x1="0" x2="1000" y1="100" y2="100"></line>
+<line stroke="#1f1f22" stroke-width="1" x1="0" x2="1000" y1="160" y2="160"></line>
+<line stroke="#1f1f22" stroke-width="1" x1="0" x2="1000" y1="220" y2="220"></line>
+<!-- Curve 1: Dream Pop (Dip in mid, high airy shimmer) -->
+<path d="M 0,220 C 150,220 220,180 320,160 C 420,140 500,160 620,110 C 720,70 820,50 1000,120 L 1000,240 L 0,240 Z" fill="url(#dream-grad)"></path>
+<path d="M 0,220 C 150,220 220,180 320,160 C 420,140 500,160 620,110 C 720,70 820,50 1000,120" fill="none" stroke="#cebdff" stroke-width="2"></path>
+<!-- Curve 2: UK Shoegaze (Huge mid-frequency flat wall, heavy low end rumble) -->
+<path d="M 0,160 C 80,100 180,70 300,50 C 450,45 600,45 750,55 C 880,80 940,110 1000,160 L 1000,240 L 0,240 Z" fill="url(#gaze-grad)"></path>
+<path d="M 0,160 C 80,100 180,70 300,50 C 450,45 600,45 750,55 C 880,80 940,110 1000,160" fill="none" stroke="#62dcad" stroke-width="2.5"></path>
+<!-- Curve 3: Blackgaze (Aggressive high-treble saturation & kick spikes) -->
+<path d="M 0,180 C 100,50 200,180 350,110 C 480,90 620,70 720,35 C 840,25 930,40 1000,90 L 1000,240 L 0,240 Z" fill="url(#blackgaze-grad)"></path>
+<path d="M 0,180 C 100,50 200,180 350,110 C 480,90 620,70 720,35 C 840,25 930,40 1000,90" fill="none" stroke="#ffafd3" stroke-dasharray="6,3" stroke-width="2"></path>
+<!-- Dynamic Scan Scrubber Line -->
+<line class="opacity-70 animate-pulse" id="scrub-line" stroke="#ffffff" stroke-dasharray="2,2" stroke-width="1.5" x1="450" x2="450" y1="0" y2="240"></line>
+</svg>
+</div>
+<!-- Real-Time Interactive Acoustic Parameter Sliders -->
+<div class="mt-space-md pt-space-md grid grid-cols-1 md:grid-cols-4 gap-space-md">
+<div class="space-y-1">
+<div class="flex justify-between text-meta-code font-meta-code">
+<span class="text-outline">Fuzz Saturation (Gain)</span>
+<span class="text-primary font-bold" id="val-fuzz">82 dB</span>
+</div>
+<input class="w-full accent-primary bg-surface-container h-1 appearance-none cursor-pointer" max="100" min="0" oninput="document.getElementById('val-fuzz').innerText = this.value + ' dB'" type="range" value="82"/>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-meta-code font-meta-code">
+<span class="text-outline">Pre-Delay Offset</span>
+<span class="text-secondary font-bold" id="val-predelay">64 ms</span>
+</div>
+<input class="w-full accent-secondary bg-surface-container h-1 appearance-none cursor-pointer" max="250" min="0" oninput="document.getElementById('val-predelay').innerText = this.value + ' ms'" type="range" value="64"/>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-meta-code font-meta-code">
+<span class="text-outline">Decay Envelope (RT60)</span>
+<span class="text-tertiary font-bold" id="val-decay">5.2 s</span>
+</div>
+<input class="w-full accent-tertiary bg-surface-container h-1 appearance-none cursor-pointer" max="12.0" min="0.5" oninput="document.getElementById('val-decay').innerText = this.value + ' s'" step="0.1" type="range" value="5.2"/>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-meta-code font-meta-code">
+<span class="text-outline">Wet / Dry Saturation</span>
+<span class="text-on-surface font-bold" id="val-wet">90% Wet</span>
+</div>
+<input class="w-full accent-primary bg-surface-container h-1 appearance-none cursor-pointer" max="100" min="0" oninput="document.getElementById('val-wet').innerText = this.value + '% Wet'" type="range" value="90"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Taxonomy Sub-Genre Registry Directory (Wiki Table) -->
+<section class="w-full bg-surface-container-lowest px-gutter py-space-xl">
+<div class="space-y-space-md">
+<!-- Directory Heading and Search HUD -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<span class="font-meta-badge text-meta-badge text-secondary uppercase tracking-widest">Master Encyclopedia Registry</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">
+            Cataloged Micro-Movements &amp; Lineages
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Cross-referenced index of all 16 historical sub-genre clusters documented within the Wet Pillow Club critical corpus.
+          </p>
+</div>
+<div class="flex items-center gap-2">
+<input class="bg-surface-container px-3 py-1.5 font-meta-code text-meta-code text-on-surface placeholder-outline focus:outline-none focus:ring-1 focus:ring-primary w-64" id="table-filter-input" onkeyup="filterTable()" placeholder="Quick filter catalogue..." type="text"/>
+<button class="px-3 py-1.5 bg-surface-container-high text-on-surface-variant hover:text-on-surface font-meta-code text-meta-code flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">download</span>
+<span>CSV</span>
+</button>
+</div>
+</div>
+<!-- Tabular Database -->
+<div class="w-full overflow-x-auto bg-surface-container-low">
+<table class="w-full text-left font-body-sm text-body-sm text-on-surface" id="taxonomy-table">
+<thead>
+<tr class="bg-surface-container font-meta-badge text-meta-badge text-outline uppercase tracking-wider">
+<th class="py-3 px-4">Node / Code</th>
+<th class="py-3 px-4">Sub-Genre Classification</th>
+<th class="py-3 px-4">Era &amp; Origin</th>
+<th class="py-3 px-4">Pivotal Architects</th>
+<th class="py-3 px-4">Archetypal Pedals / Gear</th>
+<th class="py-3 px-4">Upstream Lineage</th>
+<th class="py-3 px-4 text-right">Archived Works</th>
+<th class="py-3 px-4 text-center">Action</th>
+</tr>
+</thead>
+<tbody class="font-meta-code text-meta-code divide-y divide-surface-container">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-4 font-bold text-primary">#SG-01</td>
+<td class="py-3 px-4 font-headline-sm text-title-editorial text-on-surface">UK First-Wave Shoegaze</td>
+<td class="py-3 px-4 text-outline">1988 // London / Thames Valley</td>
+<td class="py-3 px-4 text-on-surface-variant">My Bloody Valentine, Slowdive, Ride</td>
+<td class="py-3 px-4 text-tertiary">Yamaha SPX90, Shredmaster</td>
+<td class="py-3 px-4 text-outline">Noise Pop, Dream Pop, Post-Punk</td>
+<td class="py-3 px-4 text-right font-bold text-secondary">314 LP</td>
+<td class="py-3 px-4 text-center">
+<button class="px-2 py-0.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface-variant text-[11px] transition-all" onclick="selectNode('uk-shoegaze')">Inspect</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-4 font-bold text-primary">#DP-01</td>
+<td class="py-3 px-4 font-headline-sm text-title-editorial text-on-surface">Dream Pop (4AD Classic)</td>
+<td class="py-3 px-4 text-outline">1982 // Grangemouth, Scotland</td>
+<td class="py-3 px-4 text-on-surface-variant">Cocteau Twins, A.R. Kane, Julee Cruise</td>
+<td class="py-3 px-4 text-tertiary">Roland Space Echo, Boss CE-2</td>
+<td class="py-3 px-4 text-outline">Ethereal Wave, Post-Punk</td>
+<td class="py-3 px-4 text-right font-bold text-secondary">428 LP</td>
+<td class="py-3 px-4 text-center">
+<button class="px-2 py-0.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface-variant text-[11px] transition-all" onclick="selectNode('dream-pop')">Inspect</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-4 font-bold text-primary">#BG-01</td>
+<td class="py-3 px-4 font-headline-sm text-title-editorial text-on-surface">Blackgaze</td>
+<td class="py-3 px-4 text-outline">2010 // Bagnols-sur-Cèze, FR</td>
+<td class="py-3 px-4 text-on-surface-variant">Alcest, Deafheaven, Holy Fawn, Lantlôs</td>
+<td class="py-3 px-4 text-tertiary">Strymon BlueSky, Boss HM-2</td>
+<td class="py-3 px-4 text-outline">Shoegaze, Post-Black Metal</td>
+<td class="py-3 px-4 text-right font-bold text-secondary">182 LP</td>
+<td class="py-3 px-4 text-center">
+<button class="px-2 py-0.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface-variant text-[11px] transition-all" onclick="selectNode('blackgaze')">Inspect</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-4 font-bold text-primary">#SR-02</td>
+<td class="py-3 px-4 font-headline-sm text-title-editorial text-on-surface">US Space Rock Revival</td>
+<td class="py-3 px-4 text-outline">1993 // Brooklyn / Michigan, US</td>
+<td class="py-3 px-4 text-on-surface-variant">Bowery Electric, Flying Saucer Attack, Windy &amp; Carl</td>
+<td class="py-3 px-4 text-tertiary">Electro-Harmonix Memory Man, Tape Loops</td>
+<td class="py-3 px-4 text-outline">Ambient, Krautrock, Shoegaze</td>
+<td class="py-3 px-4 text-right font-bold text-secondary">195 LP</td>
+<td class="py-3 px-4 text-center">
+<button class="px-2 py-0.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface-variant text-[11px] transition-all" onclick="selectNode('space-rock')">Inspect</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-4 font-bold text-primary">#SC-01</td>
+<td class="py-3 px-4 font-headline-sm text-title-editorial text-on-surface">Slowcore / Sadcore</td>
+<td class="py-3 px-4 text-outline">1992 // Duluth / San Jose, US</td>
+<td class="py-3 px-4 text-on-surface-variant">Low, Duster, Bedhead, Codeine</td>
+<td class="py-3 px-4 text-tertiary">Fender Twin Reverb (Spring), Rat 1</td>
+<td class="py-3 px-4 text-outline">Post-Punk, Minimalist Ambient</td>
+<td class="py-3 px-4 text-right font-bold text-secondary">276 LP</td>
+<td class="py-3 px-4 text-center">
+<button class="px-2 py-0.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface-variant text-[11px] transition-all" onclick="selectNode('slowcore')">Inspect</button>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-4 font-bold text-primary">#NG-01</td>
+<td class="py-3 px-4 font-headline-sm text-title-editorial text-on-surface">Nu-Gaze (Tumblr-Era Wave)</td>
+<td class="py-3 px-4 text-outline">2009 // Austin / Philadelphia, US</td>
+<td class="py-3 px-4 text-on-surface-variant">Nothing, Whirr, DIIV, Ringo Deathstarr</td>
+<td class="py-3 px-4 text-tertiary">Electro-Harmonix Big Muff Op-Amp, RV-5</td>
+<td class="py-3 px-4 text-outline">UK Shoegaze, Hardcore Punk</td>
+<td class="py-3 px-4 text-right font-bold text-secondary">219 LP</td>
+<td class="py-3 px-4 text-center">
+<button class="px-2 py-0.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface-variant text-[11px] transition-all" onclick="selectNode('nu-gaze')">Inspect</button>
+</td>
+</tr>
+<!-- Row 7 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-4 font-bold text-primary">#HG-01</td>
+<td class="py-3 px-4 font-headline-sm text-title-editorial text-on-surface">Deconstructed / Hyper-Gaze</td>
+<td class="py-3 px-4 text-outline">2021 // Philadelphia / Los Angeles</td>
+<td class="py-3 px-4 text-on-surface-variant">TAGABOW, Julie, Hotline TNT, Yeule</td>
+<td class="py-3 px-4 text-tertiary">Chase Bliss Mood, Hologram Microcosm</td>
+<td class="py-3 px-4 text-outline">Nu-Gaze, Digicore, Noise Rock</td>
+<td class="py-3 px-4 text-right font-bold text-secondary">88 LP</td>
+<td class="py-3 px-4 text-center">
+<button class="px-2 py-0.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface-variant text-[11px] transition-all" onclick="selectNode('hyper-gaze')">Inspect</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Community Crowdsourcing & Archival Dispute Callout -->
+<section class="w-full bg-surface-container-low px-gutter py-space-xl">
+<div class="p-space-lg bg-surface-container relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-2xl relative z-10">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-meta-badge text-meta-badge text-secondary uppercase tracking-widest">Community Peer-Review // Spec v2.4</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">
+          Dispute an edge or catalog an unmapped regional micro-scene?
+        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          The Wet Pillow Club taxonomy is open and revisionist. If your regional movement (e.g. 1990s Japanese Neo-Acoustic Gaze or South American Dreampop) lacks correct nodal representation or acoustic pedal chain telemetry, propose a pull request into our Git-backed sound ledger.
+        </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-space-sm shrink-0 relative z-10 w-full lg:w-auto">
+<button class="w-full sm:w-auto px-space-md py-2.5 bg-primary text-on-primary font-meta-code text-meta-code font-bold hover:bg-primary-fixed transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">commit</span>
+<span>Propose Node Mutation (PR)</span>
+</button>
+<button class="w-full sm:w-auto px-space-md py-2.5 bg-surface-container-highest text-on-surface font-meta-code text-meta-code hover:bg-surface-bright transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span>
+<span>Download Matrix Spec (JSON)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Inline Script for Interactive Node Inspection, Table Filtering, and HUD controls -->
+<script>
+    const taxonomyData = {
+      'uk-shoegaze': {
+        code: 'NODE #SG-01',
+        title: 'UK Shoegaze (First Wave)',
+        era: '1988–1993 // London & Thames Valley, UK',
+        desc: 'The foundational wall-of-sound movement characterized by detuned glide-guitar strumming with continuous whammy-bar manipulation, 100% wet reverse reverb gates, cascaded gain stages, and buried, androgynous vocal coos acting as additional instruments.',
+        modal: '432 Hz – 8.4 kHz (Saturated)',
+        rt60: '4.8s (Reverse Gated)',
+        wetdry: '88% Wet / 12% Dry',
+        bpm: '92 – 134 BPM',
+        db: '118 dB (Threshold Peak)',
+        chain: [
+          { stage: '01. IN', text: 'Fender Jazzmaster / Jaguar (Trem Arm)', color: 'text-on-surface' },
+          { stage: '02. MOD', text: 'Yamaha SPX90 (Early Reflection #7)', color: 'text-tertiary' },
+          { stage: '03. GAIN', text: 'Marshall Shredmaster / ProCo Rat 2', color: 'text-primary' },
+          { stage: '04. OUT', text: 'Vox AC30 + Roland JC-120 Stereo Pair', color: 'text-secondary' }
+        ],
+        records: [
+          { title: 'Loveless', artist: 'My Bloody Valentine (1991)' },
+          { title: 'Souvlaki', artist: 'Slowdive (1993)' },
+          { title: 'Nowhere', artist: 'Ride (1990)' },
+          { title: 'Spooky', artist: 'Lush (1992)' }
+        ]
+      },
+      'dream-pop': {
+        code: 'NODE #DP-01',
+        title: 'Dream Pop (4AD Classic)',
+        era: '1982–1991 // Grangemouth / London, UK',
+        desc: 'Atmospheric sub-genre prioritizing ethereal vocal timbres, shimmering choruses, and celestial delays over aggressive distortion. Vocals float above pristine, arpeggiated melodic lines and synth pads.',
+        modal: '1.2 kHz – 16.0 kHz (Air Range)',
+        rt60: '6.5s (Cathedral Plate)',
+        wetdry: '65% Wet / 35% Dry',
+        bpm: '78 – 116 BPM',
+        db: '94 dB (Dynamic Studio Range)',
+        chain: [
+          { stage: '01. IN', text: 'Fender Stratocaster (Neck Pickup)', color: 'text-on-surface' },
+          { stage: '02. CHORUS', text: 'Boss CE-2 Chorus Ensemble', color: 'text-primary' },
+          { stage: '03. ECHO', text: 'Roland RE-201 Space Echo', color: 'text-tertiary' },
+          { stage: '04. OUT', text: 'Fender Twin Reverb (Pure Clean)', color: 'text-secondary' }
+        ],
+        records: [
+          { title: 'Heaven or Las Vegas', artist: 'Cocteau Twins (1990)' },
+          { title: '69', artist: 'A.R. Kane (1988)' },
+          { title: 'Floating into the Night', artist: 'Julee Cruise (1989)' },
+          { title: 'Itll End in Tears', artist: 'This Mortal Coil (1984)' }
+        ]
+      },
+      'blackgaze': {
+        code: 'NODE #BG-01',
+        title: 'Blackgaze & Heavy Gaze',
+        era: '2010–Present // France & Bay Area, US',
+        desc: 'Hybrid fusion merging the blast-beats, high-register tremolo picked arpeggios, and shrieks of second-wave black metal with the euphoric, transcendent wall-of-reverb climaxes of shoegaze.',
+        modal: '80 Hz – 12 kHz (Full Spectrum Attack)',
+        rt60: '5.8s (Infinite Hall)',
+        wetdry: '75% Wet / 25% Dry',
+        bpm: '136 – 184 BPM',
+        db: '124 dB (Extreme Peak)',
+        chain: [
+          { stage: '01. IN', text: 'LTD / ESP Eclipse (Drop C Tuning)', color: 'text-on-surface' },
+          { stage: '02. BOOST', text: 'Ibanez TS9 Tube Screamer', color: 'text-secondary' },
+          { stage: '03. REVERB', text: 'Strymon BlueSky / Neunaber Wet', color: 'text-tertiary' },
+          { stage: '04. GAIN', text: 'Peavey 5150 / Dual Rectifier Lead', color: 'text-primary' }
+        ],
+        records: [
+          { title: 'Souvenirs dun autre monde', artist: 'Alcest (2007)' },
+          { title: 'Sunbather', artist: 'Deafheaven (2013)' },
+          { title: 'Death Spells', artist: 'Holy Fawn (2018)' },
+          { title: 'Agaetis Byrjun (Spiritual)', artist: 'Sigur Rós (1999)' }
+        ]
+      },
+      'space-rock': {
+        code: 'NODE #SR-02',
+        title: 'US Space Rock Revival',
+        era: '1993–1999 // New York / Michigan, US',
+        desc: 'Minimalist droning textures incorporating hip-hop breakbeat loops, modular synth hums, and vast glacial delays pioneered by Bowery Electric and Flying Saucer Attack.',
+        modal: '30 Hz – 6.5 kHz (Sub Focus)',
+        rt60: '8.2s (Glacial Delay Taps)',
+        wetdry: '80% Wet / 20% Dry',
+        bpm: '72 – 96 BPM',
+        db: '102 dB',
+        chain: [
+          { stage: '01. IN', text: 'Akai S950 Sampled Breakbeats', color: 'text-outline' },
+          { stage: '02. LOOP', text: 'Electro-Harmonix 16-Second Delay', color: 'text-tertiary' },
+          { stage: '03. GAIN', text: 'ProCo Turbo Rat', color: 'text-primary' },
+          { stage: '04. OUT', text: 'Ampeg SVT + Bass Cabinet Array', color: 'text-secondary' }
+        ],
+        records: [
+          { title: 'Beat', artist: 'Bowery Electric (1996)' },
+          { title: 'Flying Saucer Attack', artist: 'Flying Saucer Attack (1993)' },
+          { title: 'Drawing of Sound', artist: 'Windy & Carl (1996)' },
+          { title: 'Silver', artist: 'Starflyer 59 (1994)' }
+        ]
+      },
+      'slowcore': {
+        code: 'NODE #SC-01',
+        title: 'Slowcore / Sadcore',
+        era: '1992–1998 // Minnesota / California, US',
+        desc: 'Radical tempo deceleration and sparse, fragile dynamic restraint. Heavy use of open silence, delicate spring reverb trails, and hushed whispered harmonies.',
+        modal: '100 Hz – 4.5 kHz (Narrow Warmth)',
+        rt60: '3.2s (Spring Tank)',
+        wetdry: '40% Wet / 60% Dry',
+        bpm: '48 – 76 BPM',
+        db: '82 dB (Intimate Near-Field)',
+        chain: [
+          { stage: '01. IN', text: 'Gibson Les Paul / Gretsch Hollowbody', color: 'text-on-surface' },
+          { stage: '02. DYN', text: 'DOD FX80-B Compressor', color: 'text-primary' },
+          { stage: '03. TANK', text: 'Fender 6G15 Outboard Spring Reverb', color: 'text-tertiary' },
+          { stage: '04. OUT', text: 'Fender Princeton Reverb Tube Combo', color: 'text-secondary' }
+        ],
+        records: [
+          { title: 'I Could Live in Hope', artist: 'Low (1994)' },
+          { title: 'Stratosphere', artist: 'Duster (1998)' },
+          { title: 'What Fun Life Was', artist: 'Bedhead (1994)' },
+          { title: 'Frigid Stars', artist: 'Codeine (1990)' }
+        ]
+      },
+      'nu-gaze': {
+        code: 'NODE #NG-01',
+        title: 'Nu-Gaze & Tumblr Era',
+        era: '2009–2016 // Philadelphia / California, US',
+        desc: 'Post-hardcore energy infused with My Bloody Valentine fuzz walls. Driven by modern digital reverbs, high gain, and relentless touring ethos.',
+        modal: '200 Hz – 10 kHz',
+        rt60: '4.5s (Modulated Digital)',
+        wetdry: '70% Wet / 30% Dry',
+        bpm: '110 – 142 BPM',
+        db: '116 dB',
+        chain: [
+          { stage: '01. IN', text: 'Fender Jazzmaster Classic Player', color: 'text-on-surface' },
+          { stage: '02. REV', text: 'Boss RV-5 (Modulate Mode)', color: 'text-primary' },
+          { stage: '03. FUZZ', text: 'EHX Green Russian Big Muff', color: 'text-tertiary' },
+          { stage: '04. OUT', text: 'Marshall JCM800 Half Stack', color: 'text-secondary' }
+        ],
+        records: [
+          { title: 'Guilty of Everything', artist: 'Nothing (2014)' },
+          { title: 'Pipe Dreams', artist: 'Whirr (2012)' },
+          { title: 'Oshin', artist: 'DIIV (2012)' },
+          { title: 'Colour Trip', artist: 'Ringo Deathstarr (2011)' }
+        ]
+      },
+      'hyper-gaze': {
+        code: 'NODE #HG-01',
+        title: 'Deconstructed / Hyper-Gaze',
+        era: '2020–Present // Online & East Coast, US',
+        desc: 'Glitch-heavy, sample-chopped guitar experiments combining slowcore melancholia with digital bitcrushing, granular synthesizers, and blown-out interface clipping.',
+        modal: '40 Hz – 18 kHz (Digital Broad)',
+        rt60: 'Dynamic Granular Buffer',
+        wetdry: '95% Wet (Synthesized)',
+        bpm: '84 – 160 BPM',
+        db: '112 dB',
+        chain: [
+          { stage: '01. IN', text: 'Direct Interface DI / Stratocaster', color: 'text-on-surface' },
+          { stage: '02. GLITCH', text: 'Chase Bliss Mood + Habit', color: 'text-secondary' },
+          { stage: '03. GRAN', text: 'Hologram Microcosm Delay', color: 'text-primary' },
+          { stage: '04. SAT', text: 'Ableton Saturator + OTT Compression', color: 'text-tertiary' }
+        ],
+        records: [
+          { title: 'Lucky', artist: 'TAGABOW (2022)' },
+          { title: 'pushing daisies', artist: 'Julie (2021)' },
+          { title: 'Glitch Princess', artist: 'Yeule (2022)' },
+          { title: 'Nineteen in Love', artist: 'Hotline TNT (2021)' }
+        ]
+      }
+    };
+
+    function selectNode(nodeId) {
+      const data = taxonomyData[nodeId];
+      if (!data) return;
+
+      document.getElementById('insp-code').innerText = data.code;
+      document.getElementById('insp-title').innerText = data.title;
+      document.getElementById('insp-era').innerText = data.era;
+      document.getElementById('insp-desc').innerText = data.desc;
+      document.getElementById('insp-modal').innerText = data.modal;
+      document.getElementById('insp-rt60').innerText = data.rt60;
+      document.getElementById('insp-wetdry').innerText = data.wetdry;
+      document.getElementById('insp-bpm').innerText = data.bpm;
+      document.getElementById('insp-db').innerText = data.db;
+
+      // Update signal chain
+      const chainContainer = document.getElementById('insp-chain');
+      chainContainer.innerHTML = '';
+      data.chain.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'p-2 bg-surface-container flex items-center justify-between text-body-sm';
+        row.innerHTML = `<span class="text-outline text-meta-badge">${item.stage}</span><span class="${item.color}">${item.text}</span>`;
+        chainContainer.appendChild(row);
+      });
+
+      // Update records
+      const recContainer = document.getElementById('insp-records');
+      recContainer.innerHTML = '';
+      data.records.forEach(rec => {
+        const card = document.createElement('div');
+        card.className = 'p-2 bg-surface-container-low flex flex-col justify-between';
+        card.innerHTML = `<span class="text-primary font-bold truncate">${rec.title}</span><span class="text-outline text-[10px]">${rec.artist}</span>`;
+        recContainer.appendChild(card);
+      });
+
+      // Highlight active node in inspector card with slight pulse
+      const card = document.getElementById('inspector-card');
+      card.classList.remove('ring-1', 'ring-primary');
+      void card.offsetWidth; // trigger reflow
+      card.classList.add('ring-1', 'ring-primary');
+    }
+
+    function toggleLayer(btn) {
+      const active = btn.getAttribute('data-active') === 'true';
+      btn.setAttribute('data-active', (!active).toString());
+      if (!active) {
+        btn.classList.remove('bg-surface-container-high', 'text-outline');
+        btn.classList.add('bg-surface-container-highest', 'text-secondary');
+      } else {
+        btn.classList.remove('bg-surface-container-highest', 'text-secondary', 'text-primary');
+        btn.classList.add('bg-surface-container-high', 'text-outline');
+      }
+    }
+
+    let isPhysicsFrozen = false;
+    function togglePhysics() {
+      isPhysicsFrozen = !isPhysicsFrozen;
+      const btn = document.getElementById('freeze-physics-btn');
+      if (isPhysicsFrozen) {
+        btn.classList.add('text-error', 'bg-surface-container-high');
+        btn.title = "Physics Paused";
+      } else {
+        btn.classList.remove('text-error', 'bg-surface-container-high');
+        btn.title = "Freeze Dynamic Physics Engine";
+      }
+    }
+
+    let currentZoom = 1.0;
+    function adjustZoom(delta) {
+      currentZoom = Math.max(0.6, Math.min(2.0, currentZoom + delta));
+      const svg = document.getElementById('network-svg');
+      svg.style.transform = `scale(${currentZoom})`;
+      svg.style.transformOrigin = 'center center';
+      svg.style.transition = 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
+    }
+
+    function resetZoom() {
+      currentZoom = 1.0;
+      const svg = document.getElementById('network-svg');
+      svg.style.transform = 'scale(1)';
+    }
+
+    function filterTable() {
+      const input = document.getElementById('table-filter-input');
+      const filter = input.value.toLowerCase();
+      const table = document.getElementById('taxonomy-table');
+      const tr = table.getElementsByTagName('tr');
+
+      for (let i = 1; i < tr.length; i++) {
+        const text = tr[i].textContent || tr[i].innerText;
+        if (text.toLowerCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-[#27272F] font-body-sm text-on-surface-variant"><div class="w-full px-gutter py-space-xl"><div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 border border-[#27272F]"><div class="lg:col-span-4 p-space-lg border-b lg:border-b-0 lg:border-r border-[#27272F] flex flex-col justify-between"><div class="space-y-space-sm"><div class="flex items-center gap-space-sm"><img alt="Wet Pillow Club Logo" class="w-6 h-6 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrAc9U8oxn-843AnzXJve99bx2bo02S4peqVFdYPyUTFilVmmhjwHZzPIPeDn0zHyQ6jBsMm9xE3QeDUwV3s8kFg01A65cAuU7A4x3Ayto7UfHsheWAmPPPxFsgYIVsc8xVyolYb8uCqq3ggV-NMebkos1tJamTVaD3adHN6CJKhX_v6zN6vL-rhcQAv5gY8E2W5hOw26oQ-wN5xXLaLtbaNfrt2_L57f8-9CNUwm10"/><span class="font-headline-sm text-title-editorial text-on-surface">Wet Pillow Club</span></div><p class="font-body-sm text-body-sm text-outline leading-relaxed max-w-sm">An open critical encyclopedic index and neo-editorial webzine chronicling the textures, walls of sound, and sonic lineage of Shoegaze, Dream Pop, and ethereal alternative music.</p></div><div class="pt-space-lg space-y-1 font-meta-timestamp text-meta-timestamp text-outline"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-xs text-secondary">update</span><span>REV. 2024.11-SHOEGAZE.84A</span></div><div>CC BY-NC-SA 4.0 ARCHIVAL REPOSITORY</div></div></div><div class="lg:col-span-3 p-space-lg border-b md:border-b-0 md:border-r border-[#27272F] space-y-space-md"><div class="font-meta-badge text-meta-badge text-primary uppercase tracking-widest">Sound Matrices</div><div class="flex flex-wrap gap-1.5"><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#ReverseReverb</span><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#GlideGuitar</span><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#EtherealWave</span><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#Slowcore</span><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#FuzzWall</span><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#Dreampop</span><span class="px-2 py-0.5 bg-surface-container border border-[#27272F] font-meta-code text-meta-code text-on-surface-variant hover:border-primary cursor-pointer transition-colors">#CocteauVibes</span></div></div><div class="lg:col-span-3 p-space-lg border-b md:border-b-0 md:border-r border-[#27272F] space-y-space-md"><div class="font-meta-badge text-meta-badge text-secondary uppercase tracking-widest">Registry Index</div><ul class="space-y-1.5 font-meta-code text-meta-code"><li class="flex justify-between items-center"><span class="text-outline">Band Discographies</span><span class="text-on-surface">1,240</span></li><li class="flex justify-between items-center"><span class="text-outline">Pedal Schematics</span><span class="text-on-surface">482</span></li><li class="flex justify-between items-center"><span class="text-outline">Master Critical Essays</span><span class="text-on-surface">318</span></li><li class="flex justify-between items-center"><span class="text-outline">Bootleg Session Tapes</span><span class="text-on-surface">895</span></li></ul></div><div class="lg:col-span-2 p-space-lg flex flex-col justify-between space-y-space-md"><div class="space-y-space-sm"><div class="font-meta-badge text-meta-badge text-tertiary uppercase tracking-widest">Syndication</div><div class="flex flex-col space-y-2 font-meta-code text-meta-code"><a class="flex items-center gap-1.5 text-on-surface-variant hover:text-tertiary transition-colors" href="#"><span class="material-symbols-outlined text-sm">rss_feed</span><span>RSS Feed</span></a><a class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-sm">code</span><span>API Data Dump</span></a><a class="flex items-center gap-1.5 text-on-surface-variant hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-sm">history_edu</span><span>Changelog</span></a></div></div><div class="font-meta-timestamp text-meta-timestamp text-outline pt-space-md border-t border-[#27272F]">© 2024 Wet Pillow Club Archive.</div></div></div></div></footer></body></html>
