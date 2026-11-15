@@ -1,0 +1,31 @@
+{
+  "id": "T-011",
+  "feature_id": "UX-001",
+  "layer": "frontend",
+  "goal": "UX-001 검증(feedback.md)에서 나온 회귀와 미달 항목을 고친다: /studio 바깥 스크롤, 헤더 링크 터치 높이, 404 title, AI 고지 폰트, 폰트 스택 중복.",
+  "context": "근거는 레포 루트 feedback.md(Claude Code 검증, 커밋 3d7f189 기준)이다. 먼저 읽고 F1·F2·관찰 3·4·5의 재현 방법과 원인 추정을 확인한다. 고칠 것: (1) F1 /studio body 기본 margin 8px로 문서 높이가 뷰포트를 넘어 바깥 세로 스크롤이 생기는 회귀. T-010 전에는 Tailwind preflight가 루트에서 body margin 0을 적용하고 있었다. Studio에만 최소 리셋(body margin 0 등 필요한 것만)을 적용한다. Tailwind preflight 전체를 루트로 다시 올리지 않는다(사이트/Studio 분리 유지). 방식은 Cursor가 판단하되 /studio에서 body margin 0, 문서 높이 ≤ 뷰포트(스크롤 없음)를 확인한다. (2) F2 헤더 로고 링크(28px)와 데스크톱 nav 링크(38px)의 클릭 영역 높이를 44px 이상으로 한다. 헤더 높이와 시각적 배치는 유지한다. (3) 404 페이지 document.title이 비어 있다. 루트 not-found에 기본 title(예: 'Page not found — Wet Pillow Club')을 준다. SEO 전체 메타는 이번 범위가 아니다. (4) AI 고지 문구 등 한글 문장이 Space Mono(고정폭)로 렌더되어 단어 간격이 벌어진다. 한글 문장은 sans 계열로 바꾸고 mono는 영문 라벨·메타에만 남긴다. 푸터 문구는 바꾸지 않는다. (5) site.css의 .font-display / .font-mono 커스텀 클래스와 .site-root font-family가 @theme inline의 --font-* 와 같은 스택을 중복 정의한다. 폰트 스택 정의를 한 곳으로 줄이고, 화면 결과(폰트 적용)는 그대로여야 한다. 중복 제거 전후로 computed font-family가 같은지 확인한다. 이번에 고치지 않고 기록만 하는 것: feedback.md 관찰 1(클라이언트 이동 시 Studio로 사이트 CSS 누수), 관찰 2(Studio가 사이트 폰트·CSS를 preload), 관찰 6(1440px 컨테이너 폭). 이 셋은 result에 '이번엔 수정 안 함'으로 한 줄씩만 남기고, 관찰 1·2는 사이트에 /studio 링크를 넣거나 구조를 바꿀 때 다시 볼 사항임을 적는다. 이번 커밋에는 feedback.md(untracked), docs/tasks/T-010.json(보관), TASK.json이 함께 들어간다. feedback.md 내용은 수정하지 않는다. UX-001 passes는 건드리지 않는다.",
+  "scope": {
+    "in": [
+      "src/app/(site)/site.css, src/app/studio 레이아웃, src/app/not-found.tsx, src/components/site/*, src/lib/fonts.ts, src/lib/site.ts 중 위 5개 수정에 필요한 최소 변경"
+    ],
+    "out": [
+      "feedback.md, docs/design/**, feature_list/** 내용 수정",
+      "관찰 1·2·6 해결, 새 페이지·콘텐츠 조회·GROQ",
+      "스키마, src/sanity, 웹훅 경로(src/app/api/revalidate-tag) 수정",
+      "푸터·헤더 문구와 네비게이션 구성 변경",
+      "새 npm 의존성 추가",
+      "production 데이터셋 접근, Sanity 문서 쓰기, 쓰기 토큰 사용",
+      ".env* 내용 출력·커밋",
+      "AGENTS.md의 BEGIN/END:nextjs-agent-rules 블록 수정"
+    ]
+  },
+  "done": [
+    "/studio에서 body margin 0이고 바깥 세로 스크롤이 없으며(문서 높이 ≤ 뷰포트), 사이트 헤더·푸터·Tailwind base가 여전히 적용되지 않음. 확인 방법과 측정값을 result에 기록(Studio 렌더는 Sanity CORS가 등록된 포트 3000에서 확인)",
+    "헤더 로고 링크와 데스크톱 nav 링크의 높이가 800/1024/1440px에서 44px 이상이고 헤더 높이·배치가 이전과 같음. 측정값을 result에 기록",
+    "없는 경로(/nope)의 document.title이 비어 있지 않고, 한글 문장(AI 고지 등)이 sans 계열로 렌더되며 영문 라벨·메타만 Space Mono임. computed font-family를 result에 기록",
+    "폰트 스택 정의가 한 곳으로 정리되고 수정 전후 computed font-family가 동일함. 변경한 위치를 result에 기록",
+    "npm run lint, npm run build 통과. 관찰 1·2·6은 '수정 안 함'으로 result에 남김"
+  ],
+  "status": "done",
+  "result": "## T-011 frontend result\n\n### 수정\n1. F1: `src/app/studio/studio.css`에 `body{margin:0}`만, layout에서 import. Tailwind preflight 루트 복귀 없음.\n2. F2: SiteHeader 로고·Primary nav에 `inline-flex min-h-11 items-center`(헤더 바 `h-16` 유지).\n3. `not-found.tsx` metadata title: `Page not found — Wet Pillow Club`.\n4. SiteFooter AI 고지: `font-mono` → `font-sans`(문구 동일).\n5. site.css에서 `.font-display`/`.font-mono` 및 `.site-root`의 중복 font-family 제거. 스택은 `@theme --font-*`만. SiteShell에 `font-sans` 유틸 추가.\n\n### 확인 (localhost:3000, next start, Chromium CDP)\n**Studio**\n- body margin `0px`; scrollHeight=innerHeight=900 → overflow 0\n- `.site-root`/`header`/`footer` 없음, `--wpc-` 규칙 없음, `#sanity` 있음\n\n**헤더 터치 (헤더 내부 높이 64 유지)**\n| 폭 | logoH | navH |\n|---|---|---|\n| 800 | 44 | 44×4 |\n| 1024 | 44 | 44×4 |\n| 1440 | 44 | 44×4 |\n\n**/nope** title: `Page not found — Wet Pillow Club`\n\n**computed font-family**\n- site-root / AI 고지: `\"Plus Jakarta Sans\", …, \"Noto Sans KR\", …, sans-serif`\n- h1·로고: `\"Playfair Display\", …, \"Noto Serif KR\", …, serif`\n- Archive(영문 메타): `\"Space Mono\", …, monospace`\n→ 수정 전 feedback과 동일 스택(AI만 mono→sans로 의도 변경)\n\n### 이번엔 수정 안 함\n- 관찰 1: 클라이언트 이동 시 Studio로 사이트 CSS 누수 — /studio 링크·구조 변경 시 재검토\n- 관찰 2: Studio preload 사이트 폰트·CSS — 동일 시점 재검토\n- 관찰 6: 1440 컨테이너 폭 — PAGE에서 처리\n\n### 빌드·린트\n- npm run lint / build 통과\n\n### git\n feedback.md(미수정), docs/tasks/T-010.json, TASK.json, 위 src 변경\n"
+}
