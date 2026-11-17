@@ -21,4 +21,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - 지시보다 나은 설계나 놓친 리스크가 보이면 반박하고 대안을 제안한다.
 - 커밋·push: `status`가 `done`일 때만 한다. `TASK.json`, `docs/tasks/`, `feature_list/` 변경을 함께 담고, 메시지는 `feat|fix|chore|docs(범위): 요약`에 작업 ID를 적는다. `.env*`·토큰 파일은 add하지 않고, `git add -A` 대신 대상 파일을 확인한 뒤 add한다. force push와 이미 push한 이력 수정은 금지다. push 실패는 우회하지 말고 보고한다.
 - `TASK.json`은 작업 1건만 담는다. 새 작업을 쓰기 전에 기존 내용을 `docs/tasks/{id}.json`으로 보관한 뒤 덮어쓴다. 보관 파일은 수정하지 않는다.
-- 새 기능 작업은 `feature_id`로 `feature_list/` 항목과 연결한다. 기능 스펙은 feature_list가 원본이다. `passes`는 JW가 갱신하며 에이전트는 건드리지 않는다.
+- 새 기능 작업은 `feature_id`로 `feature_list/` 항목과 연결한다. 기능 스펙은 feature_list가 원본이다. `passes`는 JW 또는 플래너(Claude)만 갱신하며 Cursor와 Claude Code는 건드리지 않는다.
+- 전체 파일 재작성 금지, 변경되는 부분만 최소 수정한다. 요청받지 않은 기능·추상화·리팩터링을 추가하지 않는다. 인접 코드를 임의로 개선하지 않고, 내 변경이 만든 미사용 코드만 정리한다.
+- UI 규칙: window.confirm / alert / prompt를 쓰지 않고 인라인 확인 UI를 쓴다(개발 확인이 Tauri 웹뷰라 깨질 수 있음). 모바일 기준은 입력창 글자 16px 이상, 본문 16px 이상, 메타·라벨 12px 이상, 터치 영역 44px 이상이며 핀치 확대를 막지 않는다. 반응형 확인은 390 / 800 / 1024 / 1440px다.
+- 빌드·정적 검증 명령은 npm run build와 npm run lint다. 이 레포에는 tsc, build:verify 스크립트가 없다. docs layer 작업은 빌드 검증을 요구하지 않는다.
+- 구현 전 참고: docs/content-model.md(콘텐츠 모델, AI 입력·출처 규칙), docs/design/README.md와 docs/design/DESIGN.md(디자인 기준과 제외 요소). docs/design/mockups는 참고용이며 시안의 가짜 문구·제외 요소·CDN 링크는 가져오지 않는다. 색은 src/app/(site)/site.css 토큰에만 정의하고 컴포넌트에 색 코드를 직접 쓰지 않는다.

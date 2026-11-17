@@ -1,0 +1,36 @@
+{
+  "id": "T-013",
+  "feature_id": "PAGE-001",
+  "layer": "frontend",
+  "dataset": "development",
+  "goal": "Sanity 조회 공통 기반(태그 fetch, 쿼리 폴더, useCdn false, 이미지 도메인)을 만들고 /genres 장르 목록 페이지를 구현한다.",
+  "context": "스펙은 feature_list/PAGE.json의 PAGE-001이다. 확정 결정(T-012 조사 + JW 승인): (1) 목록 fetch는 next-sanity client.fetch의 next 옵션으로 tags ['genre'], revalidate false를 준다(공식 문서 기준, 태그 전용). 시간 기반 재검증(안전망)은 넣지 않는다. 웹훅(src/app/api/revalidate-tag)은 이미 문서 타입명으로 태그를 무효화하며 수정하지 않는다. (2) src/sanity/client.ts의 useCdn을 false로 바꾼다. apiVersion은 env.ts의 고정값을 그대로 쓴다. Studio 동작에 영향이 없는지 확인한다. (3) GROQ는 src/sanity/queries(신설)에만 둔다. 목록 쿼리와 이후 상세 쿼리는 파일·함수로 분리한다. 태그 부여는 공용 헬퍼 하나로 모아 쿼리마다 태그를 인자로 넘긴다(방식은 Cursor가 판단하되 컴포넌트에 쿼리 문자열이 없어야 함). 쿼리를 쓰기 전에 src/sanity/schemaTypes/genre.ts를 직접 읽어 필드명을 확인한다. T-012 조사 기준 genre 필드: name(필수), nameAlt, slug(필수, current), summary, image(asset, hotspot, alt), parentGenre(ref→genre), originYear, endYear. (4) 정렬: 시작 연도 오름차순, 연도 없는 장르는 뒤, 같으면 이름순. GROQ에서 null 정렬 위치가 기대와 다를 수 있으므로 쿼리 또는 코드에서 null이 뒤로 가는 것을 확인하고 방법을 result에 적는다. (5) next.config에 images.remotePatterns로 cdn.sanity.io를 등록한다(가능하면 프로젝트 이미지 경로로 제한). 이미지는 기존 src/sanity/image.ts의 urlFor와 next/image를 함께 쓰고, 크기·포맷을 지정하며 alt는 image.alt를 쓴다. 이미지가 없으면 토큰 색 플레이스홀더. (6) 페이지: src/app/(site)/genres/page.tsx 서버 컴포넌트. metadata title 'Genres — Wet Pillow Club'과 한 줄 description. 레이아웃은 카드 그리드(390px 1열, 800px 2열, 1024px 이상 3열 정도, 세부는 Cursor 판단), 본문 최대 폭 컨테이너를 이 작업에서 정해 이후 PAGE가 재사용할 수 있게 한다. 시각 기준은 docs/design/README.md와 DESIGN.md이며 genre-lineage.html은 분위기 참고만 한다(시안의 음향 수치·그래프·검증 뱃지 제외). 색은 site.css 토큰만, 모서리 0, 한글은 sans, 영문 메타는 mono. 카드 클릭은 /genres/{slug} 링크(상세는 T-014에서 구현, 그때까지 404 허용). 카드 표시 요소: 이름, 값이 있을 때만 nameAlt·연도(시작~끝)·상위 장르 이름·요약·이미지. 빈 상태 안내 문구는 '아직 등록된 장르가 없습니다'로 한다. 장르 상세 페이지, 필터·검색, 계보 트리, 아티스트·앨범 표시는 이번 범위가 아니다. (7) 현재 개발 데이터셋에는 장르가 0건이다. 문서를 만들지 않는다(JW가 Studio에서 입력). 따라서 이번 검증은 빈 상태 중심이며, 데이터가 있는 렌더링은 확인 못 하면 '미확인'으로 두되, 쿼리 projection과 컴포넌트 null 처리는 코드 읽기로 점검해 result에 적는다. 개발 로컬에서는 웹훅이 동작하지 않으므로 태그 재검증 e2e는 배포 환경에서 JW가 확인한다. 이번 커밋에는 feature_list/PAGE.json(신규), docs/tasks/T-012.json(보관), TASK.json이 함께 들어간다. feature_list 내용은 수정하지 않는다.",
+  "scope": {
+    "in": [
+      "src/sanity/queries 신설과 태그 fetch 공용 헬퍼",
+      "src/sanity/client.ts useCdn 변경",
+      "next.config images.remotePatterns",
+      "src/app/(site)/genres/page.tsx와 필요한 컴포넌트·스타일 토큰 추가(site.css 토큰 체계 안에서)"
+    ],
+    "out": [
+      "장르 상세 페이지(PAGE-002), 아티스트·앨범·아티클 페이지",
+      "검색·필터·계보 트리",
+      "스키마 수정, 웹훅 경로(src/app/api/revalidate-tag) 수정, live.ts 사용",
+      "시간 기반 재검증, 라이트 모드",
+      "Sanity 문서 생성·수정·삭제 코드 실행, 쓰기 토큰, production 데이터셋 접근",
+      "feature_list 내용 수정",
+      ".env* 내용 출력·커밋",
+      "AGENTS.md의 BEGIN/END:nextjs-agent-rules 블록 수정",
+      "다른 프로젝트(myaudio 등) 컨벤션 도입"
+    ]
+  },
+  "done": [
+    "PAGE-001 steps 중 코드·빈 상태로 확인 가능한 것(1, 6 일부, 7, 9)이 충족되고, 데이터가 필요한 steps는 코드 읽기로 점검한 결과가 result에 있음(확인 못 한 것은 '미확인')",
+    "GROQ 쿼리 문자열이 src/sanity/queries에만 있고, 태그 'genre'·revalidate false가 fetch에 적용됐으며, useCdn false 변경 후 /studio가 정상 로드됨을 result에 기록",
+    "next.config의 이미지 도메인 설정, 정렬 null 처리 방법, 컨테이너 폭 결정, 변경 파일 목록이 result에 보고됨",
+    "색 코드는 site.css 토큰 밖에 없고(검색 결과 기록), 390 / 800 / 1024 / 1440px에서 빈 상태 화면의 가로 스크롤이 없음",
+    "npm run lint, npm run build 통과"
+  ],
+  "status": "done",
+  "result": "## T-013 result\n\n### 변경 요약\n- `src/sanity/lib/client.ts`: useCdn **false** (태그 재검증용 Content Lake). apiVersion은 env.ts 고정값 유지.\n- `src/sanity/lib/fetch.ts`: `fetchWithTags` — `next: { tags, revalidate: false }`.\n- `src/sanity/queries/genres.ts`: 목록 GROQ + `getGenresList()` (태그 `genre`). 상세 쿼리는 T-014에서 별도 파일/함수로 추가 예정.\n- `next.config.ts`: `images.remotePatterns` → `cdn.sanity.io/images/{NEXT_PUBLIC_SANITY_PROJECT_ID}/**`.\n- `SiteContainer`: max-w-6xl(72rem/~1152px) + margin 토큰 패딩 — 이후 PAGE 재사용.\n- `/genres`: 서버 페이지 + GenreList/GenreCard. 빈 문구 고정. 카드 → `/genres/{slug}`.\n\n### 정렬 null 처리\nGROQ `order(originYear == null, originYear asc, name asc)`.\n인라인 배열 조회로 검증: 연도 있는 항목(1980→1990) 먼저, null은 뒤·이름순. (`false` < `true`.)\n\n### PAGE-001 steps\n| step | 결과 |\n|---|---|\n| 1 빈 상태 | **확인** — `next start` /genres 200, 문구·title 존재, 헤더 구조 유지 |\n| 2 데이터 카드 | **미확인** (genre 0건, 문서 미생성) |\n| 3 정렬 | 쿼리 검증 **확인**, 실데이터 렌더 **미확인** |\n| 4 조건부 필드 | 코드 null 가드 **확인**, 실데이터 **미확인** |\n| 5 카드 링크 | 코드 `/genres/${slug}` **확인** (상세 404 허용) |\n| 6 최소·플레이스홀더 | 코드: asset 없으면 surface-hover 면 **확인**, 실데이터 **미확인** |\n| 7 반응형·터치 | 그리드 1/2/3(`min-[800px]`/`min-[1024px]`), 본문 text-body-md(16px), 메타≥12px, Link min-h-11. 빈 상태 가로 스크롤 코드상 overflow-x 유발 요소 없음. 실측 뷰포트 **미확인**(자동화 브라우저 미사용) |\n| 8 웹훅 e2e | **미확인** (배포·JW) |\n| 9 GROQ 위치·태그 | **확인** — 쿼리 문자열은 queries만; tags=['genre'], revalidate false |\n\n### Studio\nuseCdn 변경은 사이트 client만. Studio는 sanity.config. `/studio` HTTP 200 확인.\n\n### 색 토큰\n장르·컨테이너·페이지 신규 파일에서 `#[hex]` **0건** (site.css만).\n\n### 컨테이너 폭\n**max-w-6xl (72rem)**.\n\n### lint / build\nnpm run lint 통과. npm run build 통과. 라우트 `○ /genres` (빌드 시 정적 + 태그 재검증).\n\n### 건너뜀\n장르 상세, 필터/검색/계보, 문서 생성, feature_list 내용 수정, 웹훅 수정 — scope.out.\n\n### git\n포함: 구현 파일 + TASK.json + docs/tasks/T-012.json + feature_list/PAGE.json(신규, 내용 미수정).\n"
+}
